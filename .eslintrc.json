@@ -21,10 +21,6 @@
     "react"
   ],
   "rules": {
-    "function-call-argument-newline": [
-      "error",
-      "never"
-    ],
     "linebreak-style": [
       "error",
       "unix"

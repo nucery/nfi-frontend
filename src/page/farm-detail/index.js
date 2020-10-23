@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 
 import { Footer } from '../../general-component/footer';
 import { Header } from '../../general-component/header';
@@ -8,13 +8,14 @@ import { getCellWallWidth } from '../../utils/get-cell-wall-width';
 import { removeUrlSlashSuffix } from '../../utils/remove-url-slash-suffix';
 import classes from './index.module.css';
 
-class FarmReact extends React.Component {
+class FarmDetailReact extends React.Component {
   constructor(props) {
     super(props);
     // state
     this.state = {};
     //
     this.navHight = 200;
+    useParams().id; // url parameter
   }
 
   render() {
@@ -45,11 +46,11 @@ class FarmReact extends React.Component {
   }
 }
 
-FarmReact.propTypes = {
+FarmDetailReact.propTypes = {
   // React Router
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
 };
 
-export const Farm = FarmReact;
+export const FarmDetail = FarmDetailReact;

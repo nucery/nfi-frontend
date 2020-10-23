@@ -8,7 +8,7 @@ import { getCellWallWidth } from '../../utils/get-cell-wall-width';
 import { removeUrlSlashSuffix } from '../../utils/remove-url-slash-suffix';
 import classes from './index.module.css';
 
-class FarmReact extends React.Component {
+class FaqReact extends React.Component {
   constructor(props) {
     super(props);
     // state
@@ -45,11 +45,11 @@ class FarmReact extends React.Component {
   }
 }
 
-FarmReact.propTypes = {
+FaqReact.propTypes = {
   // React Router
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
 };
 
-export const Farm = FarmReact;
+export const Faq = FaqReact;

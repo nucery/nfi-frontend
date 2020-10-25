@@ -34,10 +34,6 @@ class Card1React extends React.Component {
 }
 
 Card1React.propTypes = {
-  // React Router
-  match: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
-  location: PropTypes.object.isRequired,
   // self
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,

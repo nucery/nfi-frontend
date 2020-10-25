@@ -18,9 +18,7 @@ export class FooterReact extends React.Component {
       <div className={classes.container}>
         <div className={classes['container-band']}>
           <span className={classes['text-band']}>
-            <div>
-              One-Stop Crypto Bank
-            </div>
+            One-Stop Crypto Bank
           </span>
         </div>
         <div className={classes['container-share']}>
@@ -42,7 +40,6 @@ export class FooterReact extends React.Component {
             @ 2020 One-Stop Crypto Bank
           </span>
         </div>
-
       </div >
     );
   }

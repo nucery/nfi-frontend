@@ -14,7 +14,7 @@ class Card1React extends React.Component {
     return (
       <div className={classes.container}>
         <div className={classes['container-left']}>
-          <img src={this.props.imageUrl} style={{ width: 42 }} />
+          <img alt="" src={this.props.imageUrl} style={{ width: 42 }} />
         </div>
         <div className={classes['container-right']}>
           <div className={classes['container-title']}>

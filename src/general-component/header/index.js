@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
@@ -67,11 +66,6 @@ export class HeaderReact extends React.Component {
   }
 }
 
-HeaderReact.propTypes = {
-  // React Router
-  match: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
-  location: PropTypes.object.isRequired,
-};
+HeaderReact.propTypes = {};
 
 export const Header = withRouter(HeaderReact);

@@ -37,7 +37,7 @@ class Card2React extends React.Component {
           </div>
         </div>
         <div className={classes['container-right']}>
-          <img src={this.props.imageUrl} style={{ borderRadius: 14, width: 324 }} />
+          <img alt="" src={this.props.imageUrl} style={{ borderRadius: 14, width: 324 }} />
         </div>
       </div>
     );

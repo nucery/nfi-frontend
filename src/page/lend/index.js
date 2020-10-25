@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
+import { CommingSoon } from '../../general-component/comming-soon';
 import { Footer } from '../../general-component/footer';
 import { Header } from '../../general-component/header';
 import { getCellWallWidth } from '../../utils/get-cell-wall-width';
@@ -35,7 +36,7 @@ class LendReact extends React.Component {
         <div className="cell-wall" style={{ width: getCellWallWidth() }}>
           <div className="cell-membrane">
             <div className="flex-column-middle">
-              <div>content</div>
+              <CommingSoon />
               <Footer />
             </div>
           </div>

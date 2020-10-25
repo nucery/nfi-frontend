@@ -37,11 +37,11 @@ class HomeReact extends React.Component {
           className="cell-wall"
           style={{ backgroundImage: 'linear-gradient(#E1E5EE, #FFFFFF)', height: this.faceHight, position: 'absolute', top: this.navHight, width: getCellWallWidth() }}
         >
-          <img
+          <img alt=""
             src={homeCardGroupLeft}
             style={{ left: 0, position: 'absolute', top: 166, width: 120 }}
           />
-          <img
+          <img alt=""
             src={homeCardGroupRight}
             style={{ position: 'absolute', right: 0, top: 112, width: 848 }}
           />

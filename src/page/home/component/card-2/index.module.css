@@ -45,12 +45,13 @@
 }
 
 .container-button-inner {
-  margin-top: 8px;
+  margin-top: 16px;
 }
 
 .text-button {
   color: #FFFFFF;
   font-family: 'DINBold';
+  font-size: 12px;
 }
 
 .container-right {

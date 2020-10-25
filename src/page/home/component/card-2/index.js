@@ -28,11 +28,9 @@ class Card2React extends React.Component {
           </div>
           <div className={classes['container-button']}>
             <div className={classes['container-button-inner']}>
-              <div className={classes['container-button-inner']}>
-                <span className={classes['text-button']}>
-                  START NOW
-                </span>
-              </div>
+              <span className={classes['text-button']}>
+                START NOW
+              </span>
             </div>
           </div>
         </div>

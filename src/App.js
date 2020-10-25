@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
 import { Farm } from './page/farm';
+import { FarmDetail } from './page/farm-detail';
 import { Faq } from './page/faq';
 import { Home } from './page/home';
 import { Lend } from './page/lend';
@@ -33,7 +34,7 @@ export class App extends React.Component {
             <Route
               path="/farm/:id"
               exact
-              component={(routeProps) => <Farm {...routeProps} />}
+              component={(routeProps) => <FarmDetail {...routeProps} />}
             />
             <Route
               path="/valut"

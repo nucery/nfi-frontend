@@ -7,6 +7,7 @@ import { Header } from '../../general-component/header';
 import { getCellWallWidth } from '../../utils/get-cell-wall-width';
 import { removeUrlSlashSuffix } from '../../utils/remove-url-slash-suffix';
 import classes from './index.module.css';
+import { Card } from './card/index';
 
 class FarmDetailReact extends React.Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class FarmDetailReact extends React.Component {
     this.state = {};
     //
     this.navHight = 72;
-    useParams().id; // url parameter
+    // useParams().id; // url parameter
   }
 
   render() {
@@ -36,7 +37,12 @@ class FarmDetailReact extends React.Component {
         <div className="cell-wall" style={{ width: getCellWallWidth() }}>
           <div className="cell-membrane">
             <div className="flex-column-middle">
-              <div>content</div>
+              <div className={classes['container-title']}>
+                <span className={classes['text-title']}>
+                  NUC Liquidity Mining
+                </span>
+              </div>
+              <Card id="1"/>
               <Footer />
             </div>
           </div>

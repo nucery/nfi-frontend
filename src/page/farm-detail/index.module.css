@@ -1,3 +1,14 @@
 .wrapper {
   background-color: #171924;
 }
+
+.container-title {
+  margin-top: 114px;
+  margin-bottom: 26px;
+}
+
+.text-title {
+  color: #FFFFFF;
+  font-family: 'DINBold';
+  font-size: 18px;
+}

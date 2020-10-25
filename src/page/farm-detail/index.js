@@ -14,7 +14,7 @@ class FarmDetailReact extends React.Component {
     // state
     this.state = {};
     //
-    this.navHight = 200;
+    this.navHight = 72;
     useParams().id; // url parameter
   }
 
@@ -35,7 +35,7 @@ class FarmDetailReact extends React.Component {
         <div className="cell-wall" style={{ height: this.navHight, width: getCellWallWidth() }} />
         <div className="cell-wall" style={{ width: getCellWallWidth() }}>
           <div className="cell-membrane">
-            <div className=".flex-column-middle">
+            <div className="flex-column-middle">
               <div>content</div>
               <Footer />
             </div>

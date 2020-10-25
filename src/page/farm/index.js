@@ -6,7 +6,7 @@ import { Footer } from '../../general-component/footer';
 import { Header } from '../../general-component/header';
 import { getCellWallWidth } from '../../utils/get-cell-wall-width';
 import { removeUrlSlashSuffix } from '../../utils/remove-url-slash-suffix';
-import classes from './index.module.css';
+// import classes from './index.module.css';
 
 class FarmReact extends React.Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class FarmReact extends React.Component {
     // state
     this.state = {};
     //
-    this.navHight = 200;
+    this.navHight = 72;
   }
 
   render() {
@@ -23,9 +23,7 @@ class FarmReact extends React.Component {
       return (<Redirect to={pathname} />);
     }
     return (
-      <div
-        className={classes.wrapper}
-      >
+      <div className="background">
         <div className="cell-wall nav-fixed" style={{ height: this.navHight, width: getCellWallWidth() }}>
           <div className="cell-membrane">
             <Header />
@@ -34,7 +32,7 @@ class FarmReact extends React.Component {
         <div className="cell-wall" style={{ height: this.navHight, width: getCellWallWidth() }} />
         <div className="cell-wall" style={{ width: getCellWallWidth() }}>
           <div className="cell-membrane">
-            <div className=".flex-column-middle">
+            <div className="flex-column-middle">
               <div>content</div>
               <Footer />
             </div>

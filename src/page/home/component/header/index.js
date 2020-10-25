@@ -53,15 +53,6 @@ export class HeaderReact extends React.Component {
             </div>
           </div>
         </div>
-        <div className={classes['container-right']}>
-          <div className={classes['container-button']}>
-            <div className={classes['container-inner-button']}>
-              <span className={classes['text-button']}>
-                Connect walet
-              </span>
-            </div>
-          </div>
-        </div>
       </div>
     );
   }

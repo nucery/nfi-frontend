@@ -1,0 +1,52 @@
+.container {
+  align-items: center;
+  background-color: #12141D;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: row;
+  height: 92px;
+  justify-content: space-between;
+  margin-bottom: 26px;
+  width: 1154px;
+}
+
+.container-band {
+  margin-top: 52px;
+  margin-left: 36px;
+  height: 42px;
+}
+
+.text-band {
+  color: #FFFFFF;
+  font-family: DINRegular;
+  font-size: 18px;
+}
+
+.container-share {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 126px;
+}
+
+.container-share-icon {
+  align-items: center;
+  display: flex;
+  height: 18px;
+  justify-content: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 18px;
+}
+
+.container-author {
+  margin-top: 36px;
+  margin-right: 36px;
+  height: 58px;
+}
+
+.text-author {
+  color: #FFFFFF;
+  font-family: DINRegular;
+  font-size: 12px;
+}

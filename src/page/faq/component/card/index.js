@@ -18,10 +18,18 @@ class CardReact extends React.Component {
             {this.props.question}
           </span>
         </div>
-        <div>
-          <span className={classes['text-answer']}>
-            {this.props.answer}
-          </span>
+        <div className={classes['container-answer']}>
+          {
+            this.props.answer.split('\n').map((str, index) => {
+              return (
+                <div className={classes['container-answer-paragraph']} key={index}>
+                  <span className={classes['text-answer']}>
+                    {str}
+                  </span>
+                </div>
+              );
+            })
+          }
         </div>
       </div>
     );

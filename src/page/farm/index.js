@@ -4,8 +4,8 @@ import { Redirect } from 'react-router-dom';
 
 import { Footer } from '../../general-component/footer';
 import { Header } from '../../general-component/header';
-import coin from '../../static/image/coin@2x.png';
-import smallCoin from '../../static/image/small-coin@2x.png';
+import logo from '../../static/image/logo.png';
+import smallLogo from '../../static/image/small-logo.png';
 import { getCellWallWidth } from '../../utils/get-cell-wall-width';
 import { removeUrlSlashSuffix } from '../../utils/remove-url-slash-suffix';
 import { uaParser } from '../../utils/ua-parser';
@@ -67,7 +67,7 @@ class FarmReact extends React.Component {
                   </span>
                 </div>
               </div>
-              <img alt="" src={coin} style={{ marginTop: 40, marginRight: 62, height: 376, width: 453 }} />
+              <img alt="" src={logo} style={{ height: 360, marginTop: 40, marginRight: 168 }} />
             </div>
             <div className="flex-column-middle">
               <div className={classes['card-group']}>
@@ -77,7 +77,7 @@ class FarmReact extends React.Component {
                 <Card />
               </div>
               <div className={classes['container-part-2']}>
-                <img alt="" src={smallCoin} style={{ marginBottom: this.isWindows ? 36 : 42, marginTop: 54, height: 63, width: 61 }} />
+                <img alt="" src={smallLogo} style={{ marginBottom: this.isWindows ? 36 : 42, marginTop: 54, height: 63, width: 61 }} />
                 <div className={classes['container-title-3']}>
                   <span className={classes['text-title-3']}>
                     LEARN MORE ABOUT NFI TOKEN
@@ -90,26 +90,14 @@ class FarmReact extends React.Component {
                 </div>
                 <div className={classes['container-button-group']}>
                   <div
-                    className={classes['container-button-left']}
+                    className={classes['container-button']}
                     onClick={() => {
                       this.props.history.push('/faq');
                     }}
                   >
-                    <div className={classes['container-button-left-inner']}>
-                      <span className={classes['text-button-left']}>
-                        Read FAQ
-                      </span>
-                    </div>
-                  </div>
-                  <div
-                    className={classes['container-button-right']}
-                    onClick={() => {
-                      // TODO
-                    }}
-                  >
-                    <div className={classes['container-button-right-inner']}>
-                      <span className={classes['text-button-right']}>
-                        Take the quiz!
+                    <div className={classes['container-button-inner']}>
+                      <span className={classes['text-button']}>
+                        Download Whitepaper
                       </span>
                     </div>
                   </div>

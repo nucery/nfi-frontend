@@ -1,6 +1,7 @@
 // import PropTypes from 'prop-types';
 import React from 'react';
 
+import { uaParser } from '../../../../utils/ua-parser';
 import classes from './index.module.css';
 
 class CardReact extends React.Component {
@@ -8,6 +9,8 @@ class CardReact extends React.Component {
     super(props);
     // state
     this.state = {};
+    //
+    this.isWindows = uaParser.getOS().name === 'Windows';
   }
 
   render() {
@@ -20,7 +23,12 @@ class CardReact extends React.Component {
             </span>
           </div>
           <div className={classes['container-button']}>
-            <div className={classes['container-button-inner']}>
+            <div
+              className={classes['container-button-inner']}
+              style={{
+                marginTop: this.isWindows ? 3 : 5,
+              }}
+            >
               <span className={classes['text-button']}>
                 Deposit
               </span>

@@ -9,7 +9,7 @@ import { getCellWallWidth } from '../../utils/get-cell-wall-width';
 import { removeUrlSlashSuffix } from '../../utils/remove-url-slash-suffix';
 import { uaParser } from '../../utils/ua-parser';
 import classes from './index.module.css';
-import { Card1 } from './component/card-1';
+// import { Card1 } from './component/card-1';
 import { Card2 } from './component/card-2';
 import { Card3 } from './component/card-3';
 import { Header } from './component/header';
@@ -78,7 +78,7 @@ class HomeReact extends React.Component {
               <div
                 className={classes['container-button-black']}
                 onClick={() => {
-                  this.props.history.push('/home');
+                  this.props.history.push('/farm');
                 }}
               >
                 <div className={classes['container-button-black-inner']}>
@@ -111,32 +111,35 @@ class HomeReact extends React.Component {
         <div className="cell-wall" style={{ width: getCellWallWidth() }}>
           <div className="cell-membrane">
             <div className="flex-column-middle">
-              <div className={classes['container-title-3']} style={{ marginTop: 18 }}>
-                <span className={classes['text-title-3']}>
-                  How does it work?
-                </span>
-              </div>
-              <div className={classes['container-card-1-group']}>
-                <Card1
-                  title={'Watch Videos'}
-                  body={'Learn about top & emerging crypto projects'}
-                  imageUrl={process.env.PUBLIC_URL + '/static/image/watch-video@2x.png'}
-                  toUrl={'' /* TODO */}
-                />
-                <Card1
-                  title={'Complete Quiz'}
-                  body={'Put your newfound knowledge to the test'}
-                  imageUrl={process.env.PUBLIC_URL + '/static/image/complete-quiz@2x.png'}
-                  toUrl={'' /* TODO */}
-                />
-                <Card1
-                  title={'Earn Crypto'}
-                  body={'Put your newfound knowledge to the test'}
-                  imageUrl={process.env.PUBLIC_URL + '/static/image/earn-crypto@2x.png'}
-                  toUrl={'' /* TODO */}
-                />
-              </div>
-              <div className={classes['container-title-3']} style={{ marginTop: 34 }}>
+              {
+                null
+                // <div className={classes['container-title-3']} style={{ marginTop: 18 }}>
+                //   <span className={classes['text-title-3']}>
+                //     How does it work?
+                //   </span>
+                // </div>
+                // <div className={classes['container-card-1-group']}>
+                //   <Card1
+                //     title={'Watch Videos'}
+                //     body={'Learn about top & emerging crypto projects'}
+                //     imageUrl={process.env.PUBLIC_URL + '/static/image/watch-video@2x.png'}
+                //     toUrl={'' /* TODO */}
+                //   />
+                //   <Card1
+                //     title={'Complete Quiz'}
+                //     body={'Put your newfound knowledge to the test'}
+                //     imageUrl={process.env.PUBLIC_URL + '/static/image/complete-quiz@2x.png'}
+                //     toUrl={'' /* TODO */}
+                //   />
+                //   <Card1
+                //     title={'Earn Crypto'}
+                //     body={'Put your newfound knowledge to the test'}
+                //     imageUrl={process.env.PUBLIC_URL + '/static/image/earn-crypto@2x.png'}
+                //     toUrl={'' /* TODO */}
+                //   />
+                // </div>
+              }
+              <div className={classes['container-title-3']} style={{ marginTop: 18 /* 34 */ }}>
                 <span className={classes['text-title-3']}>
                   OCB PRODUCT SERIES
                 </span>
@@ -144,21 +147,21 @@ class HomeReact extends React.Component {
               <div className="container-card-2-group">
                 <Card2
                   title={'Farm'}
-                  body={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra msaecenas accumsan lacus vel facilisis.'}
-                  imageUrl={''}
-                  buttonUrl={'' /* TODO */}
+                  body={'OCB seeks to generate governance token NFI in a fair way, so that over 60% of NFI comes from liquid mining which will encourage a large number of users and funds to participate in its system. In the future, the community will vote to determine more liquid mining and behavioral mining methods.'}
+                  imageUrl={process.env.PUBLIC_URL + '/static/image/home-farm.png'}
+                  buttonUrl={'/farm'}
                 />
                 <Card2
-                  title={'Farm'}
-                  body={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra msaecenas accumsan lacus vel facilisis.'}
-                  imageUrl={''}
-                  buttonUrl={'' /* TODO */}
+                  title={'Valut'}
+                  body={'OCB Vault is an income aggregator that automatically selects the highest return of each DeFi product in market in order to to maximize the income for the holding assets in a non-destructive way.'}
+                  imageUrl={process.env.PUBLIC_URL + '/static/image/home-valut.png'}
+                  buttonUrl={'' /* Add path or URL here to enable button. */}
                 />
                 <Card2
-                  title={'Farm'}
-                  body={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra msaecenas accumsan lacus vel facilisis.'}
-                  imageUrl={''}
-                  buttonUrl={'' /* TODO */}
+                  title={'Financial Insurance'}
+                  body={'In addition to insurance, adds the aggregated farm and earn of the underwriting pool and the insured pool, which allows the insurer to obtain additional income on the basis of their income, and also allows the insured a certain benefit by transferring some risks to the insurance pool.'}
+                  imageUrl={process.env.PUBLIC_URL + '/static/image/home-financial-insurance.png'}
+                  buttonUrl={'' /* Add path or URL here to enable button. */}
                 />
               </div>
               <div className={classes['container-title-3']} style={{ marginTop: 22 }}>
@@ -169,27 +172,27 @@ class HomeReact extends React.Component {
               <div className={classes['container-card-3-group']}>
                 <Card3
                   title={'Compound'}
-                  body={'The protocol for Ethereum money makers'}
-                  imageUrl={process.env.PUBLIC_URL + '/static/image/earn-crypto@2x.png'}
-                  toUrl={'' /* TODO */}
+                  body={'The protocol for Ethereum money markets'}
+                  imageUrl={process.env.PUBLIC_URL + '/static/image/compound.png'}
+                  toUrl={''}
                 />
                 <Card3
-                  title={'Compound'}
-                  body={'The protocol for Ethereum money makers'}
-                  imageUrl={process.env.PUBLIC_URL + '/static/image/earn-crypto@2x.png'}
-                  toUrl={'' /* TODO */}
+                  title={'Aave'}
+                  body={'An open-source, decentralized non-custodial money market protocol on Ethereum. '}
+                  imageUrl={process.env.PUBLIC_URL + '/static/image/aave.png'}
+                  toUrl={''}
                 />
                 <Card3
-                  title={'Compound'}
-                  body={'The protocol for Ethereum money makers'}
-                  imageUrl={process.env.PUBLIC_URL + '/static/image/earn-crypto@2x.png'}
-                  toUrl={'' /* TODO */}
+                  title={'Uniswap V2'}
+                  body={'An enhanced DEX protocol built on the AMM algorithm and liquidity pools.'}
+                  imageUrl={process.env.PUBLIC_URL + '/static/image/uniswap-v2.png'}
+                  toUrl={''}
                 />
                 <Card3
-                  title={'Compound'}
-                  body={'The protocol for Ethereum money makers'}
-                  imageUrl={process.env.PUBLIC_URL + '/static/image/earn-crypto@2x.png'}
-                  toUrl={'' /* TODO */}
+                  title={'Curve'}
+                  body={'AMM based liquidity pool protocol specialized in stablecoin and stable pairs.'}
+                  imageUrl={process.env.PUBLIC_URL + '/static/image/curve.png'}
+                  toUrl={''}
                 />
               </div>
               <div className={classes['container-title-3']} style={{ marginTop: 34 }}>

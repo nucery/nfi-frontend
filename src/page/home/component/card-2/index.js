@@ -35,24 +35,35 @@ class Card2React extends React.Component {
               </span>
             </div>
           </div>
-          <div
-            className={classes['container-button']}
-            onClick={() => {
-              if (this.props.buttonUrl.length > 0) {
-                if (this.props.buttonUrl.startsWith('http://') || this.props.buttonUrl.startsWith('https://')) {
-                  window.location.href = this.props.buttonUrl;
-                } else {
-                  this.props.history.push(this.props.buttonUrl);
-                }
-              }
-            }}
-          >
-            <div className={classes['container-button-inner']}>
-              <span className={classes['text-button']}>
-                START NOW
-              </span>
-            </div>
-          </div>
+
+          {
+            this.props.buttonUrl.length > 0 ?
+              <div
+                className={classes['container-button']}
+                onClick={() => {
+                  if (this.props.buttonUrl.length > 0) {
+                    if (this.props.buttonUrl.startsWith('http://') || this.props.buttonUrl.startsWith('https://')) {
+                      window.location.href = this.props.buttonUrl;
+                    } else {
+                      this.props.history.push(this.props.buttonUrl);
+                    }
+                  }
+                }}
+              >
+                <div className={classes['container-button-inner']}>
+                  <span className={classes['text-button']}>
+                    START NOW
+                  </span>
+                </div>
+              </div> :
+              <div className={classes['container-button-disabled']}>
+                <div className={classes['container-button-inner']}>
+                  <span className={classes['text-button']}>
+                    Comming Soon
+                  </span>
+                </div>
+              </div>
+          }
         </div>
         <div className={classes['container-right']}>
           <img alt="" src={this.props.imageUrl} style={{ borderRadius: 14, width: 324 }} />

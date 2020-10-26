@@ -17,6 +17,11 @@ export class FooterReact extends React.Component {
     this.state = {};
     //
     this.isWindows = uaParser.getOS().name === 'Windows';
+    // Share links can be added here.
+    this.twitter = '';
+    this.instagram = '';
+    this.facebook = '';
+    this.linkedin = '';
   }
 
   render() {
@@ -34,42 +39,50 @@ export class FooterReact extends React.Component {
           </span>
         </div>
         <div className={classes['container-share']}>
-          <div
-            className={classes['container-share-icon']}
-            onClick={() => {
-              // TODO
-              window.location.href = 'https://twitter.com/';
-            }}
-          >
-            <img alt="" src={twitter} style={{ height: 18 }} />
-          </div>
-          <div
-            className={classes['container-share-icon']}
-            onClick={() => {
-              // TODO
-              window.location.href = 'https://www.instagram.com/';
-            }}
-          >
-            <img alt="" src={instagram} style={{ height: 18 }} />
-          </div>
-          <div
-            className={classes['container-share-icon']}
-            onClick={() => {
-              // TODO
-              window.location.href = 'https://www.facebook.com/';
-            }}
-          >
-            <img alt="" src={facebook} style={{ height: 18 }} />
-          </div>
-          <div
-            className={classes['container-share-icon']}
-            onClick={() => {
-              // TODO
-              window.location.href = 'https://www.linkedin.com/';
-            }}
-          >
-            <img alt="" src={linkedin} style={{ height: 18 }} />
-          </div>
+          {
+            this.twitter.length > 0 &&
+              <div
+                className={classes['container-share-icon']}
+                onClick={() => {
+                  window.location.href = this.twitter;
+                }}
+              >
+                <img alt="" src={twitter} style={{ height: 18 }} />
+              </div>
+          }
+          {
+            this.instagram.length > 0 &&
+              <div
+                className={classes['container-share-icon']}
+                onClick={() => {
+                  window.location.href = this.instagram;
+                }}
+              >
+                <img alt="" src={instagram} style={{ height: 18 }} />
+              </div>
+          }
+          {
+            this.facebook.length > 0 &&
+              <div
+                className={classes['container-share-icon']}
+                onClick={() => {
+                  window.location.href = this.facebook;
+                }}
+              >
+                <img alt="" src={facebook} style={{ height: 18 }} />
+              </div>
+          }
+          {
+            this.linkedin.length > 0 &&
+              <div
+                className={classes['container-share-icon']}
+                onClick={() => {
+                  window.location.href = this.linkedin;
+                }}
+              >
+                <img alt="" src={linkedin} style={{ height: 18 }} />
+              </div>
+          }
         </div>
         <div className={classes['container-author']}>
           <span className={classes['text-author']}>

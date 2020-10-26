@@ -92,7 +92,7 @@ class FarmReact extends React.Component {
                   <div
                     className={classes['container-button-left']}
                     onClick={() => {
-                      // TODO
+                      this.props.history.push('/faq');
                     }}
                   >
                     <div className={classes['container-button-left-inner']}>

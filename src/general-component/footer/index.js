@@ -2,10 +2,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
+
 import facebook from '../../static/image/facebook@2x.png';
 import instagram from '../../static/image/instagram@2x.png';
 import twitter from '../../static/image/twitter@2x.png';
 import linkedin from '../../static/image/linkedin@2x.png';
+import { uaParser } from '../../utils/ua-parser';
 import classes from './index.module.css';
 
 export class FooterReact extends React.Component {
@@ -13,6 +15,8 @@ export class FooterReact extends React.Component {
     super(props);
     // state
     this.state = {};
+    //
+    this.isWindows = uaParser.getOS().name === 'Windows';
   }
 
   render() {
@@ -23,6 +27,7 @@ export class FooterReact extends React.Component {
           onClick={() => {
             this.props.history.push('/home');
           }}
+          style={{ marginTop: this.isWindows ? 20 : 24 }}
         >
           <span className={classes['text-band']}>
             One-Stop Crypto Bank

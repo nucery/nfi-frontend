@@ -25,7 +25,7 @@ class Card3React extends React.Component {
           }
         }}
       >
-        <img alt="" src={this.props.imageUrl} style={{ borderRadius: 8, marginBottom: 18, marginTop: 32, marginLeft: 24, width: 52 }} />
+        <img alt="" src={this.props.imageUrl} style={{ borderRadius: 8, marginBottom: 18, marginTop: 26, marginLeft: 24, width: 52 }} />
         <div className={classes['container-bottom']}>
           <div className={classes['container-title']}>
             <span className={classes['text-title']}>

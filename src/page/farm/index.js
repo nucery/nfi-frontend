@@ -8,6 +8,7 @@ import coin from '../../static/image/coin@2x.png';
 import smallCoin from '../../static/image/small-coin@2x.png';
 import { getCellWallWidth } from '../../utils/get-cell-wall-width';
 import { removeUrlSlashSuffix } from '../../utils/remove-url-slash-suffix';
+import { uaParser } from '../../utils/ua-parser';
 import classes from './index.module.css';
 import { Card } from './component/card';
 
@@ -18,6 +19,7 @@ class FarmReact extends React.Component {
     this.state = {};
     //
     this.navHight = 72;
+    this.isWindows = uaParser.getOS().name === 'Windows';
   }
 
   render() {
@@ -36,19 +38,31 @@ class FarmReact extends React.Component {
         <div className="cell-wall" style={{ width: getCellWallWidth() }}>
           <div className="cell-membrane">
             <div className={classes['container-part-1']}>
-              <div className={classes['container-part-1-left']}>
-                <div className={classes['container-title-1']}>
+              <div
+                className={classes['container-part-1-left']}
+                style={{ marginTop: this.isWindows ? 124: 154 }}
+              >
+                <div
+                  className={classes['container-title-1']}
+                  style={{ marginBottom: this.isWindows ? -8: 38 }}
+                >
                   <span className={classes['text-title-1']}>
                     One-Stop DEFI
                   </span>
                 </div>
-                <div className={classes['container-title-2']}>
+                <div
+                  className={classes['container-title-2']}
+                  style={{ marginBottom: this.isWindows ? 8: 26 }}
+                >
                   <span className={classes['text-title-2']}>
                     FARM
                   </span>
                 </div>
                 <div className={classes['container-body-1']}>
-                  <span className={classes['text-body-1']}>
+                  <span
+                    className={classes['text-body-1']}
+                    style={{ lineHeight: this.isWindows ? 0 : 16 }}
+                  >
                     Earn NFI tokens by staking NFI & NUC V2 SLP Tokens. Note: Current APY includes 2/3rd NFI emission that is locked and will be retroactively disbursed at a later date.
                   </span>
                 </div>
@@ -63,7 +77,7 @@ class FarmReact extends React.Component {
                 <Card />
               </div>
               <div className={classes['container-part-2']}>
-                <img alt="" src={smallCoin} style={{ marginBottom: 42, marginTop: 54, height: 63, width: 61 }} />
+                <img alt="" src={smallCoin} style={{ marginBottom: this.isWindows ? 36 : 42, marginTop: 54, height: 63, width: 61 }} />
                 <div className={classes['container-title-3']}>
                   <span className={classes['text-title-3']}>
                     LEARN MORE ABOUT NFI TOKEN

@@ -7,6 +7,7 @@ import homeCardGroupLeft from '../../static/image/home-card-group-left@2x.png';
 import homeCardGroupRight from '../../static/image/home-card-group-right@2x.png';
 import { getCellWallWidth } from '../../utils/get-cell-wall-width';
 import { removeUrlSlashSuffix } from '../../utils/remove-url-slash-suffix';
+import { uaParser } from '../../utils/ua-parser';
 import classes from './index.module.css';
 import { Card1 } from './component/card-1';
 import { Card2 } from './component/card-2';
@@ -21,6 +22,7 @@ class HomeReact extends React.Component {
     //
     this.navHight = 72;
     this.faceHight = 548;
+    this.isWindows = uaParser.getOS().name === 'Windows';
   }
 
   render() {
@@ -43,13 +45,27 @@ class HomeReact extends React.Component {
             style={{ position: 'absolute', right: 0, top: 112, width: 848 }}
           />
           <div className="cell-membrane">
-            <div className={classes['container-part-1']}>
-              <div className={classes['container-title-1']}>
+            <div
+              className={classes['container-part-1']}
+              style={{
+                marginTop: this.isWindows ? 98: 138,
+              }}
+            >
+              <div className={classes['container-title-1']}
+                style={{
+                  marginBottom: this.isWindows ? -14: 30,
+                }}
+              >
                 <span className={classes['text-title-1']}>
                   OCB
                 </span>
               </div>
-              <div className={classes['container-title-2']}>
+              <div
+                className={classes['container-title-2']}
+                style={{
+                  marginBottom: this.isWindows ? 10: 22,
+                }}
+              >
                 <span className={classes['text-title-2']}>
                   One-Stop Crypto Bank
                 </span>

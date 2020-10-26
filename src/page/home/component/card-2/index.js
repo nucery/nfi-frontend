@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
+import { uaParser } from '../../../../utils/ua-parser';
 import classes from './index.module.css';
 
 class Card2React extends React.Component {
@@ -9,6 +10,8 @@ class Card2React extends React.Component {
     super(props);
     // state
     this.state = {};
+    //
+    this.isWindows = uaParser.getOS().name === 'Windows';
   }
 
   render() {
@@ -16,7 +19,12 @@ class Card2React extends React.Component {
       <div className={classes.container}>
         <div className={classes['container-left']}>
           <div>
-            <div className={classes['container-title']}>
+            <div
+              className={classes['container-title']}
+              style={{
+                marginBottom: this.isWindows ? 4 : 12,
+              }}
+            >
               <span className={classes['text-title']}>
                 {this.props.title}
               </span>

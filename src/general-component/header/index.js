@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
@@ -14,7 +15,12 @@ export class HeaderReact extends React.Component {
     return (
       <div className={classes.container}>
         <div className={classes['container-left']}>
-          <div className={classes['container-band']}>
+          <div
+            className={classes['container-band']}
+            onClick={() => {
+              this.props.history.push('/home');
+            }}
+          >
             <span className={classes['text-band']}>
               One-Stop Crypto Bank
             </span>
@@ -25,27 +31,52 @@ export class HeaderReact extends React.Component {
                 |
               </span>
             </div>
-            <div className={classes['container-link']}>
+            <div
+              className={classes['container-link']}
+              onClick={() => {
+                this.props.history.push('/home');
+              }}
+            >
               <span className={classes['text-link']}>
                 HOME
               </span>
             </div>
-            <div className={classes['container-link']}>
+            <div
+              className={classes['container-link']}
+              onClick={() => {
+                this.props.history.push('/farm');
+              }}
+            >
               <span className={classes['text-link']}>
                 FARM
               </span>
             </div>
-            <div className={classes['container-link']}>
+            <div
+              className={classes['container-link']}
+              onClick={() => {
+                this.props.history.push('/valut');
+              }}
+            >
               <span className={classes['text-link']}>
                 VALUT
               </span>
             </div>
-            <div className={classes['container-link']}>
+            <div
+              className={classes['container-link']}
+              onClick={() => {
+                this.props.history.push('/lend');
+              }}
+            >
               <span className={classes['text-link']}>
                 LEND
               </span>
             </div>
-            <div className={classes['container-link']}>
+            <div
+              className={classes['container-link']}
+              onClick={() => {
+                this.props.history.push('/faq');
+              }}
+            >
               <span className={classes['text-link']}>
                 FAQ
               </span>
@@ -66,6 +97,11 @@ export class HeaderReact extends React.Component {
   }
 }
 
-HeaderReact.propTypes = {};
+HeaderReact.propTypes = {
+  // React Router
+  match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+};
 
 export const Header = withRouter(HeaderReact);

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import classes from './index.module.css';
 
@@ -26,7 +27,18 @@ class Card2React extends React.Component {
               </span>
             </div>
           </div>
-          <div className={classes['container-button']}>
+          <div
+            className={classes['container-button']}
+            onClick={() => {
+              if (this.props.buttonUrl.length > 0) {
+                if (this.props.buttonUrl.startsWith('http://') || this.props.buttonUrl.startsWith('https://')) {
+                  window.location.href = this.props.buttonUrl;
+                } else {
+                  this.props.history.push(this.props.buttonUrl);
+                }
+              }
+            }}
+          >
             <div className={classes['container-button-inner']}>
               <span className={classes['text-button']}>
                 START NOW
@@ -43,6 +55,10 @@ class Card2React extends React.Component {
 }
 
 Card2React.propTypes = {
+  // React Router
+  match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
   // self
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
@@ -50,4 +66,4 @@ Card2React.propTypes = {
   buttonUrl: PropTypes.string.isRequired,
 };
 
-export const Card2 = Card2React;
+export const Card2 = withRouter(Card2React);

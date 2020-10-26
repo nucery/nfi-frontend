@@ -3,7 +3,6 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 
 import { Footer } from '../../general-component/footer';
-
 import homeCardGroupLeft from '../../static/image/home-card-group-left@2x.png';
 import homeCardGroupRight from '../../static/image/home-card-group-right@2x.png';
 import { getCellWallWidth } from '../../utils/get-cell-wall-width';
@@ -30,9 +29,7 @@ class HomeReact extends React.Component {
       return (<Redirect to={pathname} />);
     }
     return (
-      <div
-        className={classes.wrapper}
-      >
+      <div className={classes.wrapper}>
         <div
           className="cell-wall"
           style={{ backgroundImage: 'linear-gradient(#E1E5EE, #FFFFFF)', height: this.faceHight, position: 'absolute', top: this.navHight, width: getCellWallWidth() }}
@@ -62,7 +59,12 @@ class HomeReact extends React.Component {
                   OCB aims to create a one-stop encrypted bank, committed to creating a lightweight, open and free financial world where everyone can participate. At this time, we are standing at the starting point of the DeFi explosion, facing the vast future of the DeFi world.
                 </span>
               </div>
-              <div className={classes['container-button-black']}>
+              <div
+                className={classes['container-button-black']}
+                onClick={() => {
+                  this.props.history.push('/home');
+                }}
+              >
                 <div className={classes['container-button-black-inner']}>
                   <div className={classes['container-button-black-inner']}>
                     <span className={classes['text-button-black']}>
@@ -103,19 +105,19 @@ class HomeReact extends React.Component {
                   title={'Watch Videos'}
                   body={'Learn about top & emerging crypto projects'}
                   imageUrl={process.env.PUBLIC_URL + '/static/image/watch-video@2x.png'}
-                  toUrl={'/home'}
+                  toUrl={'' /* TODO */}
                 />
                 <Card1
                   title={'Complete Quiz'}
                   body={'Put your newfound knowledge to the test'}
                   imageUrl={process.env.PUBLIC_URL + '/static/image/complete-quiz@2x.png'}
-                  toUrl={'/home'}
+                  toUrl={'' /* TODO */}
                 />
                 <Card1
                   title={'Earn Crypto'}
                   body={'Put your newfound knowledge to the test'}
                   imageUrl={process.env.PUBLIC_URL + '/static/image/earn-crypto@2x.png'}
-                  toUrl={'/home'}
+                  toUrl={'' /* TODO */}
                 />
               </div>
               <div className={classes['container-title-3']} style={{ marginTop: 34 }}>
@@ -128,19 +130,19 @@ class HomeReact extends React.Component {
                   title={'Farm'}
                   body={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra msaecenas accumsan lacus vel facilisis.'}
                   imageUrl={''}
-                  buttonUrl={'/home'}
+                  buttonUrl={'' /* TODO */}
                 />
                 <Card2
                   title={'Farm'}
                   body={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra msaecenas accumsan lacus vel facilisis.'}
                   imageUrl={''}
-                  buttonUrl={'/home'}
+                  buttonUrl={'' /* TODO */}
                 />
                 <Card2
                   title={'Farm'}
                   body={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra msaecenas accumsan lacus vel facilisis.'}
                   imageUrl={''}
-                  buttonUrl={'/home'}
+                  buttonUrl={'' /* TODO */}
                 />
               </div>
               <div className={classes['container-title-3']} style={{ marginTop: 22 }}>
@@ -153,25 +155,25 @@ class HomeReact extends React.Component {
                   title={'Compound'}
                   body={'The protocol for Ethereum money makers'}
                   imageUrl={process.env.PUBLIC_URL + '/static/image/earn-crypto@2x.png'}
-                  toUrl={'/home'}
+                  toUrl={'' /* TODO */}
                 />
                 <Card3
                   title={'Compound'}
                   body={'The protocol for Ethereum money makers'}
                   imageUrl={process.env.PUBLIC_URL + '/static/image/earn-crypto@2x.png'}
-                  toUrl={'/home'}
+                  toUrl={'' /* TODO */}
                 />
                 <Card3
                   title={'Compound'}
                   body={'The protocol for Ethereum money makers'}
                   imageUrl={process.env.PUBLIC_URL + '/static/image/earn-crypto@2x.png'}
-                  toUrl={'/home'}
+                  toUrl={'' /* TODO */}
                 />
                 <Card3
                   title={'Compound'}
                   body={'The protocol for Ethereum money makers'}
                   imageUrl={process.env.PUBLIC_URL + '/static/image/earn-crypto@2x.png'}
-                  toUrl={'/home'}
+                  toUrl={'' /* TODO */}
                 />
               </div>
               <div className={classes['container-title-3']} style={{ marginTop: 34 }}>

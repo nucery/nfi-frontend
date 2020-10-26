@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import facebook from '../../static/image/facebook@2x.png';
 import instagram from '../../static/image/instagram@2x.png';
@@ -16,22 +18,51 @@ export class FooterReact extends React.Component {
   render() {
     return (
       <div className={classes.container}>
-        <div className={classes['container-band']}>
+        <div
+          className={classes['container-band']}
+          onClick={() => {
+            this.props.history.push('/home');
+          }}
+        >
           <span className={classes['text-band']}>
             One-Stop Crypto Bank
           </span>
         </div>
         <div className={classes['container-share']}>
-          <div className={classes['container-share-icon']}>
+          <div
+            className={classes['container-share-icon']}
+            onClick={() => {
+              // TODO
+              window.location.href = 'https://twitter.com/';
+            }}
+          >
             <img alt="" src={twitter} style={{ height: 18 }} />
           </div>
-          <div className={classes['container-share-icon']}>
+          <div
+            className={classes['container-share-icon']}
+            onClick={() => {
+              // TODO
+              window.location.href = 'https://www.instagram.com/';
+            }}
+          >
             <img alt="" src={instagram} style={{ height: 18 }} />
           </div>
-          <div className={classes['container-share-icon']}>
+          <div
+            className={classes['container-share-icon']}
+            onClick={() => {
+              // TODO
+              window.location.href = 'https://www.facebook.com/';
+            }}
+          >
             <img alt="" src={facebook} style={{ height: 18 }} />
           </div>
-          <div className={classes['container-share-icon']}>
+          <div
+            className={classes['container-share-icon']}
+            onClick={() => {
+              // TODO
+              window.location.href = 'https://www.linkedin.com/';
+            }}
+          >
             <img alt="" src={linkedin} style={{ height: 18 }} />
           </div>
         </div>
@@ -45,6 +76,11 @@ export class FooterReact extends React.Component {
   }
 }
 
-FooterReact.propTypes = {};
+FooterReact.propTypes = {
+  // React Router
+  match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+};
 
-export const Footer = FooterReact;
+export const Footer = withRouter(FooterReact);

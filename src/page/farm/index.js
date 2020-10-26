@@ -49,11 +49,11 @@ class FarmReact extends React.Component {
                 </div>
                 <div className={classes['container-body-1']}>
                   <span className={classes['text-body-1']}>
-                  Earn NFI tokens by staking NFI & NUC V2 SLP Tokens. Note: Current APY includes 2/3rd NFI emission that is locked and will be retroactively disbursed at a later date.
+                    Earn NFI tokens by staking NFI & NUC V2 SLP Tokens. Note: Current APY includes 2/3rd NFI emission that is locked and will be retroactively disbursed at a later date.
                   </span>
                 </div>
               </div>
-              <img alt="" src={coin} style={{ marginTop: 40, marginRight: 62, height: 376, width: 453 }}/>
+              <img alt="" src={coin} style={{ marginTop: 40, marginRight: 62, height: 376, width: 453 }} />
             </div>
             <div className="flex-column-middle">
               <div className={classes['card-group']}>
@@ -63,7 +63,7 @@ class FarmReact extends React.Component {
                 <Card />
               </div>
               <div className={classes['container-part-2']}>
-                <img alt="" src={smallCoin} style={{ marginBottom: 42, marginTop: 54, height: 63, width: 61 }}/>
+                <img alt="" src={smallCoin} style={{ marginBottom: 42, marginTop: 54, height: 63, width: 61 }} />
                 <div className={classes['container-title-3']}>
                   <span className={classes['text-title-3']}>
                     LEARN MORE ABOUT NFI TOKEN
@@ -75,14 +75,24 @@ class FarmReact extends React.Component {
                   </span>
                 </div>
                 <div className={classes['container-button-group']}>
-                  <div className={classes['container-button-left']}>
+                  <div
+                    className={classes['container-button-left']}
+                    onClick={() => {
+                      // TODO
+                    }}
+                  >
                     <div className={classes['container-button-left-inner']}>
                       <span className={classes['text-button-left']}>
                         Read FAQ
                       </span>
                     </div>
                   </div>
-                  <div className={classes['container-button-right']}>
+                  <div
+                    className={classes['container-button-right']}
+                    onClick={() => {
+                      // TODO
+                    }}
+                  >
                     <div className={classes['container-button-right-inner']}>
                       <span className={classes['text-button-right']}>
                         Take the quiz!

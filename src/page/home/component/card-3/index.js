@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import classes from './index.module.css';
 
@@ -12,7 +13,18 @@ class Card3React extends React.Component {
 
   render() {
     return (
-      <div className={classes.container}>
+      <div
+        className={classes.container}
+        onClick={() => {
+          if (this.props.toUrl.length > 0) {
+            if (this.props.toUrl.startsWith('http://') || this.props.toUrl.startsWith('https://')) {
+              window.location.href = this.props.toUrl;
+            } else {
+              this.props.history.push(this.props.toUrl);
+            }
+          }
+        }}
+      >
         <img alt="" src={this.props.imageUrl} style={{ borderRadius: 8, marginBottom: 18, marginTop: 32, marginLeft: 24, width: 52 }} />
         <div className={classes['container-bottom']}>
           <div className={classes['container-title']}>
@@ -32,6 +44,10 @@ class Card3React extends React.Component {
 }
 
 Card3React.propTypes = {
+  // React Router
+  match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
   // self
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
@@ -39,4 +55,4 @@ Card3React.propTypes = {
   toUrl: PropTypes.string.isRequired,
 };
 
-export const Card3 = Card3React;
+export const Card3 = withRouter(Card3React);

@@ -47,7 +47,10 @@ export class HeaderReact extends React.Component {
                 this.props.history.push('/farm');
               }}
             >
-              <span className={classes['text-link']}>
+              <span
+                className={classes['text-link']}
+                style={{ color: this.props.location.pathname.startsWith('/farm') ? '#0063FF' : '#FFFFFF' }}
+              >
                 FARM
               </span>
             </div>
@@ -57,7 +60,10 @@ export class HeaderReact extends React.Component {
                 this.props.history.push('/valut');
               }}
             >
-              <span className={classes['text-link']}>
+              <span
+                className={classes['text-link']}
+                style={{ color: this.props.location.pathname.startsWith('/valut') ? '#0063FF' : '#FFFFFF' }}
+              >
                 VALUT
               </span>
             </div>
@@ -67,7 +73,10 @@ export class HeaderReact extends React.Component {
                 this.props.history.push('/lend');
               }}
             >
-              <span className={classes['text-link']}>
+              <span
+                className={classes['text-link']}
+                style={{ color: this.props.location.pathname.startsWith('/lend') ? '#0063FF' : '#FFFFFF' }}
+              >
                 LEND
               </span>
             </div>
@@ -77,7 +86,10 @@ export class HeaderReact extends React.Component {
                 this.props.history.push('/faq');
               }}
             >
-              <span className={classes['text-link']}>
+              <span
+                className={classes['text-link']}
+                style={{ color: this.props.location.pathname.startsWith('/faq') ? '#0063FF' : '#FFFFFF' }}
+              >
                 FAQ
               </span>
             </div>

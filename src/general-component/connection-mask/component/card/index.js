@@ -8,7 +8,7 @@ const CardReact = (props) => {
   return (
     <div className={classes.container}>
       <div className={classes['container-left']}>
-        <img src={props.imageUrl} style={{ height: 36, marginLeft: 24 }} />
+        <img alt="" src={props.imageUrl} style={{ height: 36, marginLeft: 24 }} />
         <div className={classes['container-name']}>
           <span className={classes['text-name']}>
             {props.name}

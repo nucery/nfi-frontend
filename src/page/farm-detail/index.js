@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Redirect, useParams } from 'react-router-dom';
+import { Redirect /* , useParams */ } from 'react-router-dom';
 
 import { ConnectionMask } from '../../general-component/connection-mask';
 import { Footer } from '../../general-component/footer';

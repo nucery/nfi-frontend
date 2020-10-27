@@ -7,6 +7,10 @@ const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         userId: action.value,
       });
+    case actionJs.type.connectionMask:
+      return Object.assign({}, state, {
+        connectionMask: action.value,
+      });
     default:
       return {
         ...state,

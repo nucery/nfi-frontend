@@ -21,7 +21,7 @@ class Card1React extends React.Component {
         onClick={() => {
           if (this.props.toUrl.length > 0) {
             if (this.props.toUrl.startsWith('http://') || this.props.toUrl.startsWith('https://')) {
-              window.location.href = this.props.toUrl;
+              window.open(this.props.toUrl);
             } else {
               this.props.history.push(this.props.toUrl);
             }

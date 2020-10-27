@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 
+import { ConnectionMask } from '../../general-component/connection-mask';
 import { Footer } from '../../general-component/footer';
 import { Header } from '../../general-component/header';
 import { getCellWallWidth } from '../../utils/get-cell-wall-width';
@@ -26,7 +27,8 @@ class FarmDetailReact extends React.Component {
     }
     return (
       <div
-        className={classes.wrapper}
+        className="background"
+        style={{ width: getCellWallWidth() }}
       >
         <div className="cell-wall nav-fixed" style={{ height: this.navHight, width: getCellWallWidth() }}>
           <div className="cell-membrane">
@@ -47,6 +49,7 @@ class FarmDetailReact extends React.Component {
             </div>
           </div>
         </div>
+        <ConnectionMask />
       </div>
     );
   }

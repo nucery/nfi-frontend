@@ -38,27 +38,3 @@
   font-family: 'TechnaSans-Regular';
   font-size: 12px;
 }
-
-.container-right {
-  margin-right: 46px;  
-}
-
-.container-button {
-  border-radius: 12px;
-  background-color: #0063FF;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  height: 34px;
-  width: 148px;
-}
-
-.container-inner-button {
-  margin-top: 6px;
-}
-
-.text-button {
-  color: #FFFFFF;
-  font-family: 'DINBold';
-  font-size: 12px;
-}

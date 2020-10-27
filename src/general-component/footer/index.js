@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-
 import facebook from '../../static/image/facebook@2x.png';
 import instagram from '../../static/image/instagram@2x.png';
 import twitter from '../../static/image/twitter@2x.png';
@@ -44,7 +43,7 @@ export class FooterReact extends React.Component {
               <div
                 className={classes['container-share-icon']}
                 onClick={() => {
-                  window.location.href = this.twitter;
+                  window.open(this.twitter);
                 }}
               >
                 <img alt="" src={twitter} style={{ height: 18 }} />
@@ -55,7 +54,7 @@ export class FooterReact extends React.Component {
               <div
                 className={classes['container-share-icon']}
                 onClick={() => {
-                  window.location.href = this.instagram;
+                  window.open(this.instagram);
                 }}
               >
                 <img alt="" src={instagram} style={{ height: 18 }} />
@@ -66,7 +65,7 @@ export class FooterReact extends React.Component {
               <div
                 className={classes['container-share-icon']}
                 onClick={() => {
-                  window.location.href = this.facebook;
+                  window.open(this.facebook);
                 }}
               >
                 <img alt="" src={facebook} style={{ height: 18 }} />
@@ -77,7 +76,7 @@ export class FooterReact extends React.Component {
               <div
                 className={classes['container-share-icon']}
                 onClick={() => {
-                  window.location.href = this.linkedin;
+                  window.open(this.linkedin);
                 }}
               >
                 <img alt="" src={linkedin} style={{ height: 18 }} />

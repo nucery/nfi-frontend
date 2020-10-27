@@ -2,12 +2,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
+import { ConnectionMask } from '../../general-component/connection-mask';
 import { CommingSoon } from '../../general-component/comming-soon';
 import { Footer } from '../../general-component/footer';
 import { Header } from '../../general-component/header';
 import { getCellWallWidth } from '../../utils/get-cell-wall-width';
 import { removeUrlSlashSuffix } from '../../utils/remove-url-slash-suffix';
-import classes from './index.module.css';
+// import classes from './index.module.css';
 
 class ValutReact extends React.Component {
   constructor(props) {
@@ -25,7 +26,8 @@ class ValutReact extends React.Component {
     }
     return (
       <div
-        className={classes.wrapper}
+        className="background"
+        style={{ width: getCellWallWidth() }}
       >
         <div className="cell-wall nav-fixed" style={{ height: this.navHight, width: getCellWallWidth() }}>
           <div className="cell-membrane">
@@ -41,6 +43,7 @@ class ValutReact extends React.Component {
             </div>
           </div>
         </div>
+        <ConnectionMask />
       </div>
     );
   }

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
+import { ConnectionMask } from '../../general-component/connection-mask';
 import { Footer } from '../../general-component/footer';
 import { Header } from '../../general-component/header';
 import logo from '../../static/image/logo.png';
@@ -28,7 +29,10 @@ class FarmReact extends React.Component {
       return (<Redirect to={pathname} />);
     }
     return (
-      <div className="background">
+      <div
+        className="background"
+        style={{ width: getCellWallWidth() }}
+      >
         <div className="cell-wall nav-fixed" style={{ height: this.navHight, width: getCellWallWidth() }}>
           <div className="cell-membrane">
             <Header />
@@ -40,11 +44,11 @@ class FarmReact extends React.Component {
             <div className={classes['container-part-1']}>
               <div
                 className={classes['container-part-1-left']}
-                style={{ marginTop: this.isWindows ? 124: 154 }}
+                style={{ marginTop: this.isWindows ? 124 : 154 }}
               >
                 <div
                   className={classes['container-title-1']}
-                  style={{ marginBottom: this.isWindows ? -8: 38 }}
+                  style={{ marginBottom: this.isWindows ? -8 : 38 }}
                 >
                   <span className={classes['text-title-1']}>
                     One-Stop DEFI
@@ -52,7 +56,7 @@ class FarmReact extends React.Component {
                 </div>
                 <div
                   className={classes['container-title-2']}
-                  style={{ marginBottom: this.isWindows ? 8: 26 }}
+                  style={{ marginBottom: this.isWindows ? 8 : 26 }}
                 >
                   <span className={classes['text-title-2']}>
                     FARM
@@ -88,18 +92,16 @@ class FarmReact extends React.Component {
                     Watch the Terra video series before taking the quiz
                   </span>
                 </div>
-                <div className={classes['container-button-group']}>
-                  <div
-                    className={classes['container-button']}
-                    onClick={() => {
-                      this.props.history.push('/faq');
-                    }}
-                  >
-                    <div className={classes['container-button-inner']}>
-                      <span className={classes['text-button']}>
+                <div
+                  className={classes['container-button']}
+                  onClick={() => {
+                    window.open('https://ocb-hk.oss-cn-hongkong.aliyuncs.com/OCB-WhitePaper.pdf');
+                  }}
+                >
+                  <div className={classes['container-button-inner']}>
+                    <span className={classes['text-button']}>
                         Download Whitepaper
-                      </span>
-                    </div>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -107,7 +109,8 @@ class FarmReact extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+        <ConnectionMask />
+      </div >
     );
   }
 }

@@ -42,7 +42,7 @@ class Card2React extends React.Component {
                 onClick={() => {
                   if (this.props.buttonUrl.length > 0) {
                     if (this.props.buttonUrl.startsWith('http://') || this.props.buttonUrl.startsWith('https://')) {
-                      window.location.href = this.props.buttonUrl;
+                      window.open(this.props.buttonUrl);
                     } else {
                       this.props.history.push(this.props.buttonUrl);
                     }

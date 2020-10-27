@@ -82,11 +82,6 @@
   font-size: 15px;
 }
 
-.container-button-group {
-  display: flex;
-  flex-direction: row;
-}
-
 .container-button {
   background-color: #5493F7;
   border-radius: 8px;

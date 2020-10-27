@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { HashRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { UseWalletProvider } from 'use-wallet';
 
 import { Farm } from './page/farm';
@@ -25,7 +25,7 @@ export class App extends React.Component {
         }}
       >
         <Provider store={store}>
-          <BrowserRouter>
+          <HashRouter>
             <Switch>
               <Route
                 path="/"
@@ -64,7 +64,7 @@ export class App extends React.Component {
               />
               <Redirect to="/home" />
             </Switch>
-          </BrowserRouter>
+          </HashRouter>
         </Provider>
       </UseWalletProvider>
     );

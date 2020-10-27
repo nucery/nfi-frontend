@@ -29,7 +29,7 @@ const ConnectionMaskReact = (props) => {
       <div className={classes.container}>
         <div className={classes['container-title']}>
           <span className={classes['text-title']}>
-            Connect to
+            Select a wallet provider
           </span>
         </div>
         <Card

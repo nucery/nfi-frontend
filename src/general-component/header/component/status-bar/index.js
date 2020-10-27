@@ -7,9 +7,7 @@ import { isWindows } from '../../../../utils/is';
 import classes from './index.module.css';
 
 const StatusBarReact = () => {
-  const data = useWallet();
   const { account, chainId, networkName, reset, status } = useWallet();
-  console.log(data);
   return (
     <div className={classes.container}>
       {

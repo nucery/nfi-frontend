@@ -6,6 +6,7 @@ import { useWallet } from 'use-wallet';
 import * as actionJs from '../../redux/action';
 import { store } from '../../redux/store';
 import { getViewPortSize } from '../../utils/get-view-port-size';
+import { isWindows } from '../../utils/is';
 import { Card } from './component/card';
 import classes from './index.module.css';
 
@@ -54,7 +55,12 @@ const ConnectionMaskReact = (props) => {
             ));
           }}
         >
-          <div className={classes['container-button-inner']}>
+          <div
+            className={classes['container-button-inner']}
+            style={{
+              marginTop: isWindows ? 6 : 8,
+            }}
+          >
             <span className={classes['text-button']}>
               Cancel
             </span>

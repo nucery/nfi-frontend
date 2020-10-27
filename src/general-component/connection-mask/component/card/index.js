@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { isWindows } from '../../../../utils/is';
 import classes from './index.module.css';
 
 const CardReact = (props) => {
@@ -19,7 +20,12 @@ const CardReact = (props) => {
           className={classes['container-button']}
           onClick={props.onConnect}
         >
-          <div className={classes['container-button-inner']}>
+          <div
+            className={classes['container-button-inner']}
+            style={{
+              marginTop: isWindows ? 6 : 8,
+            }}
+          >
             <span className={classes['text-button']}>
               Connect
             </span>

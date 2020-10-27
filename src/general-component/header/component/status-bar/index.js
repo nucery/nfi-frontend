@@ -3,6 +3,7 @@ import { useWallet } from 'use-wallet';
 
 import * as actionJs from '../../../../redux/action';
 import { store } from '../../../../redux/store';
+import { isWindows } from '../../../../utils/is';
 import classes from './index.module.css';
 
 const StatusBarReact = () => {
@@ -14,7 +15,12 @@ const StatusBarReact = () => {
       {
         status === 'connected' && (
           <div className={classes['container-account']}>
-            <div className={classes['container-inner-account']}>
+            <div
+              className={classes['container-inner-account']}
+              style={{
+                marginTop: isWindows ? 6 : 8,
+              }}
+            >
               <span className={classes['text-account']}>
                 {`${account}${chainId === 1 ? '' : ` @ ${networkName}`}`}
               </span>
@@ -35,7 +41,12 @@ const StatusBarReact = () => {
           }
         }}
       >
-        <div className={classes['container-inner-button']}>
+        <div
+          className={classes['container-inner-button']}
+          style={{
+            marginTop: isWindows ? 6 : 8,
+          }}
+        >
           <span className={classes['text-button']}>
             {status === 'connected' ? 'Disconnect Wallet' : 'Connect Wallet'}
           </span>

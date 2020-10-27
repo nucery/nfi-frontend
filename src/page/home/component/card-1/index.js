@@ -2,56 +2,46 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { uaParser } from '../../../../utils/ua-parser';
+import { isWindows } from '../../../../utils/is';
 import classes from './index.module.css';
 
-class Card1React extends React.Component {
-  constructor(props) {
-    super(props);
-    // state
-    this.state = {};
-    //
-    this.isWindows = uaParser.getOS().name === 'Windows';
-  }
-
-  render() {
-    return (
-      <div
-        className={classes.container}
-        onClick={() => {
-          if (this.props.toUrl.length > 0) {
-            if (this.props.toUrl.startsWith('http://') || this.props.toUrl.startsWith('https://')) {
-              window.open(this.props.toUrl);
-            } else {
-              this.props.history.push(this.props.toUrl);
-            }
+const Card1React = (props) => {
+  return (
+    <div
+      className={classes.container}
+      onClick={() => {
+        if (props.toUrl.length > 0) {
+          if (props.toUrl.startsWith('http://') || props.toUrl.startsWith('https://')) {
+            window.open(props.toUrl);
+          } else {
+            props.history.push(props.toUrl);
           }
+        }
+      }}
+    >
+      <div className={classes['container-left']}>
+        <img alt="" src={props.imageUrl} style={{ width: 42 }} />
+      </div>
+      <div
+        className={classes['container-right']}
+        style={{
+          marginTop: isWindows ? 18 : 22,
         }}
       >
-        <div className={classes['container-left']}>
-          <img alt="" src={this.props.imageUrl} style={{ width: 42 }} />
+        <div className={classes['container-title']}>
+          <span className={classes['text-title']}>
+            {props.title}
+          </span>
         </div>
-        <div
-          className={classes['container-right']}
-          style={{
-            marginTop: this.isWindows ? 18 : 22,
-          }}
-        >
-          <div className={classes['container-title']}>
-            <span className={classes['text-title']}>
-              {this.props.title}
-            </span>
-          </div>
-          <div>
-            <span className={classes['text-body']}>
-              {this.props.body}
-            </span>
-          </div>
+        <div>
+          <span className={classes['text-body']}>
+            {props.body}
+          </span>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 Card1React.propTypes = {
   // React Router

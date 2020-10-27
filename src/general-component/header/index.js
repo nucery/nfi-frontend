@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { StatusBar } from './component/status-bar';
 import classes from './index.module.css';
 
-export const HeaderReact = (props) => {
+const HeaderReact = (props) => {
   return (
     <div className={classes.container}>
       <div className={classes['container-left']}>

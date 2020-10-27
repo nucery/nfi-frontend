@@ -10,50 +10,42 @@ import { removeUrlSlashSuffix } from '../../utils/remove-url-slash-suffix';
 import classes from './index.module.css';
 import { Card } from './card/index';
 
-class FarmDetailReact extends React.Component {
-  constructor(props) {
-    super(props);
-    // state
-    this.state = {};
-    //
-    this.navHight = 72;
-    // useParams().id; // url parameter
-  }
+// useParams().id; // url parameter
+const navHight = 72;
 
-  render() {
-    const pathname = removeUrlSlashSuffix(this.props.location.pathname);
-    if (pathname) {
-      return (<Redirect to={pathname} />);
-    }
-    return (
-      <div
-        className="background"
-        style={{ width: getCellWallWidth() }}
-      >
-        <div className="cell-wall nav-fixed" style={{ height: this.navHight, width: getCellWallWidth() }}>
-          <div className="cell-membrane">
-            <Header />
-          </div>
-        </div>
-        <div className="cell-wall" style={{ height: this.navHight, width: getCellWallWidth() }} />
-        <div className="cell-wall" style={{ width: getCellWallWidth() }}>
-          <div className="cell-membrane">
-            <div className="flex-column-middle">
-              <div className={classes['container-title']}>
-                <span className={classes['text-title']}>
-                  NUC Liquidity Mining
-                </span>
-              </div>
-              <Card id="1"/>
-              <Footer />
-            </div>
-          </div>
-        </div>
-        <ConnectionMask />
-      </div>
-    );
+const FarmDetailReact = (props) => {
+  const pathname = removeUrlSlashSuffix(props.location.pathname);
+  if (pathname) {
+    return (<Redirect to={pathname} />);
   }
-}
+  return (
+    <div
+      className="background"
+      style={{ width: getCellWallWidth() }}
+    >
+      <div className="cell-wall nav-fixed" style={{ height: navHight, width: getCellWallWidth() }}>
+        <div className="cell-membrane">
+          <Header />
+        </div>
+      </div>
+      <div className="cell-wall" style={{ height: navHight, width: getCellWallWidth() }} />
+      <div className="cell-wall" style={{ width: getCellWallWidth() }}>
+        <div className="cell-membrane">
+          <div className="flex-column-middle">
+            <div className={classes['container-title']}>
+              <span className={classes['text-title']}>
+                NUC Liquidity Mining
+              </span>
+            </div>
+            <Card id="1" />
+            <Footer />
+          </div>
+        </div>
+      </div>
+      <ConnectionMask />
+    </div>
+  );
+};
 
 FarmDetailReact.propTypes = {
   // React Router

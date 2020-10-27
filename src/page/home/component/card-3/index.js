@@ -4,44 +4,36 @@ import { withRouter } from 'react-router-dom';
 
 import classes from './index.module.css';
 
-class Card3React extends React.Component {
-  constructor(props) {
-    super(props);
-    // state
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <div
-        className={classes.container}
-        onClick={() => {
-          if (this.props.toUrl.length > 0) {
-            if (this.props.toUrl.startsWith('http://') || this.props.toUrl.startsWith('https://')) {
-              window.open(this.props.toUrl);
-            } else {
-              this.props.history.push(this.props.toUrl);
-            }
+const Card3React = (props) => {
+  return (
+    <div
+      className={classes.container}
+      onClick={() => {
+        if (props.toUrl.length > 0) {
+          if (props.toUrl.startsWith('http://') || props.toUrl.startsWith('https://')) {
+            window.open(props.toUrl);
+          } else {
+            props.history.push(props.toUrl);
           }
-        }}
-      >
-        <img alt="" src={this.props.imageUrl} style={{ borderRadius: 8, marginBottom: 18, marginTop: 26, marginLeft: 24, width: 52 }} />
-        <div className={classes['container-bottom']}>
-          <div className={classes['container-title']}>
-            <span className={classes['text-title']}>
-              {this.props.title}
-            </span>
-          </div>
-          <div className={classes['container-text']}>
-            <span className={classes['text-body']}>
-              {this.props.body}
-            </span>
-          </div>
+        }
+      }}
+    >
+      <img alt="" src={props.imageUrl} style={{ borderRadius: 8, marginBottom: 18, marginTop: 26, marginLeft: 24, width: 52 }} />
+      <div className={classes['container-bottom']}>
+        <div className={classes['container-title']}>
+          <span className={classes['text-title']}>
+            {props.title}
+          </span>
+        </div>
+        <div className={classes['container-text']}>
+          <span className={classes['text-body']}>
+            {props.body}
+          </span>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 Card3React.propTypes = {
   // React Router

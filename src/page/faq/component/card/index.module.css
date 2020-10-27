@@ -27,11 +27,11 @@
 
 .container-answer-paragraph {
   margin-bottom: 10px;
+  text-align: justify;
 }
 
 .text-answer {
   color: #FFFFFF;
   font-family: 'DINRegularAlternate';
   font-size: 14px;
-  text-align: justify;
 }

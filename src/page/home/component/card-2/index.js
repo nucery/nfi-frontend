@@ -29,13 +29,12 @@ class Card2React extends React.Component {
                 {this.props.title}
               </span>
             </div>
-            <div>
+            <div className={classes['container-text']}>
               <span className={classes['text-body']}>
                 {this.props.body}
               </span>
             </div>
           </div>
-
           {
             this.props.buttonUrl.length > 0 ?
               <div

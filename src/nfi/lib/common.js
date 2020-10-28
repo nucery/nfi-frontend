@@ -42,7 +42,6 @@ export const address = {
   },
 };
 
-
 export const initContracts = () => {
   Contract.setProvider(window.ethereum);
   return {

@@ -1,13 +1,34 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { useWallet } from 'use-wallet';
 
 import * as actionJs from '../../../../redux/action';
 import { store } from '../../../../redux/store';
 import { isWindows } from '../../../../utils/is';
 import classes from './index.module.css';
+import {stakePool, getBalance} from "../../../../nfi/send";
+
 
 const StatusBarReact = () => {
   const { account, chainId, networkName, reset, status } = useWallet();
+  let [ba, setBa] = useState(0)
+
+  useEffect(() => {
+    if (account) {
+      getBalance("nux", account).then(result => {
+        console.log(result)
+        setBa(result)
+      })
+    }
+    }, [account])
+  //
+  // let balance = 0; 
+  // if (account) {
+  //   getBalance("nux", account).then(result => {
+  //     console.log(result)
+  //     balance = result
+  //   })
+  // }
+
   return (
     <div className={classes.container}>
       {
@@ -20,7 +41,7 @@ const StatusBarReact = () => {
               }}
             >
               <span className={classes['text-account']}>
-                {`${account}${chainId === 1 ? '' : ` @ ${networkName}`}`}
+                {`${account}${chainId === 1 ? '' : ` @ ${networkName + ba}`}`}
               </span>
             </div>
           </div>

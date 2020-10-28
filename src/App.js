@@ -11,16 +11,18 @@ import { Lend } from './page/lend';
 import { Valut } from './page/valut';
 import { store } from './redux/store';
 
+
 export const App = () => {
   return (
     <UseWalletProvider
       chainId={
         process.env.NODE_ENV === 'production' ?
           1 /* yarn build => Ethereum Mainnet */ :
-          3 /* yarn start => Ethereum Testnet Ropsten */
+          42 /* yarn start => Ethereum Testnet Kovan */
       }
       connectors={{
-        walletconnect: { rpcUrl: 'https://mainnet.eth.aragon.network/' },
+        // todo mainnet { rpcUrl: 'https://mainnet.eth.aragon.network/' }
+        walletconnect: { rpcUrl: 'https://kovan.eth.aragon.network/' },
       }}
     >
       <Provider store={store}>

@@ -23,28 +23,48 @@ const chainList = [
 const addressList = [
   {
     // yarn build => Ethereum Mainnet
+    nuc: {
+      erc20: '0xaf7Cd0D0D1D55f17C1B65368dcdCC8A07708C820', // TODO
+      pool: '0x9e05e22Bdde4f81A668448656e045898ABd9373a', // TODO
+    },
+    nux: {
+      erc20: '0xaf7Cd0D0D1D55f17C1B65368dcdCC8A07708C820', // TODO
+      pool: '0x9e05e22Bdde4f81A668448656e045898ABd9373a', // TODO
+    },
+    eth: {
+      erc20: '0xaf7Cd0D0D1D55f17C1B65368dcdCC8A07708C820', // TODO
+      pool: '0x9e05e22Bdde4f81A668448656e045898ABd9373a', // TODO
+    },
+    usdt: {
+      erc20: '0xaf7Cd0D0D1D55f17C1B65368dcdCC8A07708C820', // TODO
+      pool: '0x9e05e22Bdde4f81A668448656e045898ABd9373a', // TODO
+    },
+    uni: {
+      erc20: '0xaf7Cd0D0D1D55f17C1B65368dcdCC8A07708C820', // TODO
+      pool: '0x9e05e22Bdde4f81A668448656e045898ABd9373a', // TODO
+    },
   },
   {
     // yarn start => Ethereum Testnet Kovan
     nuc: {
-      erc20: '',
-      pool: '',
+      erc20: '0xaf7Cd0D0D1D55f17C1B65368dcdCC8A07708C820', // TODO
+      pool: '0x9e05e22Bdde4f81A668448656e045898ABd9373a', // TODO
     },
     nux: {
-      pool: '0x9e05e22Bdde4f81A668448656e045898ABd9373a',
       erc20: '0xaf7Cd0D0D1D55f17C1B65368dcdCC8A07708C820',
+      pool: '0x9e05e22Bdde4f81A668448656e045898ABd9373a',
     },
     eth: {
-      erc20: '',
-      pool: '',
+      erc20: '0xaf7Cd0D0D1D55f17C1B65368dcdCC8A07708C820', // TODO
+      pool: '0x9e05e22Bdde4f81A668448656e045898ABd9373a', // TODO
     },
     usdt: {
-      erc20: '',
-      pool: '',
+      erc20: '0xaf7Cd0D0D1D55f17C1B65368dcdCC8A07708C820', // TODO
+      pool: '0x9e05e22Bdde4f81A668448656e045898ABd9373a', // TODO
     },
     uni: {
-      erc20: '',
-      pool: '',
+      erc20: '0xaf7Cd0D0D1D55f17C1B65368dcdCC8A07708C820', // TODO
+      pool: '0x9e05e22Bdde4f81A668448656e045898ABd9373a', // TODO
     },
   },
 ];
@@ -60,16 +80,13 @@ const init = () => {
     return;
   }
   Contract.setProvider(window.ethereum || chain.rpcUrl);
-  contract = Object.keys(address).map((key) => {
-    return Object.create(
-        key,
-        Object.keys(address[key]).map((key1) => {
-          return Object.create(
-              key1,
-              new Contract(data[key1], address[key][key1]),
-          );
-        }),
-    );
+  contract = JSON.parse(JSON.stringify(address));
+  // eslint-disable-next-line array-callback-return
+  Object.keys(contract).map((key) => {
+    // eslint-disable-next-line array-callback-return
+    Object.keys(contract[key]).map((key1) => {
+      contract[key][key1] = new Contract(data[key1], (address[key])[key1]);
+    });
   });
 };
 

@@ -70,23 +70,23 @@ const FarmReact = (props) => {
             <div className={classes['card-group']}>
               <Card
                 title={'NUC'}
-                path={'nuc'}
+                tokenName={'nuc'}
               />
               <Card
                 title={'NUX'}
-                path={'nux'}
+                tokenName={'nux'}
               />
               <Card
                 title={'ETH'}
-                path={'eth'}
+                tokenName={'eth'}
               />
               <Card
                 title={'USDT'}
-                path={'usdt'}
+                tokenName={'usdt'}
               />
               <Card
                 title={'UNI'}
-                path={'uni'}
+                tokenName={'uni'}
               />
             </div>
             <div className={classes['container-part-2']}>

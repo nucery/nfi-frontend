@@ -1,56 +1,34 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 
+import { address } from '../../../../contract/common';
+import * as erc20 from '../../../../contract/helper/erc20';
+import * as pool from '../../../../contract/helper/pool';
 import { isWindows } from '../../../../utils/is';
 import classes from './index.module.css';
 
-// TODO
-const dataList = {
-  nuc: {
-    getTotalDeposit: () => {
-      return `1`;
-    },
-    getPoolRate: () => {
-      return `2 NFI / Week`;
-    },
-  },
-  nux: {
-    getTotalDeposit: () => {
-      return `3`;
-    },
-    getPoolRate: () => {
-      return `4 NFI / Week`;
-    },
-  },
-  eth: {
-    getTotalDeposit: () => {
-      return `5`;
-    },
-    getPoolRate: () => {
-      return `6 NFI / Week`;
-    },
-  },
-  usdt: {
-    getTotalDeposit: () => {
-      return `7`;
-    },
-    getPoolRate: () => {
-      return `8 NFI / Week`;
-    },
-  },
-  uni: {
-    getTotalDeposit: () => {
-      return 9;
-    },
-    getPoolRate: () => {
-      return `10 NFI / Week`;
-    },
-  },
-};
-
 const CardReact = (props) => {
-  const data = dataList[`${props.path}`];
+  const [totalDeposit, setTotalDeposit] = useState('(Not Available)');
+  const [poolRate, setPoolRate] = useState('(Not Available)');
+  useEffect(() => {
+    if (address[props.tokenName]) {
+      erc20.getTotalBalance(props.tokenName).then((result) => {
+        setTotalDeposit(result);
+      });
+    } else {
+      setTotalDeposit('(Not Available)');
+    }
+  }, [totalDeposit]);
+  useEffect(() => {
+    if (address[props.tokenName]) {
+      pool.getRewardRate(props.tokenName).then((result) => {
+        setPoolRate(result);
+      });
+    } else {
+      setPoolRate('(Not Available)');
+    }
+  }, [poolRate]);
   return (
     <div className={classes.container}>
       <div className={classes['container-top']}>
@@ -60,11 +38,11 @@ const CardReact = (props) => {
           </span>
         </div>
         {
-          data ? (
+          address[props.tokenName] ? (
             <div
               className={classes['container-button']}
               onClick={() => {
-                props.history.push(`/farm/${props.path}`);
+                props.history.push(`/farm/${props.tokenName}`);
               }}
             >
               <div
@@ -103,19 +81,19 @@ const CardReact = (props) => {
           </div>
           <div>
             <span className={classes['text-detail-data']}>
-              {`${data ? (typeof data.getTotalDeposit === 'function' ? data.getTotalDeposit() : '(Not Available)') : '(Not Available)'}`}
+              {totalDeposit}
             </span>
           </div>
         </div>
         <div className={classes['container-line']}>
           <div>
             <span className={classes['text-detail-title']}>
-              Pool getPoolRate
+              Pool Rate
             </span>
           </div>
           <div>
             <span className={classes['text-detail-data']}>
-              {`${data ? (typeof data.getPoolRate === 'function' ? data.getPoolRate() : '(Not Available)') : '(Not Available)'}`}
+              {poolRate}
             </span>
           </div>
         </div>
@@ -131,7 +109,7 @@ CardReact.propTypes = {
   location: PropTypes.object.isRequired,
   // self
   title: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
+  tokenName: PropTypes.string.isRequired,
 };
 
 export const Card = withRouter(CardReact);

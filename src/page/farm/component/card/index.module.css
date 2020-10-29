@@ -38,9 +38,17 @@
   width: 108px;
 }
 
-.container-button-inner {
-  background: #5493F7;
+.container-button-disabled {
+  background: #BBC6F9;
   border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+  justify-content: center;
+  width: 108px;
+}
+
+.container-button-inner {
   margin-top: 5px;
 }
 

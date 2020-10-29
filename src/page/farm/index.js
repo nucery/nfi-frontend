@@ -68,10 +68,26 @@ const FarmReact = (props) => {
           </div>
           <div className="flex-column-middle">
             <div className={classes['card-group']}>
-              <Card />
-              <Card />
-              <Card />
-              <Card />
+              <Card
+                title={'NUC'}
+                path={'nuc'}
+              />
+              <Card
+                title={'NUX'}
+                path={'nux'}
+              />
+              <Card
+                title={'ETH'}
+                path={'eth'}
+              />
+              <Card
+                title={'USDT'}
+                path={'usdt'}
+              />
+              <Card
+                title={'UNI'}
+                path={'uni'}
+              />
             </div>
             <div className={classes['container-part-2']}>
               <img alt="" src={smallLogo} style={{ marginBottom: isWindows ? 36 : 42, marginTop: 54, height: 63, width: 61 }} />

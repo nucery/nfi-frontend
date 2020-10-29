@@ -1,13 +1,14 @@
 import React from 'react';
 import { useWallet } from 'use-wallet';
 
+import { chain } from '../../../../contract/common';
 import * as actionJs from '../../../../redux/action';
 import { store } from '../../../../redux/store';
 import { isWindows } from '../../../../utils/is';
 import classes from './index.module.css';
 
 const StatusBarReact = () => {
-  const { account, chainId, networkName, reset, status } = useWallet();
+  const { account, chainId, reset, status } = useWallet();
   return (
     <div className={classes.container}>
       {
@@ -20,7 +21,7 @@ const StatusBarReact = () => {
               }}
             >
               <span className={classes['text-account']}>
-                {`${account}${chainId === 1 ? '' : ` @ ${networkName}`}`}
+                {`${account}${chainId === 1 ? '' : ` @ ${chain.networkName}`}`}
               </span>
             </div>
           </div>

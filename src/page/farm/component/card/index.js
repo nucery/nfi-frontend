@@ -9,8 +9,8 @@ import { isWindows } from '../../../../utils/is';
 import classes from './index.module.css';
 
 const CardReact = (props) => {
-  const [totalDeposit, setTotalDeposit] = useState('(Not Available)');
-  const [poolRate, setPoolRate] = useState('(Not Available)');
+  const [totalDeposit, setTotalDeposit] = useState('');
+  const [poolRate, setPoolRate] = useState('');
   useEffect(() => {
     if (address[props.tokenName]) {
       erc20.getTotalBalance(props.tokenName).then((result) => {
@@ -23,7 +23,7 @@ const CardReact = (props) => {
   useEffect(() => {
     if (address[props.tokenName]) {
       pool.getRewardRate(props.tokenName).then((result) => {
-        setPoolRate(result);
+        setPoolRate(`${result} NFI / Week`);
       });
     } else {
       setPoolRate('(Not Available)');

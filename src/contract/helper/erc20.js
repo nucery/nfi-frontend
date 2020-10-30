@@ -1,5 +1,5 @@
 import { address, contract, init, web3 } from '../common';
-
+const MAX_UINT256 = `0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF`;
 init();
 
 export const isAllowed = (tokenName, userWalletAddress, poolAddress) => {
@@ -61,6 +61,6 @@ export const postAllowance = function(tokenName, userWalletAddress) {
     return Promise.resolve(null);
   }
   return contract[tokenName].erc20.methods
-      .approve(userWalletAddress, 1000)
+      .approve(address[tokenName].pool, MAX_UINT256)
       .send({ from: userWalletAddress });
 };

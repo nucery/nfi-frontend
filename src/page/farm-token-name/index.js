@@ -10,6 +10,7 @@ import * as pool from '../../contract/helper/pool';
 import { ConnectionMask, pop } from '../../general-component/connection-mask';
 import { Footer } from '../../general-component/footer';
 import { Header } from '../../general-component/header';
+import { isWindows } from '../../utils/is';
 import { getCellWallWidth } from '../../utils/get-cell-wall-width';
 import { removeUrlSlashSuffix } from '../../utils/remove-url-slash-suffix';
 import classes from './index.module.css';
@@ -73,8 +74,17 @@ const FarmTokenNameReact = (props) => {
                     NFI
                   </span>
                 </div>
-                <div className={classes['container-middle']}>
-                  <div className={classes['container-amount']}>
+                <div
+                  className={classes['container-middle']}
+                  style={{
+                    marginTop: isWindows ? -10 : 24,
+                  }}
+                >
+                  <div className={classes['container-amount']}
+                    style={{
+                      marginBottom: isWindows ? 2 : 16,
+                    }}
+                  >
                     <span className={classes['text-amount']}>
                       {earned}
                     </span>
@@ -109,8 +119,17 @@ const FarmTokenNameReact = (props) => {
                     {tokenNameUpperCase}
                   </span>
                 </div>
-                <div className={classes['container-middle']}>
-                  <div className={classes['container-amount']}>
+                <div
+                  className={classes['container-middle']}
+                  style={{
+                    marginTop: isWindows ? -10 : 24,
+                  }}
+                >
+                  <div className={classes['container-amount']}
+                    style={{
+                      marginBottom: isWindows ? 2 : 16,
+                    }}
+                  >
                     <span className={classes['text-amount']}>
                       {balance}
                     </span>

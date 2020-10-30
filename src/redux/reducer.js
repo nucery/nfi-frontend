@@ -15,6 +15,14 @@ const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         connectionToUrl: action.value,
       });
+    case actionJs.type.depositWithdrawMask:
+      return Object.assign({}, state, {
+        depositWithdrawMask: action.value,
+      });
+    case actionJs.type.deposit:
+      return Object.assign({}, state, {
+        deposit: action.value,
+      });
     default:
       return {
         ...state,

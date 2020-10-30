@@ -43,6 +43,18 @@ export const getUserBalanceInPool = (tokenName, userWalletAddress) => {
   });
 };
 
+export const postGetReward = (tokenName, userWalletAddress) => {
+  if (!contract[tokenName]) {
+    return Promise.resolve(null);
+  }
+  if (!userWalletAddress) {
+    return Promise.resolve(null);
+  }
+  return contract[tokenName].pool.methods
+      .getReward()
+      .send({ from: userWalletAddress });
+};
+
 export const postStake = (tokenName, userWalletAddress, amountAsString) => {
   if (!contract[tokenName]) {
     return Promise.resolve(null);
@@ -50,7 +62,7 @@ export const postStake = (tokenName, userWalletAddress, amountAsString) => {
   if (!userWalletAddress) {
     return Promise.resolve(null);
   }
-  return contract[tokenName].erc20.methods
+  return contract[tokenName].pool.methods
       .stake(web3.toWei(amountAsString, 'ether'))
       .send({ from: userWalletAddress });
 };
@@ -62,7 +74,7 @@ export const postWithdraw = (tokenName, userWalletAddress, amountAsString) => {
   if (!userWalletAddress) {
     return Promise.resolve(null);
   }
-  return contract[tokenName].erc20.methods
+  return contract[tokenName].pool.methods
       .withdraw(web3.toWei(amountAsString, 'ether'))
       .send({ from: userWalletAddress });
 };

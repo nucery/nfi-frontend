@@ -9,21 +9,24 @@ import * as pool from '../../contract/helper/pool';
 import { ConnectionMask, pop } from '../../general-component/connection-mask';
 import { Footer } from '../../general-component/footer';
 import { Header } from '../../general-component/header';
+import * as actionJs from '../../redux/action';
+import { store } from '../../redux/store';
 import { isWindows } from '../../utils/is';
 import { getCellWallWidth } from '../../utils/get-cell-wall-width';
 import { removeUrlSlashSuffix } from '../../utils/remove-url-slash-suffix';
 import { trimAmount } from '../../utils/trim-amount';
-
 import classes from './index.module.css';
+import { DepositWithdrawMask } from './component/DepositWithdrawMask';
 
 const navHight = 72;
 
 const FarmTokenNameReact = (props) => {
   const { tokenName } = useParams();
+  //
   const [allowed, setAllowed] = useState(false);
   const [balance, setBalance] = useState('0');
   const [earned, setEarned] = useState('0');
-
+  //
   const [authorizationStatus, setAuthorizationStatus] = useState(1); // 0 === processing; 1 === enabled
   const [depositStatus, setDepositStatus] = useState(1); // -1 === disabled; 0 === processing; 1 === enabled
   const [harvestStatus, setHarvestStatus] = useState(-1); // -1 === disabled; 0 === processing; 1 === enabled
@@ -120,6 +123,11 @@ const FarmTokenNameReact = (props) => {
                             pop();
                             return;
                           }
+                          pool.postGetReward(tokenName, wallet.account).then((result) => {
+                            // transaction finished
+                            setHarvestStatus(-1);
+                          });
+                          setHarvestStatus(0);
                         }}
                       >
                         <div className={classes['container-button-inner']}>
@@ -175,7 +183,16 @@ const FarmTokenNameReact = (props) => {
                           <div
                             className={classes['container-button-left']}
                             onClick={() => {
-                              // TODO
+                              store.dispatch(actionJs.creator(
+                                  actionJs.type.deposit,
+                                  true,
+                              ));
+                              setTimeout(() => {
+                                store.dispatch(actionJs.creator(
+                                    actionJs.type.depositWithdrawMask,
+                                    true,
+                                ));
+                              }, 100);
                             }}
                           >
                             <div className={classes['container-button-inner']}>
@@ -195,11 +212,20 @@ const FarmTokenNameReact = (props) => {
                           )
                       }
                       {
-                        withdrawStatus == 1 ? (
+                        withdrawStatus === 1 ? (
                           <div
                             className={classes['container-button-right']}
                             onClick={() => {
-                              // TODO
+                              store.dispatch(actionJs.creator(
+                                  actionJs.type.deposit,
+                                  false,
+                              ));
+                              setTimeout(() => {
+                                store.dispatch(actionJs.creator(
+                                    actionJs.type.depositWithdrawMask,
+                                    true,
+                                ));
+                              }, 100);
                             }}
                           >
                             <div className={classes['container-button-inner']}>
@@ -261,7 +287,8 @@ const FarmTokenNameReact = (props) => {
           </div>
         </div>
       </div>
-      <ConnectionMask />
+      <ConnectionMask tokenName={tokenName} />
+      <DepositWithdrawMask tokenName={tokenName} />
     </div >
   );
 };

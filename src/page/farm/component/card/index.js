@@ -25,8 +25,8 @@ const CardReact = (props) => {
       setTotalDeposit('(Not Available)');
     }
   };
-  //
   useEffect(f1, [totalDeposit]);
+  //
   const f2 = () => {
     if (address[props.tokenName]) {
       pool.getRewardRate(props.tokenName).then((result) => {

@@ -8,8 +8,8 @@ import * as erc20 from '../../../../contract/helper/erc20';
 import * as pool from '../../../../contract/helper/pool';
 import { pop } from '../../../../general-component/connection-mask';
 import { isWindows } from '../../../../utils/is';
+import { trimAmount } from '../../../../utils/trim-amount';
 import classes from './index.module.css';
-
 
 const CardReact = (props) => {
   const wallet = useWallet();
@@ -30,7 +30,7 @@ const CardReact = (props) => {
   const f2 = () => {
     if (address[props.tokenName]) {
       pool.getRewardRate(props.tokenName).then((result) => {
-        setPoolRate(`${result} NFI / Week`);
+        setPoolRate(`${trimAmount(result)} NFI / Week`);
       });
     } else {
       setPoolRate('(Not Available)');
@@ -94,7 +94,7 @@ const CardReact = (props) => {
           </div>
           <div>
             <span className={classes['text-detail-data']}>
-              {totalDeposit}
+              {trimAmount(totalDeposit)}
             </span>
           </div>
         </div>

@@ -36,7 +36,7 @@ export const getUserBalance = (tokenName, userWalletAddress) => {
 };
 
 export const getTotalBalanceOfPool = (tokenName) => {
-  if (contract[tokenName]) {
+  if (!contract[tokenName]) {
     return Promise.resolve('0');
   }
   return contract[tokenName].erc20.methods.balanceOf(address[tokenName].pool).call().then((result) => {

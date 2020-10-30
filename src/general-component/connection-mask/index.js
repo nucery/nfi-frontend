@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { useWallet } from 'use-wallet';
 
 import * as actionJs from '../../redux/action';
@@ -9,6 +10,19 @@ import { getViewPortSize } from '../../utils/get-view-port-size';
 import { isWindows } from '../../utils/is';
 import { Card } from './component/card';
 import classes from './index.module.css';
+
+export const pop = (toUrl) => {
+  store.dispatch(actionJs.creator(
+      actionJs.type.connectionToUrl,
+      toUrl ? toUrl : '',
+  ));
+  setTimeout(() => {
+    store.dispatch(actionJs.creator(
+        actionJs.type.connectionMask,
+        true,
+    ));
+  }, 50);
+};
 
 const ConnectionMaskReact = (props) => {
   const { width, height } = getViewPortSize();
@@ -19,6 +33,13 @@ const ConnectionMaskReact = (props) => {
           actionJs.type.connectionMask,
           false,
       ));
+      if (props.toUrl.length > 0) {
+        if (props.toUrl.startsWith('http://') || props.toUrl.startsWith('https://')) {
+          window.open(props.toUrl);
+        } else if (props.location.pathname !== props.toUrl) {
+          props.history.push(props.toUrl);
+        }
+      }
     }, 100);
   }
   return props.show ? (
@@ -74,12 +95,19 @@ const ConnectionMaskReact = (props) => {
 ConnectionMaskReact.propTypes = {
   // React Redux
   show: PropTypes.bool.isRequired,
+  toUrl: PropTypes.string.isRequired,
+  // React Router
+  match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
 };
 
 export const ConnectionMask = connect(
     (state) => {
       return {
         show: state.connectionMask,
+        toUrl: state.connectionToUrl,
       };
     },
-)(ConnectionMaskReact);
+)(withRouter(ConnectionMaskReact));
+

@@ -115,19 +115,19 @@ const HomeReact = (props) => {
               //     title={'Watch Videos'}
               //     body={'Learn about top & emerging crypto projects'}
               //     imageUrl={process.env.PUBLIC_URL + '/static/image/watch-video@2x.png'}
-              //     toUrl={'' /* TODO */}
+              //     toUrl={''}
               //   />
               //   <Card1
               //     title={'Complete Quiz'}
               //     body={'Put your newfound knowledge to the test'}
               //     imageUrl={process.env.PUBLIC_URL + '/static/image/complete-quiz@2x.png'}
-              //     toUrl={'' /* TODO */}
+              //     toUrl={''}
               //   />
               //   <Card1
               //     title={'Earn Crypto'}
               //     body={'Put your newfound knowledge to the test'}
               //     imageUrl={process.env.PUBLIC_URL + '/static/image/earn-crypto@2x.png'}
-              //     toUrl={'' /* TODO */}
+              //     toUrl={''}
               //   />
               // </div>
             }

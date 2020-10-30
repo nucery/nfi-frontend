@@ -1,17 +1,22 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
+import { useWallet } from 'use-wallet';
 
 import { address } from '../../../../contract/common';
 import * as erc20 from '../../../../contract/helper/erc20';
 import * as pool from '../../../../contract/helper/pool';
+import { pop } from '../../../../general-component/connection-mask';
 import { isWindows } from '../../../../utils/is';
 import classes from './index.module.css';
 
+
 const CardReact = (props) => {
+  const wallet = useWallet();
   const [totalDeposit, setTotalDeposit] = useState('');
   const [poolRate, setPoolRate] = useState('');
-  useEffect(() => {
+  //
+  const f1 = () => {
     if (address[props.tokenName]) {
       erc20.getTotalBalance(props.tokenName).then((result) => {
         setTotalDeposit(result);
@@ -19,8 +24,10 @@ const CardReact = (props) => {
     } else {
       setTotalDeposit('(Not Available)');
     }
-  }, [totalDeposit]);
-  useEffect(() => {
+  };
+  //
+  useEffect(f1, [totalDeposit]);
+  const f2 = () => {
     if (address[props.tokenName]) {
       pool.getRewardRate(props.tokenName).then((result) => {
         setPoolRate(`${result} NFI / Week`);
@@ -28,7 +35,9 @@ const CardReact = (props) => {
     } else {
       setPoolRate('(Not Available)');
     }
-  }, [poolRate]);
+  };
+  useEffect(f2, [poolRate]);
+  //
   return (
     <div className={classes.container}>
       <div className={classes['container-top']}>
@@ -42,7 +51,11 @@ const CardReact = (props) => {
             <div
               className={classes['container-button']}
               onClick={() => {
-                props.history.push(`/farm/${props.tokenName}`);
+                if (wallet.account) {
+                  props.history.push(`/farm/${props.tokenName}`);
+                } else {
+                  pop(`/farm/${props.tokenName}`);
+                }
               }}
             >
               <div

@@ -20,7 +20,9 @@ const FooterReact = (props) => {
       <div
         className={classes['container-band']}
         onClick={() => {
-          props.history.push('/home');
+          if (props.location.pathname !== '/home') {
+            props.history.push('/home');
+          }
         }}
         style={{ marginTop: isWindows ? 20 : 24 }}
       >

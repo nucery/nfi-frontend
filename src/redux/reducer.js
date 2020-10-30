@@ -11,6 +11,10 @@ const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         connectionMask: action.value,
       });
+    case actionJs.type.connectionToUrl:
+      return Object.assign({}, state, {
+        connectionToUrl: action.value,
+      });
     default:
       return {
         ...state,

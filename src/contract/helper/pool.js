@@ -1,16 +1,24 @@
-import { contract, init } from '../common';
-import Web3 from 'web3';
-
-const web3 = new Web3();
+import { contract, init, web3 } from '../common';
 
 init();
 
-export const getRewardRate = (tokenName) => {
-  if (contract[tokenName]) {
-    return contract[tokenName].pool.methods.rewardRate().call().then((result) => {
-      return Promise.resolve(web3.fromWei(result, 'ether'));
-    });
-  } else {
+export const getEarned = (tokenName, userWalletAddress) => {
+  if (!contract[tokenName]) {
     return Promise.resolve('0');
   }
+  if (!userWalletAddress) {
+    return Promise.resolve('0');
+  }
+  return contract[tokenName].pool.methods.earned(userWalletAddress).call().then((result) => {
+    return Promise.resolve(web3.fromWei(result, 'ether'));
+  });
+};
+
+export const getRewardRate = (tokenName) => {
+  if (!contract[tokenName]) {
+    return Promise.resolve('0');
+  }
+  return contract[tokenName].pool.methods.rewardRate().call().then((result) => {
+    return Promise.resolve(web3.fromWei(result, 'ether'));
+  });
 };

@@ -4,7 +4,7 @@ import { HashRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { UseWalletProvider } from 'use-wallet';
 
 import { Farm } from './page/farm';
-import { FarmDetail } from './page/farm-detail';
+import { FarmTokenName } from './page/farm-token-name';
 import { Faq } from './page/faq';
 import { Home } from './page/home';
 import { Lend } from './page/lend';
@@ -38,9 +38,9 @@ export const App = () => {
               component={(routeProps) => <Farm {...routeProps} />}
             />
             <Route
-              path="/farm/:id"
+              path="/farm/:tokenName"
               exact
-              component={(routeProps) => <FarmDetail {...routeProps} />}
+              component={(routeProps) => <FarmTokenName {...routeProps} />}
             />
             <Route
               path="/valut"

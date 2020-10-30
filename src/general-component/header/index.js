@@ -38,7 +38,9 @@ const HeaderReact = (props) => {
           <div
             className={classes['container-link']}
             onClick={() => {
-              props.history.push('/farm');
+              if (props.location.pathname !== '/farm') {
+                props.history.push('/farm');
+              }
             }}
           >
             <span
@@ -51,7 +53,9 @@ const HeaderReact = (props) => {
           <div
             className={classes['container-link']}
             onClick={() => {
-              props.history.push('/valut');
+              if (props.location.pathname !== '/valut') {
+                props.history.push('/valut');
+              }
             }}
           >
             <span
@@ -64,7 +68,9 @@ const HeaderReact = (props) => {
           <div
             className={classes['container-link']}
             onClick={() => {
-              props.history.push('/lend');
+              if (props.location.pathname !== '/lend') {
+                props.history.push('/lend');
+              }
             }}
           >
             <span
@@ -77,7 +83,9 @@ const HeaderReact = (props) => {
           <div
             className={classes['container-link']}
             onClick={() => {
-              props.history.push('/faq');
+              if (props.location.pathname !== '/faq') {
+                props.history.push('/faq');
+              }
             }}
           >
             <span

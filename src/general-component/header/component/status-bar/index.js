@@ -2,9 +2,8 @@ import React from 'react';
 import { useWallet } from 'use-wallet';
 
 import { chain } from '../../../../contract/common';
-import * as actionJs from '../../../../redux/action';
-import { store } from '../../../../redux/store';
 import { isWindows } from '../../../../utils/is';
+import { pop } from '../../../connection-mask';
 import classes from './index.module.css';
 
 const StatusBarReact = () => {
@@ -33,10 +32,7 @@ const StatusBarReact = () => {
           if (status === 'connected') {
             reset();
           } else {
-            store.dispatch(actionJs.creator(
-                actionJs.type.connectionMask,
-                true,
-            ));
+            pop();
           }
         }}
       >

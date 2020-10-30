@@ -8,12 +8,7 @@ const HeaderReact = (props) => {
   return (
     <div className={classes.container} >
       <div className={classes['container-left']}>
-        <div
-          className={classes['container-band']}
-          onClick={() => {
-            props.history.push('/home');
-          }}
-        >
+        <div className={classes['container-band']} >
           <span className={classes['text-band']}>
               One-Stop Crypto Bank
           </span>
@@ -24,12 +19,7 @@ const HeaderReact = (props) => {
                 |
             </span>
           </div>
-          <div
-            className={classes['container-link']}
-            onClick={() => {
-              props.history.push('/home');
-            }}
-          >
+          <div className={classes['container-link']} >
             <span className={classes['text-link']}>
                 HOME
             </span>

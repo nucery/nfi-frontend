@@ -1,4 +1,5 @@
 import Contract from 'web3-eth-contract';
+import Web3 from 'web3';
 
 import erc20 from './abi/erc20.json';
 import pool from './abi/pool.json';
@@ -73,6 +74,10 @@ const chain = (process.env.NODE_ENV === 'production' ? chainList[0] : chainList[
 
 const address = (process.env.NODE_ENV === 'production' ? addressList[0] : addressList[1]);
 
+const web3 = window.web3 ?
+  new Web3(window.web3.currentProvider) :
+  new Web3(new Web3.providers.HttpProvider(chain.rpcUrl));
+
 let contract = null;
 
 const init = () => {
@@ -90,4 +95,15 @@ const init = () => {
   });
 };
 
-export { address, chain, contract, init };
+const recept = (transactionHash) => {
+  return new Promise((resolve) => {
+    if (!transactionHash) {
+      resolve(null);
+    }
+    web3.eth.getTransactionReceipt(transactionHash, (_, data) => {
+      resolve(data);
+    });
+  });
+};
+
+export { address, chain, contract, init, recept, web3 };

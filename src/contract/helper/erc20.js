@@ -1,24 +1,66 @@
-import { address, contract, init } from '../common';
-import Web3 from 'web3';
-
-const web3 = new Web3();
+import { address, contract, init, web3 } from '../common';
 
 init();
 
-export const getBalance = (tokenName, walletAddress) => {
-  if (contract[tokenName]) {
-    return contract[tokenName].erc20.methods.balanceOf(walletAddress).call();
-  } else {
+export const isAllowed = (tokenName, userWalletAddress, poolAddress) => {
+  if (!contract[tokenName]) {
+    return Promise.resolve(false);
+  }
+  if (!userWalletAddress) {
+    return Promise.resolve(false);
+  }
+  if (typeof poolAddress !== 'string') {
+    return Promise.resolve(false);
+  }
+  return getAllowance(tokenName, userWalletAddress, poolAddress).then((result) => {
+    return Promise.resolve(result !== '0');
+  });
+};
+
+export const getAllowance = (tokenName, userWalletAddress, poolAddress) => {
+  if (!contract[tokenName]) {
     return Promise.resolve('0');
   }
+  if (!userWalletAddress) {
+    return Promise.resolve('0');
+  }
+  if (typeof poolAddress !== 'string') {
+    return Promise.resolve('0');
+  }
+  return contract[tokenName].erc20.methods.allowance(userWalletAddress, poolAddress).call().then((result) => {
+    return Promise.resolve(web3.fromWei(result, 'ether'));
+  });
+};
+
+export const getBalance = (tokenName, userWalletAddress) => {
+  if (!contract[tokenName]) {
+    return Promise.resolve('0');
+  }
+  if (!userWalletAddress) {
+    return Promise.resolve('0');
+  }
+  return contract[tokenName].erc20.methods.balanceOf(userWalletAddress).call().then((result) => {
+    return Promise.resolve(web3.fromWei(result, 'ether'));
+  });
 };
 
 export const getTotalBalance = (tokenName) => {
   if (contract[tokenName]) {
-    return contract[tokenName].erc20.methods.balanceOf(address[tokenName].pool).call().then((result) => {
-      return Promise.resolve(web3.fromWei(result, 'ether'));
-    });
-  } else {
     return Promise.resolve('0');
   }
+  return contract[tokenName].erc20.methods.balanceOf(address[tokenName].pool).call().then((result) => {
+    return Promise.resolve(web3.fromWei(result, 'ether'));
+  });
+};
+
+export const postAllowance = function(tokenName, userWalletAddress) {
+  if (!contract[tokenName]) {
+    return Promise.resolve(null);
+  }
+  if (!userWalletAddress) {
+    return Promise.resolve(null);
+  }
+  return contract[tokenName].erc20.methods
+      .approve(userWalletAddress, 1000)
+      .send({ from: userWalletAddress });
 };

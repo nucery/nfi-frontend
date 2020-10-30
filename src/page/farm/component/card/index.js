@@ -19,7 +19,7 @@ const CardReact = (props) => {
   const f1 = () => {
     if (address[props.tokenName]) {
       erc20.getTotalBalanceOfPool(props.tokenName).then((result) => {
-        setTotalDeposit(result);
+        setTotalDeposit(trimAmount(result));
       });
     } else {
       setTotalDeposit('(Not Available)');
@@ -94,7 +94,7 @@ const CardReact = (props) => {
           </div>
           <div>
             <span className={classes['text-detail-data']}>
-              {trimAmount(totalDeposit)}
+              {totalDeposit}
             </span>
           </div>
         </div>

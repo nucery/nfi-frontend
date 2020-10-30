@@ -44,14 +44,14 @@
 }
 
 .container-middle {
-  margin-top: -10px;
+  margin-top: 24px;
 }
 
 .container-amount {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-bottom: 2px;
+  margin-bottom: 16px;
 }
 
 .text-amount {

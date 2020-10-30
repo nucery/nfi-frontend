@@ -56,10 +56,7 @@ const FarmReact = (props) => {
                 </span>
               </div>
               <div className={classes['container-body-1']}>
-                <span
-                  className={classes['text-body-1']}
-                  style={{ lineHeight: isWindows ? 0 : 16 }}
-                >
+                <span className={classes['text-body-1']}>
                   Earn NFI tokens by staking NFI & NUC V2 SLP Tokens. Note: Current APY includes 2/3rd NFI emission that is locked and will be retroactively disbursed at a later date.
                 </span>
               </div>

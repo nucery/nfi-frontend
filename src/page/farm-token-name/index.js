@@ -3,8 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 import { useWallet } from 'use-wallet';
 
-
-import { address, contract, recept } from '../../contract/common';
+import { address, contract } from '../../contract/common';
 import * as erc20 from '../../contract/helper/erc20';
 import * as pool from '../../contract/helper/pool';
 import { ConnectionMask, pop } from '../../general-component/connection-mask';
@@ -13,6 +12,8 @@ import { Header } from '../../general-component/header';
 import { isWindows } from '../../utils/is';
 import { getCellWallWidth } from '../../utils/get-cell-wall-width';
 import { removeUrlSlashSuffix } from '../../utils/remove-url-slash-suffix';
+import { trimAmount } from '../../utils/trim-amount';
+
 import classes from './index.module.css';
 
 const navHight = 72;
@@ -22,6 +23,11 @@ const FarmTokenNameReact = (props) => {
   const [allowed, setAllowed] = useState(false);
   const [balance, setBalance] = useState('0');
   const [earned, setEarned] = useState('0');
+
+  const [authorizationStatus, setAuthorizationStatus] = useState(1); // 0 === processing; 1 === enabled
+  const [depositStatus, setDepositStatus] = useState(1); // -1 === disabled; 0 === processing; 1 === enabled
+  const [harvestStatus, setHarvestStatus] = useState(-1); // -1 === disabled; 0 === processing; 1 === enabled
+  const [withdrawStatus, setWithdrawStatus] = useState(1); // -1 === disabled; 0 === processing; 1 === enabled
   const wallet = useWallet();
   //
   const f1 = () => {
@@ -32,18 +38,27 @@ const FarmTokenNameReact = (props) => {
   useEffect(f1);
   //
   const f2 = () => {
-    erc20.getBalance(tokenName, wallet.account).then((result) => {
-      setBalance(result);
+    pool.getUserBalanceInPool(tokenName, wallet.account).then((result) => {
+      setBalance(trimAmount(result));
+      setWithdrawStatus(result === '0' ? -1 : 1);
     });
   };
   useEffect(f2);
+  //
   const f3 = () => {
     pool.getEarned(tokenName, wallet.account).then((result) => {
-      setEarned(result);
+      setEarned(trimAmount(result));
+      setHarvestStatus(result === '0' ? -1 : 1);
     });
   };
-  //
   useEffect(f3);
+  //
+  const f4 = () => {
+    pool.getIsOpen(tokenName).then((result) => {
+      setDepositStatus(result ? 1 : -1);
+    });
+  };
+  useEffect(f4);
   //
   if (!contract[tokenName]) {
     return (<Redirect to={'/farm'} />);
@@ -96,21 +111,33 @@ const FarmTokenNameReact = (props) => {
                   </div>
                 </div>
                 <div className={classes['container-button-group']}>
-                  <div
-                    className={classes['container-button']}
-                    onClick={() => {
-                      if (!wallet.account) {
-                        pop();
-                        return;
-                      }
-                    }}
-                  >
-                    <div className={classes['container-button-inner']}>
-                      <span className={classes['text-button']}>
-                        Harvest
-                      </span>
-                    </div>
-                  </div>
+                  {
+                    harvestStatus === 1 ? (
+                      <div
+                        className={classes['container-button']}
+                        onClick={() => {
+                          if (!wallet.account) {
+                            pop();
+                            return;
+                          }
+                        }}
+                      >
+                        <div className={classes['container-button-inner']}>
+                          <span className={classes['text-button']}>
+                            Harvest
+                          </span>
+                        </div>
+                      </div>
+                    ) : (
+                        <div className={classes['container-button-disabled']}>
+                          <div className={classes['container-button-inner']}>
+                            <span className={classes['text-button']}>
+                              {harvestStatus === 0 ? 'Processing ...' : 'Harvest'}
+                            </span>
+                          </div>
+                        </div>
+                      )
+                  }
                 </div>
               </div>
               <div className={classes.container}>
@@ -143,50 +170,88 @@ const FarmTokenNameReact = (props) => {
                 {
                   allowed ? (
                     <div className={classes['container-button-group']}>
-                      <div className={classes['container-button-left']}>
-                        <div className={classes['container-button-inner']}>
-                          <span className={classes['text-button']}>
-                            Deposit
-                          </span>
-                        </div>
-                      </div>
-                      <div className={classes['container-button-right']}>
-                        <div className={classes['container-button-inner']}>
-                          <span className={classes['text-button']}>
-                            Withdraw
-                          </span>
-                        </div>
-                      </div>
+                      {
+                        depositStatus === 1 ? (
+                          <div
+                            className={classes['container-button-left']}
+                            onClick={() => {
+                              // TODO
+                            }}
+                          >
+                            <div className={classes['container-button-inner']}>
+                              <span className={classes['text-button']}>
+                                Deposit
+                              </span>
+                            </div>
+                          </div>
+                        ) : (
+                            <div className={classes['container-button-left-disabled']}>
+                              <div className={classes['container-button-inner']}>
+                                <span className={classes['text-button']}>
+                                  Deposit
+                                </span>
+                              </div>
+                            </div>
+                          )
+                      }
+                      {
+                        withdrawStatus == 1 ? (
+                          <div
+                            className={classes['container-button-right']}
+                            onClick={() => {
+                              // TODO
+                            }}
+                          >
+                            <div className={classes['container-button-inner']}>
+                              <span className={classes['text-button']}>
+                                Withdraw
+                              </span>
+                            </div>
+                          </div>
+                        ) : (
+                            <div className={classes['container-button-right-disabled']}>
+                              <div className={classes['container-button-inner']}>
+                                <span className={classes['text-button']}>
+                                  Withdraw
+                                </span>
+                              </div>
+                            </div>
+                          )
+                      }
                     </div>
                   ) : (
                       <div className={classes['container-button-group']}>
-                        <div
-                          className={classes['container-button']}
-                          onClick={() => {
-                            if (!wallet.account) {
-                              pop();
-                              return;
-                            }
-                            // TODO: bug of sending
-                            erc20.postAllowance(tokenName, wallet.account).then((result) => {
-                              console.log(result);
-                              return Promise.resolve(result);
-                            }).then((result) => {
-                              if (!result) {
-                                return Promise.resolve(null);
-                              }
-                              return recept(result.transactionHash);
-                            }).then((result) => {
-                              console.log(result);
-                            });
-                          }}
-                        >
-                          <div className={classes['container-button-inner']}>
-                            <span className={classes['text-button']}>
-                              Wallet Authorization
-                            </span>
-                          </div>
-                        </div>
+                        {
+                          authorizationStatus ? (
+                            <div
+                              className={classes['container-button']}
+                              onClick={() => {
+                                if (!wallet.account) {
+                                  pop();
+                                  return;
+                                }
+                                erc20.postAllowance(tokenName, wallet.account).then((result) => {
+                                  // transaction finished
+                                });
+                                setAuthorizationStatus(0);
+                              }}
+                            >
+                              <div className={classes['container-button-inner']}>
+                                <span className={classes['text-button']}>
+                                  Wallet Authorization
+                                </span>
+                              </div>
+                            </div>
+                          ) : (
+                              <div className={classes['container-button-disabled']}>
+                                <div className={classes['container-button-inner']}>
+                                  <span className={classes['text-button']}>
+                                    Processing ...
+                                  </span>
+                                </div>
+                              </div>
+                            )
+                        }
                       </div>
                     )
                 }

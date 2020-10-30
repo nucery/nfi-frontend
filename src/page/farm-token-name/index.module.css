@@ -91,6 +91,16 @@
   width: 296px;
 }
 
+.container-button-disabled {
+  background: #BBC6F9;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 40px;
+  width: 296px;
+}
+
 .container-button-left {
   background: #0063FF;
   border-radius: 10px;
@@ -101,8 +111,28 @@
   width: 136px;
 }
 
+.container-button-left-disabled {
+  background: #BBC6F9;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 40px;
+  width: 136px;
+}
+
 .container-button-right {
   background: #0063FF;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 40px;
+  width: 136px;
+}
+
+.container-button-right-disabled {
+  background: #BBC6F9;
   border-radius: 10px;
   display: flex;
   flex-direction: row;

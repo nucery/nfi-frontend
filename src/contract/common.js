@@ -4,6 +4,8 @@ import Web3 from 'web3';
 import erc20 from './abi/erc20.json';
 import pool from './abi/pool.json';
 
+const uint256Max = `0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff`;
+
 const data = { pool, erc20 };
 
 const chainList = [
@@ -106,4 +108,4 @@ const recept = (transactionHash) => {
   });
 };
 
-export { address, chain, contract, init, recept, web3 };
+export { address, chain, contract, init, recept, uint256Max, web3 };

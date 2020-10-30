@@ -18,7 +18,7 @@ const CardReact = (props) => {
   //
   const f1 = () => {
     if (address[props.tokenName]) {
-      erc20.getTotalBalance(props.tokenName).then((result) => {
+      erc20.getTotalBalanceOfPool(props.tokenName).then((result) => {
         setTotalDeposit(result);
       });
     } else {

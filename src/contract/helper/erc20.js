@@ -1,17 +1,8 @@
-import { address, contract, init, web3 } from '../common';
-const MAX_UINT256 = `0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF`;
+import { address, contract, init, uint256Max, web3 } from '../common';
+
 init();
 
 export const isAllowed = (tokenName, userWalletAddress, poolAddress) => {
-  if (!contract[tokenName]) {
-    return Promise.resolve(false);
-  }
-  if (!userWalletAddress) {
-    return Promise.resolve(false);
-  }
-  if (typeof poolAddress !== 'string') {
-    return Promise.resolve(false);
-  }
   return getAllowance(tokenName, userWalletAddress, poolAddress).then((result) => {
     return Promise.resolve(result !== '0');
   });
@@ -32,7 +23,7 @@ export const getAllowance = (tokenName, userWalletAddress, poolAddress) => {
   });
 };
 
-export const getBalance = (tokenName, userWalletAddress) => {
+export const getUserBalance = (tokenName, userWalletAddress) => {
   if (!contract[tokenName]) {
     return Promise.resolve('0');
   }
@@ -44,7 +35,7 @@ export const getBalance = (tokenName, userWalletAddress) => {
   });
 };
 
-export const getTotalBalance = (tokenName) => {
+export const getTotalBalanceOfPool = (tokenName) => {
   if (contract[tokenName]) {
     return Promise.resolve('0');
   }
@@ -53,7 +44,7 @@ export const getTotalBalance = (tokenName) => {
   });
 };
 
-export const postAllowance = function(tokenName, userWalletAddress) {
+export const postAllowance = (tokenName, userWalletAddress) => {
   if (!contract[tokenName]) {
     return Promise.resolve(null);
   }
@@ -61,6 +52,6 @@ export const postAllowance = function(tokenName, userWalletAddress) {
     return Promise.resolve(null);
   }
   return contract[tokenName].erc20.methods
-      .approve(address[tokenName].pool, MAX_UINT256)
+      .approve(address[tokenName].pool, uint256Max)
       .send({ from: userWalletAddress });
 };

@@ -16,11 +16,19 @@ const CardReact = (props) => {
   const [input, setInput] = useState('');
   const [buttonStatus, setButtonStatus] = useState(-1); // -1 === disabled; 0 === processing; 1 === enabled
   //
+  const [farmApy, setFarmApy] = useState('0%');
   const [totalDeposited, setTotalDeposited] = useState('0');
   const [myDeposited, setMyDeposited] = useState('0');
   const [myDepositedAsNumber, setMyDepositedAsNumber] = useState(0);
   const [myBalance, setMyBalance] = useState('0');
   const [myBalanceAsNumber, setMyBalanceAsNumber] = useState(0);
+  //
+  const f1 = () => {
+    // TODO
+    //
+    // setFarmApy(value)
+  };
+  useEffect(f1);
   //
   const f2 = () => {
     erc20.getTotalBalanceOfPool(props.tokenName).then((result) => {
@@ -62,7 +70,7 @@ const CardReact = (props) => {
           </div>
           <div>
             <span className={classes['text-detail-data']}>
-              {`50 %`}
+              {farmApy}
             </span>
           </div>
         </div>

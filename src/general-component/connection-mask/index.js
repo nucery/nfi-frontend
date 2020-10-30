@@ -27,7 +27,7 @@ export const pop = (toUrl) => {
 const ConnectionMaskReact = (props) => {
   const { width, height } = getViewPortSize();
   const { connect, status } = useWallet();
-  if (status === 'connected') {
+  if (props.show && status === 'connected') {
     setTimeout(() => {
       store.dispatch(actionJs.creator(
           actionJs.type.connectionMask,

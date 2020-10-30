@@ -36,14 +36,14 @@ const FarmTokenNameReact = (props) => {
       setBalance(result);
     });
   };
-  useEffect(f2, [balance]);
+  useEffect(f2);
   const f3 = () => {
     pool.getEarned(tokenName, wallet.account).then((result) => {
       setEarned(result);
     });
   };
   //
-  useEffect(f3, [earned]);
+  useEffect(f3);
   //
   if (!contract[tokenName]) {
     return (<Redirect to={'/farm'} />);

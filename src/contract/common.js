@@ -11,9 +11,12 @@ const data = { pool, erc20 };
 const chainList = [
   {
     // yarn build => Ethereum Mainnet
-    id: 1,
-    networkName: 'Mainnet',
-    rpcUrl: 'https://mainnet.eth.aragon.network/',
+    // id: 1,
+    // networkName: 'Mainnet',
+    // rpcUrl: 'https://mainnet.eth.aragon.network/',
+    id: 42,
+    networkName: 'Kovan',
+    rpcUrl: 'https://kovan.eth.aragon.network/',
   },
   {
     // yarn start => Ethereum Testnet Kovan

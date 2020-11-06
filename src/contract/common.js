@@ -9,11 +9,18 @@ const uint256Max = `0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 const data = { pool, erc20 };
 
 const chainList = [
+  // {
+  //   // yarn build => Ethereum Mainnet
+  //   id: 1,
+  //   networkName: 'Mainnet',
+  //   rpcUrl: 'https://mainnet.eth.aragon.network/',
+  // },
   {
     // yarn build => Ethereum Mainnet
-    id: 1,
-    networkName: 'Mainnet',
-    rpcUrl: 'https://mainnet.eth.aragon.network/',
+    id: 100,
+    networkName: 'Nuc',
+    // rpcUrl: 'https://kovan.eth.aragon.network/',
+    rpcUrl: 'http://106.75.22.48:7121/',
   },
   {
     // yarn start => Ethereum Testnet Kovan

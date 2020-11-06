@@ -24,18 +24,11 @@ export const getAllowance = (tokenName, userWalletAddress, poolAddress) => {
 };
 
 export const getUserBalance = (tokenName, userWalletAddress) => {
-  console.log('getBalance nuc for ${userWalletAddress} 1');
   if (!contract[tokenName]) {
     return Promise.resolve('0');
   }
   if (!userWalletAddress) {
     return Promise.resolve('0');
-  }
-  if (tokenName.toLowerCase() === 'nuc') {
-    console.log('getBalance nuc for ${userWalletAddress} 2');
-    return web3.eth.getBalance(userWalletAddress).then((result) => {
-      return Promise.resolve(web3.fromWei(result, 'ether'));
-    });
   }
   return contract[tokenName].erc20.methods.balanceOf(userWalletAddress).call().then((result) => {
     return Promise.resolve(web3.fromWei(result, 'ether'));

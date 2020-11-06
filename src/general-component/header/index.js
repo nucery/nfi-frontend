@@ -12,7 +12,6 @@ const HeaderReact = (props) => {
         <div
           className={classes['container-band']}
           onClick={() => {
-            // window.href = 'www.baidu.com';
             props.history.push('/home');
           }}
         >
@@ -29,7 +28,7 @@ const HeaderReact = (props) => {
           <div
             className={classes['container-link']}
             onClick={() => {
-              window.open('http://www.baidu.com/', '_self');
+              props.history.push('/home');
             }}
           >
             <span className={classes['text-link']}>

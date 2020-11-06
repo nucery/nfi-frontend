@@ -9,6 +9,7 @@ import linkedin from '../../static/image/linkedin@2x.png';
 import { isWindows } from '../../utils/is';
 import classes from './index.module.css';
 
+// TODO add url
 const twitterUrl = '';
 const instagramUrl = '';
 const facebookUrl = '';

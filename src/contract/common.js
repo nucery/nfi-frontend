@@ -17,9 +17,10 @@ const chainList = [
   },
   {
     // yarn start => Ethereum Testnet Kovan
-    id: 42,
-    networkName: 'Kovan',
-    rpcUrl: 'https://kovan.eth.aragon.network/',
+    id: 100,
+    networkName: 'Nuc',
+    // rpcUrl: 'https://kovan.eth.aragon.network/',
+    rpcUrl: 'http://106.75.22.48:7121/',
   },
 ];
 
@@ -27,8 +28,8 @@ const addressList = [
   {
     // yarn build => Ethereum Mainnet
     nuc: {
-      erc20: '0xaf7Cd0D0D1D55f17C1B65368dcdCC8A07708C820', // TODO
-      pool: '0x9e05e22Bdde4f81A668448656e045898ABd9373a', // TODO
+      erc20: '0x9eE4c8FF9a76aD0892b5A985cEf67E20A9bEFAc0', // TODO
+      pool: '0x2E28f78ef7D585407229F180F9de031f741b4bA4', // TODO
     },
     nux: {
       erc20: '0xaf7Cd0D0D1D55f17C1B65368dcdCC8A07708C820', // TODO
@@ -50,8 +51,8 @@ const addressList = [
   {
     // yarn start => Ethereum Testnet Kovan
     nuc: {
-      erc20: '0xaf7Cd0D0D1D55f17C1B65368dcdCC8A07708C820', // TODO
-      pool: '0x9e05e22Bdde4f81A668448656e045898ABd9373a', // TODO
+      erc20: '0x9eE4c8FF9a76aD0892b5A985cEf67E20A9bEFAc0', // TODO
+      pool: '0x2E28f78ef7D585407229F180F9de031f741b4bA4', // TODO
     },
     nux: {
       erc20: '0xaf7Cd0D0D1D55f17C1B65368dcdCC8A07708C820',

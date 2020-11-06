@@ -9,6 +9,7 @@ import * as actionJs from '../../../../../../redux/action';
 import { store } from '../../../../../../redux/store';
 import { trimAmount } from '../../../../../../utils/trim-amount';
 import classes from './index.module.css';
+import {web3} from "../../../../../../contract/common";
 
 const CardReact = (props) => {
   const wallet = useWallet();
@@ -46,10 +47,16 @@ const CardReact = (props) => {
   useEffect(f3);
   //
   const f4 = () => {
-    erc20.getUserBalance(props.tokenName, wallet.account).then((result) => {
-      setMyBalance(trimAmount(result));
-      setMyBalanceAsNumber(Number(result));
-    });
+    if (props.tokenName.toLowerCase() === 'nuc') {
+      const amount = web3.fromWei(wallet.balance.toString(), 'ether');
+      setMyBalance(trimAmount(amount));
+      setMyBalanceAsNumber(Number(amount));
+    } else {
+      erc20.getUserBalance(props.tokenName, wallet.account).then((result) => {
+        setMyBalance(trimAmount(result));
+        setMyBalanceAsNumber(Number(result));
+      });
+    }
   };
   useEffect(f4);
   //

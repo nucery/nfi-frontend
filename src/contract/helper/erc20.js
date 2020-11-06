@@ -31,18 +31,6 @@ export const getUserBalance = (tokenName, userWalletAddress) => {
   if (!userWalletAddress) {
     return Promise.resolve('0');
   }
-  if (tokenName.toLowerCase() === 'nuc') {
-    console.log('getBalance nuc for ${userWalletAddress} 2');
-    return new Promise((resolve, reject) => {
-      web3.eth.getBalance(userWalletAddress, null, (err, result) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(result);
-        }
-      });
-    });
-  }
   return contract[tokenName].erc20.methods.balanceOf(userWalletAddress).call().then((result) => {
     return Promise.resolve(web3.fromWei(result, 'ether'));
   });

@@ -63,8 +63,8 @@ export const postStake = (tokenName, userWalletAddress, amountAsString) => {
     return Promise.resolve(null);
   }
   return contract[tokenName].pool.methods
-      .stake(web3.toWei(amountAsString, 'ether'))
-      .send({ from: userWalletAddress });
+      .stake()
+      .send({ from: userWalletAddress, value: web3.toWei(amountAsString, 'ether') });
 };
 
 export const postWithdraw = (tokenName, userWalletAddress, amountAsString) => {

@@ -40,7 +40,7 @@ export const getTotalBalanceOfPool = (tokenName) => {
   if (!contract[tokenName]) {
     return Promise.resolve('0');
   }
-  return contract[tokenName].erc20.methods.balanceOf(address[tokenName].pool).call().then((result) => {
+  return contract[tokenName].pool.methods.totalSupply().call().then((result) => {
     return Promise.resolve(web3.fromWei(result, 'ether'));
   });
 };

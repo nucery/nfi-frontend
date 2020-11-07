@@ -52,12 +52,17 @@ const FarmTokenNameReact = (props) => {
     if (harvestStatus === 0) {
       return;
     }
-    pool.getEarned(tokenName, wallet.account).then((result) => {
-      setEarned(trimAmount(result));
-      setHarvestStatus(result === '0' ? -1 : 1);
-    });
+    const intervalId = setInterval( () => {
+      pool.getEarned(tokenName, wallet.account).then((result) => {
+        setEarned(trimAmount(result));
+        setHarvestStatus(result === '0' ? -1 : 1);
+      });
+    }, 5000);
+    return () => {
+      clearInterval(intervalId);
+    };
   };
-  useEffect(f3);
+  useEffect(f3, [harvestStatus, authorizationStatus, earned, balance]);
   //
   const f4 = () => {
     pool.getIsOpen(tokenName).then((result) => {

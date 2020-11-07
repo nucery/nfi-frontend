@@ -54,8 +54,9 @@ const ConnectionMaskReact = (props) => {
           </span>
         </div>
         <Card
-          name={'Metamask'}
-          imageUrl={process.env.PUBLIC_URL + '/static/image/meta-mask.svg'}
+          name={'NUC Wallet'}
+          // imageUrl={process.env.PUBLIC_URL + '/static/image/meta-mask.svg'}
+          imageUrl={process.env.PUBLIC_URL + '/static/image/nuc-wallet-logo.svg'}
           onConnect={() => {
             connect('injected');
           }}

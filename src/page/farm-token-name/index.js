@@ -57,7 +57,7 @@ const FarmTokenNameReact = (props) => {
         setEarned(trimAmount(result));
         setHarvestStatus(result === '0' ? -1 : 1);
       });
-    }, 5000);
+    }, 20000);
     return () => {
       clearInterval(intervalId);
     };

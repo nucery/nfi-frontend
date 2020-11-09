@@ -26,8 +26,9 @@ export const getRewardRate = (tokenName) => {
   if (!contract[tokenName]) {
     return Promise.resolve('0');
   }
+  const weekSeconds = 7 * 24 * 3600;
   return contract[tokenName].pool.methods.rewardRate().call().then((result) => {
-    return Promise.resolve(web3.fromWei(result, 'ether'));
+    return Promise.resolve(web3.fromWei(result * weekSeconds, 'ether'));
   });
 };
 

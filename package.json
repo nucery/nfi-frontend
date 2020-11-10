@@ -7,9 +7,9 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "build-production": "REACT_APP_ENV=production react-scripts build",
-    "build-production-windows": "set REACT_APP_ENV=production&& react-scripts build",
+    "build": "react-scripts build -p",
+    "build-production": "REACT_APP_ENV=production react-scripts build -p",
+    "build-production-windows": "set REACT_APP_ENV=production&& react-scripts build -p",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "eslint": "node ./node_modules/eslint/bin/eslint.js --fix src/"
@@ -47,6 +47,7 @@
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-import": "^2.21.2",
     "eslint-plugin-react": "^7.21.5",
-    "gh-pages": "^3.1.0"
+    "gh-pages": "^3.1.0",
+    "terser-brunch": "^4.0.0"
   }
 }

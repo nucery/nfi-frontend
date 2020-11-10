@@ -7,6 +7,7 @@ import facebook from '../../static/image/facebook@2x.png';
 import instagram from '../../static/image/instagram@2x.png';
 import twitter from '../../static/image/twitter@2x.png';
 import linkedin from '../../static/image/linkedin@2x.png';
+import { url } from '../../general-component/url';
 import { isWindows } from '../../utils/is';
 import { i18n } from '../i18n';
 import classes from './index.module.css';
@@ -25,7 +26,7 @@ const FooterReact = (props) => {
         className={classes['container-band']}
         onClick={() => {
           if (props.location.pathname !== '/home') {
-            props.history.push('/home');
+            window.open(`${url().base}/#/home`, '_self');
           }
         }}
         style={{ marginTop: isWindows ? 20 : 24 }}

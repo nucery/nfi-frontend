@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+import { url } from '../../general-component/url';
 import { i18n } from '../i18n';
 import { StatusBar } from './component/status-bar';
 import classes from './index.module.css';
@@ -15,7 +16,7 @@ const HeaderReact = (props) => {
         <div
           className={classes['container-band']}
           onClick={() => {
-            props.history.push('/home');
+            window.open(`${url().base}/#/home`, '_self');
           }}
         >
           <span className={classes['text-band']}>
@@ -31,7 +32,7 @@ const HeaderReact = (props) => {
           <div
             className={classes['container-link']}
             onClick={() => {
-              window.open('https://nucery.github.io/#/home', '_self');
+              window.open(`${url().base}/#/home`, '_self');
             }}
           >
             <span className={classes['text-link']}>
@@ -41,10 +42,7 @@ const HeaderReact = (props) => {
           <div
             className={classes['container-link']}
             onClick={() => {
-              // if (props.location.pathname !== '/farm') {
-              //   props.history.push('/farm');
-              // }
-              window.open('https://nucery.github.io/#/farm', '_self');
+              window.open(`${url().base}/#/farm`, '_self');
             }}
           >
             <span
@@ -57,10 +55,7 @@ const HeaderReact = (props) => {
           <div
             className={classes['container-link']}
             onClick={() => {
-              // if (props.location.pathname !== '/valut') {
-              //   props.history.push('/valut');
-              // }
-              window.open('https://nucery.github.io/#/valut', '_self');
+              window.open(`${url().base}/#/vault`, '_self');
             }}
           >
             <span
@@ -73,10 +68,7 @@ const HeaderReact = (props) => {
           <div
             className={classes['container-link']}
             onClick={() => {
-              // if (props.location.pathname !== '/lend') {
-              //   props.history.push('/lend');
-              // }
-              window.open('https://nucery.github.io/#/lend', '_self');
+              window.open(`${url().base}/#/lend`, '_self');
             }}
           >
             <span
@@ -89,10 +81,7 @@ const HeaderReact = (props) => {
           <div
             className={classes['container-link']}
             onClick={() => {
-              // if (props.location.pathname !== '/faq') {
-              //   props.history.push('/faq');
-              // }
-              window.open('https://nucery.github.io/#/faq', '_self');
+              window.open(`${url().base}/#/faq`, '_self');
             }}
           >
             <span

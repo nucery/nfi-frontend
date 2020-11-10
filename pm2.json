@@ -1,0 +1,14 @@
+{
+  "apps": [
+    {
+      "name": "test.ocb.finance",
+      "cwd": "./",
+      "script": "node_modules/react-scripts/scripts/start.js",
+      "watch": false,
+      "env": {
+        "NODE_ENV": "development",
+        "PORT": "8000"
+      }
+    }
+  ]
+}

@@ -1,11 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+import { i18n } from '../i18n';
 import { StatusBar } from './component/status-bar';
 import classes from './index.module.css';
 
 const HeaderReact = (props) => {
+  const text = i18n(props.language).generalComponent.header.index;
   return (
     <div className={classes.container}>
       <div className={classes['container-left']}>
@@ -16,7 +19,7 @@ const HeaderReact = (props) => {
           }}
         >
           <span className={classes['text-band']}>
-            One-Stop Crypto Bank
+            {text.brand}
           </span>
         </div>
         <div className={classes['container-link-group']}>
@@ -32,7 +35,7 @@ const HeaderReact = (props) => {
             }}
           >
             <span className={classes['text-link']}>
-              HOME
+              {text.home}
             </span>
           </div>
           <div
@@ -47,7 +50,7 @@ const HeaderReact = (props) => {
               className={classes['text-link']}
               style={{ color: props.location.pathname.startsWith('/farm') ? '#0063FF' : '#FFFFFF' }}
             >
-              FARM
+              {text.farm}
             </span>
           </div>
           <div
@@ -62,7 +65,7 @@ const HeaderReact = (props) => {
               className={classes['text-link']}
               style={{ color: props.location.pathname.startsWith('/valut') ? '#0063FF' : '#FFFFFF' }}
             >
-              VALUT
+              {text.valut}
             </span>
           </div>
           <div
@@ -77,7 +80,7 @@ const HeaderReact = (props) => {
               className={classes['text-link']}
               style={{ color: props.location.pathname.startsWith('/lend') ? '#0063FF' : '#FFFFFF' }}
             >
-              LEND
+              {text.lend}
             </span>
           </div>
           <div
@@ -92,7 +95,7 @@ const HeaderReact = (props) => {
               className={classes['text-link']}
               style={{ color: props.location.pathname.startsWith('/faq') ? '#0063FF' : '#FFFFFF' }}
             >
-              FAQ
+              {text.faq}
             </span>
           </div>
         </div>
@@ -103,10 +106,18 @@ const HeaderReact = (props) => {
 };
 
 HeaderReact.propTypes = {
+  // React Redux
+  language: PropTypes.string.isRequired,
   // React Router
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
 };
 
-export const Header = withRouter(HeaderReact);
+export const Header = connect(
+    (state) => {
+      return {
+        language: state.language,
+      };
+    },
+)(withRouter(HeaderReact));

@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 import { Footer } from '../../general-component/footer';
+import { i18n } from '../../general-component/i18n';
 import homeCardGroupLeft from '../../static/image/home-card-group-left@2x.png';
 import homeCardGroupRight from '../../static/image/home-card-group-right@2x.png';
 import { getCellWallWidth } from '../../utils/get-cell-wall-width';
@@ -22,6 +24,7 @@ const HomeReact = (props) => {
   if (pathname) {
     return (<Redirect to={pathname} />);
   }
+  const text = i18n(props.language).page.home.index;
   return (
     <div className={classes.wrapper}>
       <div
@@ -49,7 +52,7 @@ const HomeReact = (props) => {
               }}
             >
               <span className={classes['text-title-1']}>
-                  OCB
+                {text.title1}
               </span>
             </div>
             <div
@@ -59,12 +62,12 @@ const HomeReact = (props) => {
               }}
             >
               <span className={classes['text-title-2']}>
-                  One-Stop Crypto Bank
+                {text.title2}
               </span>
             </div>
             <div className={classes['container-body']}>
               <span className={classes['text-body']}>
-                  OCB aims to create a one-stop encrypted bank, committed to creating a lightweight, open and free financial world where everyone can participate. At this time, we are standing at the starting point of the DeFi explosion, facing the vast future of the DeFi world.
+                {text.body}
               </span>
             </div>
             <div
@@ -76,7 +79,7 @@ const HomeReact = (props) => {
               <div className={classes['container-button-black-inner']}>
                 <div className={classes['container-button-black-inner']}>
                   <span className={classes['text-button-black']}>
-                      START NOW
+                    {text.startNow}
                   </span>
                 </div>
               </div>
@@ -103,98 +106,153 @@ const HomeReact = (props) => {
       <div className="cell-wall" style={{ width: getCellWallWidth() }}>
         <div className="cell-membrane">
           <div className="flex-column-middle">
-            {
-              null
-              // <div className={classes['container-title-3']} style={{ marginTop: 18 }}>
-              //   <span className={classes['text-title-3']}>
-              //     How does it work?
-              //   </span>
-              // </div>
-              // <div className={classes['container-card-1-group']}>
-              //   <Card1
-              //     title={'Watch Videos'}
-              //     body={'Learn about top & emerging crypto projects'}
-              //     imageUrl={process.env.PUBLIC_URL + '/static/image/watch-video@2x.png'}
-              //     toUrl={''}
-              //   />
-              //   <Card1
-              //     title={'Complete Quiz'}
-              //     body={'Put your newfound knowledge to the test'}
-              //     imageUrl={process.env.PUBLIC_URL + '/static/image/complete-quiz@2x.png'}
-              //     toUrl={''}
-              //   />
-              //   <Card1
-              //     title={'Earn Crypto'}
-              //     body={'Put your newfound knowledge to the test'}
-              //     imageUrl={process.env.PUBLIC_URL + '/static/image/earn-crypto@2x.png'}
-              //     toUrl={''}
-              //   />
-              // </div>
-            }
+            {/* <div className={classes['container-title-3']} style={{ marginTop: 18 }}>
+              <span className={classes['text-title-3']}>
+                  How does it work?
+              </span>
+            </div>
+            <div className={classes['container-card-1-group']}>
+              <Card1
+                title={'Watch Videos'}
+                body={'Learn about top & emerging crypto projects'}
+                imageUrl={process.env.PUBLIC_URL + '/static/image/watch-video@2x.png'}
+                toUrl={''}
+              />
+              <Card1
+                title={'Complete Quiz'}
+                body={'Put your newfound knowledge to the test'}
+                imageUrl={process.env.PUBLIC_URL + '/static/image/complete-quiz@2x.png'}
+                toUrl={''}
+              />
+              <Card1
+                title={'Earn Crypto'}
+                body={'Put your newfound knowledge to the test'}
+                imageUrl={process.env.PUBLIC_URL + '/static/image/earn-crypto@2x.png'}
+                toUrl={''}
+              />
+            </div> */}
             <div className={classes['container-title-3']} style={{ marginTop: 18 /* 34 */ }}>
               <span className={classes['text-title-3']}>
-                  OCB PRODUCT SERIES
+                {text.titleProduction}
               </span>
             </div>
-            <div className="container-card-2-group">
-              <Card2
-                title={'Farm'}
-                body={'OCB seeks to generate governance token NFI in a fair way, so that over 60% of NFI comes from liquid mining which will encourage a large number of users and funds to participate in its system. In the future, the community will vote to determine more liquid mining and behavioral mining methods.'}
-                imageUrl={process.env.PUBLIC_URL + '/static/image/home-farm.png'}
-                buttonUrl={'/farm'}
-              />
-              <Card2
-                title={'Valut'}
-                body={'OCB Vault is an income aggregator that automatically selects the highest return of each DeFi product in market in order to to maximize the income for the holding assets in a non-destructive way.'}
-                imageUrl={process.env.PUBLIC_URL + '/static/image/home-valut.png'}
-                buttonUrl={'' /* Add path or URL here to enable button. */}
-              />
-              <Card2
-                title={'Financial Insurance'}
-                body={'In addition to insurance, adds the aggregated farm and earn of the underwriting pool and the insured pool, which allows the insurer to obtain additional income on the basis of their income, and also allows the insured a certain benefit by transferring some risks to the insurance pool.'}
-                imageUrl={process.env.PUBLIC_URL + '/static/image/home-financial-insurance.png'}
-                buttonUrl={'' /* Add path or URL here to enable button. */}
-              />
-            </div>
+            {
+              props.language === 'en' ? (
+              <div className="container-card-2-group">
+                <Card2
+                  title={'Farm'}
+                  body={'OCB seeks to generate governance token NFI in a fair way, so that over 60% of NFI comes from liquid mining which will encourage a large number of users and funds to participate in its system. In the future, the community will vote to determine more liquid mining and behavioral mining methods.'}
+                  imageUrl={process.env.PUBLIC_URL + '/static/image/home-farm.png'}
+                  buttonUrl={'/farm'}
+                />
+                <Card2
+                  title={'Valut'}
+                  body={'OCB Vault is an income aggregator that automatically selects the highest return of each DeFi product in market in order to to maximize the income for the holding assets in a non-destructive way.'}
+                  imageUrl={process.env.PUBLIC_URL + '/static/image/home-valut.png'}
+                  buttonUrl={'' /* Add path or URL here to enable button. */}
+                />
+                <Card2
+                  title={'Financial Insurance'}
+                  body={'In addition to insurance, adds the aggregated farm and earn of the underwriting pool and the insured pool, which allows the insurer to obtain additional income on the basis of their income, and also allows the insured a certain benefit by transferring some risks to the insurance pool.'}
+                  imageUrl={process.env.PUBLIC_URL + '/static/image/home-financial-insurance.png'}
+                  buttonUrl={'' /* Add path or URL here to enable button. */}
+                />
+              </div>
+            ):(
+                // TODO: card 2 in 中文
+                <div className="container-card-2-group">
+                  <Card2
+                    title={'Farm'}
+                    body={'OCB seeks to generate governance token NFI in a fair way, so that over 60% of NFI comes from liquid mining which will encourage a large number of users and funds to participate in its system. In the future, the community will vote to determine more liquid mining and behavioral mining methods.'}
+                    imageUrl={process.env.PUBLIC_URL + '/static/image/home-farm.png'}
+                    buttonUrl={'/farm'}
+                  />
+                  <Card2
+                    title={'Valut'}
+                    body={'OCB Vault is an income aggregator that automatically selects the highest return of each DeFi product in market in order to to maximize the income for the holding assets in a non-destructive way.'}
+                    imageUrl={process.env.PUBLIC_URL + '/static/image/home-valut.png'}
+                    buttonUrl={'' /* Add path or URL here to enable button. */}
+                  />
+                  <Card2
+                    title={'Financial Insurance'}
+                    body={'In addition to insurance, adds the aggregated farm and earn of the underwriting pool and the insured pool, which allows the insurer to obtain additional income on the basis of their income, and also allows the insured a certain benefit by transferring some risks to the insurance pool.'}
+                    imageUrl={process.env.PUBLIC_URL + '/static/image/home-financial-insurance.png'}
+                    buttonUrl={'' /* Add path or URL here to enable button. */}
+                  />
+                </div>
+              )
+            }
             <div className={classes['container-title-3']} style={{ marginTop: 22 }}>
               <span className={classes['text-title-3']}>
-                  PARTNERS
+                {text.titlePartner}
               </span>
             </div>
-            <div className={classes['container-card-3-group']}>
-              <Card3
-                title={'Compound'}
-                body={'The protocol for Ethereum money markets'}
-                imageUrl={process.env.PUBLIC_URL + '/static/image/compound.png'}
-                toUrl={''}
-              />
-              <Card3
-                title={'Aave'}
-                body={'An open-source, decentralized non-custodial money market protocol on Ethereum. '}
-                imageUrl={process.env.PUBLIC_URL + '/static/image/aave.png'}
-                toUrl={''}
-              />
-              <Card3
-                title={'Uniswap V2'}
-                body={'An enhanced DEX protocol built on the AMM algorithm and liquidity pools.'}
-                imageUrl={process.env.PUBLIC_URL + '/static/image/uniswap-v2.png'}
-                toUrl={''}
-              />
-              <Card3
-                title={'Curve'}
-                body={'AMM based liquidity pool protocol specialized in stablecoin and stable pairs.'}
-                imageUrl={process.env.PUBLIC_URL + '/static/image/curve.png'}
-                toUrl={''}
-              />
-            </div>
+            {
+              props.language === 'en' ? (
+                <div className={classes['container-card-3-group']}>
+                  <Card3
+                    title={'Compound'}
+                    body={'The protocol for Ethereum money markets'}
+                    imageUrl={process.env.PUBLIC_URL + '/static/image/compound.png'}
+                    toUrl={''}
+                  />
+                  <Card3
+                    title={'Aave'}
+                    body={'An open-source, decentralized non-custodial money market protocol on Ethereum. '}
+                    imageUrl={process.env.PUBLIC_URL + '/static/image/aave.png'}
+                    toUrl={''}
+                  />
+                  <Card3
+                    title={'Uniswap V2'}
+                    body={'An enhanced DEX protocol built on the AMM algorithm and liquidity pools.'}
+                    imageUrl={process.env.PUBLIC_URL + '/static/image/uniswap-v2.png'}
+                    toUrl={''}
+                  />
+                  <Card3
+                    title={'Curve'}
+                    body={'AMM based liquidity pool protocol specialized in stablecoin and stable pairs.'}
+                    imageUrl={process.env.PUBLIC_URL + '/static/image/curve.png'}
+                    toUrl={''}
+                  />
+                </div>
+              ) : (
+                // TODO: card 3 in 中文
+                <div className={classes['container-card-3-group']}>
+                  <Card3
+                    title={'Compound'}
+                    body={'The protocol for Ethereum money markets'}
+                    imageUrl={process.env.PUBLIC_URL + '/static/image/compound.png'}
+                    toUrl={''}
+                  />
+                  <Card3
+                    title={'Aave'}
+                    body={'An open-source, decentralized non-custodial money market protocol on Ethereum. '}
+                    imageUrl={process.env.PUBLIC_URL + '/static/image/aave.png'}
+                    toUrl={''}
+                  />
+                  <Card3
+                    title={'Uniswap V2'}
+                    body={'An enhanced DEX protocol built on the AMM algorithm and liquidity pools.'}
+                    imageUrl={process.env.PUBLIC_URL + '/static/image/uniswap-v2.png'}
+                    toUrl={''}
+                  />
+                  <Card3
+                    title={'Curve'}
+                    body={'AMM based liquidity pool protocol specialized in stablecoin and stable pairs.'}
+                    imageUrl={process.env.PUBLIC_URL + '/static/image/curve.png'}
+                    toUrl={''}
+                  />
+                </div>
+              )
+            }
             <div className={classes['container-title-3']} style={{ marginTop: 34 }}>
               <span className={classes['text-title-3']}>
-                  Introducing NFI Token
+                {text.titleIntroduction}
               </span>
             </div>
             <div className={classes['container-tail']}>
               <span className={classes['text-tail']}>
-                  CoinMarketCap Earn enables users to receive tokens while learning about a cryptocurrency project. Each user who watches a series of educational videos about a crypto project and successfully completes the quiz will receive a predetermined amount of tokens as a reward, in that respective project’s cryptoasset. CoinMarketCap Earn educational programs are subject to and governed by the CoinMarketCap User Agreement and CoinMarketCap Earn User Agreement. In the event of a conflict between the CoinMarketCap User Agreement and the CoinMarketCap Earn User Agreement, the CoinMarketCap Earn User Agreement prevails.
+                {text.tail}
               </span>
             </div>
             <Footer />
@@ -206,10 +264,18 @@ const HomeReact = (props) => {
 };
 
 HomeReact.propTypes = {
+  // React Redux
+  language: PropTypes.string.isRequired,
   // React Router
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
 };
 
-export const Home = HomeReact;
+export const Home = connect(
+    (state) => {
+      return {
+        language: state.language,
+      };
+    },
+)(HomeReact);

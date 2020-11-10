@@ -4,4 +4,5 @@ export const initialState = {
   connectionToUrl: '',
   depositWithdrawMask: false,
   deposit: true,
+  language: 'en',
 };

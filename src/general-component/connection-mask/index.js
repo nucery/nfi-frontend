@@ -8,6 +8,7 @@ import * as actionJs from '../../redux/action';
 import { store } from '../../redux/store';
 import { getViewPortSize } from '../../utils/get-view-port-size';
 import { isWindows } from '../../utils/is';
+import { i18n } from '../i18n';
 import { Card } from './component/card';
 import classes from './index.module.css';
 
@@ -42,6 +43,7 @@ const ConnectionMaskReact = (props) => {
       }
     }, 100);
   }
+  const text = i18n(props.language).generalComponent.connectorMask.index;
   return props.show ? (
     <div
       className={classes['container-outer']}
@@ -50,7 +52,7 @@ const ConnectionMaskReact = (props) => {
       <div className={classes.container}>
         <div className={classes['container-title']}>
           <span className={classes['text-title']}>
-            Select a wallet provider
+            {text.title}
           </span>
         </div>
         <Card
@@ -83,7 +85,7 @@ const ConnectionMaskReact = (props) => {
             }}
           >
             <span className={classes['text-button']}>
-              Cancel
+              {text.cancel}
             </span>
           </div>
         </div>
@@ -96,6 +98,7 @@ ConnectionMaskReact.propTypes = {
   // React Redux
   show: PropTypes.bool.isRequired,
   toUrl: PropTypes.string.isRequired,
+  language: PropTypes.string.isRequired,
   // React Router
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
@@ -107,6 +110,7 @@ export const ConnectionMask = connect(
       return {
         show: state.connectionMask,
         toUrl: state.connectionToUrl,
+        language: state.language,
       };
     },
 )(withRouter(ConnectionMaskReact));

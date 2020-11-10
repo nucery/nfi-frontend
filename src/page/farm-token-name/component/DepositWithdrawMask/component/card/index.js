@@ -8,6 +8,7 @@ import * as pool from '../../../../../../contract/helper/pool';
 import * as actionJs from '../../../../../../redux/action';
 import { store } from '../../../../../../redux/store';
 import { trimAmount } from '../../../../../../utils/trim-amount';
+import { i18n } from '../../../../../../general-component/i18n';
 import classes from './index.module.css';
 
 const CardReact = (props) => {
@@ -16,7 +17,7 @@ const CardReact = (props) => {
   const [input, setInput] = useState('');
   const [buttonStatus, setButtonStatus] = useState(-1); // -1 === disabled; 0 === processing; 1 === enabled
   //
-  const [farmApy, setFarmApy] = useState('0%');
+  // const [farmApy, setFarmApy] = useState('0%');
   const [totalDeposited, setTotalDeposited] = useState('0');
   const [myDeposited, setMyDeposited] = useState('0');
   const [myDepositedAsNumber, setMyDepositedAsNumber] = useState(0);
@@ -54,15 +55,18 @@ const CardReact = (props) => {
   useEffect(f4);
   //
   const tokenNameUppercase = props.tokenName.toUpperCase();
+  //
+  const text = i18n(props.language).page.farmTokenName.component.depositWithdrawMask.component.card.index;
+  //
   return (
     <div className={classes.container}>
       <div className={classes['container-title']}>
         <span className={classes['text-title']}>
-          {props.deposit ? 'Deposit' : 'Withdraw'}
+          {props.deposit ? text.titleDeposit : text.titleWithdraw}
         </span>
       </div>
       <div className={classes['container-line-group']}>
-        <div className={classes['container-line']}>
+        {/* <div className={classes['container-line']}>
           <div>
             <span className={classes['text-detail-title']}>
               Farm APY
@@ -73,11 +77,11 @@ const CardReact = (props) => {
               {farmApy}
             </span>
           </div>
-        </div>
+        </div> */}
         <div className={classes['container-line']}>
           <div>
             <span className={classes['text-detail-title']}>
-              Total Deposited
+              {text.totalDeposited}
             </span>
           </div>
           <div>
@@ -89,7 +93,7 @@ const CardReact = (props) => {
         <div className={classes['container-line']}>
           <div>
             <span className={classes['text-detail-title']}>
-              My Deposited
+              {text.myDeposited}
             </span>
           </div>
           <div>
@@ -103,12 +107,12 @@ const CardReact = (props) => {
         <div className={classes['container-input-line-1']}>
           <div>
             <span className={classes['text-input-line-1']}>
-              Input
+              {text.input}
             </span>
           </div>
           <div>
             <span className={classes['text-input-line-1']}>
-              {`My Balance: ${myBalance}`}
+              {`${text.myBalance} ${myBalance}`}
             </span>
           </div>
         </div>
@@ -183,7 +187,7 @@ const CardReact = (props) => {
           >
             <div className={classes['container-button-inner']}>
               <span className={classes['text-button']}>
-                {props.deposit ? 'Deposit' : 'Withdraw'}
+                {props.deposit ? text.buttonDeposit : text.buttonWithdraw}
               </span>
             </div>
           </div>
@@ -191,7 +195,7 @@ const CardReact = (props) => {
             <div className={classes['container-button-disabled']}>
               <div className={classes['container-button-inner']}>
                 <span className={classes['text-button']}>
-                  {buttonStatus === 0 ? 'Processing ...' : (props.deposit ? 'Deposit' : 'Withdraw')}
+                  {buttonStatus === 0 ? text.buttonProcessing : (props.deposit ? text.buttonDeposit : text.buttonWithdraw)}
                 </span>
               </div>
             </div>
@@ -208,7 +212,7 @@ const CardReact = (props) => {
       >
         <div className={classes['container-button-inner']}>
           <span className={classes['text-button']}>
-            Cancel
+            {text.buttonCancel}
           </span>
         </div>
       </div>
@@ -219,6 +223,7 @@ const CardReact = (props) => {
 CardReact.propTypes = {
   // React Redux
   deposit: PropTypes.bool.isRequired, // false as withdraw
+  language: PropTypes.string.isRequired,
   // self
   tokenName: PropTypes.string.isRequired,
 };
@@ -227,6 +232,7 @@ export const Card = connect(
     (state) => {
       return {
         deposit: state.deposit,
+        language: state.language,
       };
     },
 )(CardReact);

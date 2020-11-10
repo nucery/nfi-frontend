@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import facebook from '../../static/image/facebook@2x.png';
@@ -7,6 +8,7 @@ import instagram from '../../static/image/instagram@2x.png';
 import twitter from '../../static/image/twitter@2x.png';
 import linkedin from '../../static/image/linkedin@2x.png';
 import { isWindows } from '../../utils/is';
+import { i18n } from '../i18n';
 import classes from './index.module.css';
 
 // TODO add url
@@ -16,6 +18,7 @@ const facebookUrl = '';
 const linkedinUrl = '';
 
 const FooterReact = (props) => {
+  const text = i18n(props.language).generalComponent.footer.index;
   return (
     <div className={classes.container}>
       <div
@@ -28,7 +31,7 @@ const FooterReact = (props) => {
         style={{ marginTop: isWindows ? 20 : 24 }}
       >
         <span className={classes['text-band']}>
-          One-Stop Crypto Bank
+          {text.left}
         </span>
       </div>
       <div className={classes['container-share']}>
@@ -79,7 +82,7 @@ const FooterReact = (props) => {
       </div>
       <div className={classes['container-author']}>
         <span className={classes['text-author']}>
-          @ 2020 One-Stop Crypto Bank
+          {text.right}
         </span>
       </div>
     </div >
@@ -87,10 +90,18 @@ const FooterReact = (props) => {
 };
 
 FooterReact.propTypes = {
+  // React Redux
+  language: PropTypes.string.isRequired,
   // React Router
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
 };
 
-export const Footer = withRouter(FooterReact);
+export const Footer = connect(
+    (state) => {
+      return {
+        language: state.language,
+      };
+    },
+)(withRouter(FooterReact));

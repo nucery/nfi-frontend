@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { connect } from 'react-redux';
 
 import { isWindows } from '../../../../utils/is';
+import { i18n } from '../../../i18n';
 import classes from './index.module.css';
 
 const CardReact = (props) => {
+  const text = i18n(props.language).generalComponent.connectorMask.component.card.index;
   return (
     <div className={classes.container}>
       <div className={classes['container-left']}>
@@ -27,7 +30,7 @@ const CardReact = (props) => {
             }}
           >
             <span className={classes['text-button']}>
-              Connect
+              {text.connect}
             </span>
           </div>
         </div>
@@ -37,10 +40,19 @@ const CardReact = (props) => {
 };
 
 CardReact.propTypes = {
+  // React Redux
+  language: PropTypes.string.isRequired,
   // self
   name: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
   onConnect: PropTypes.func.isRequired,
 };
 
-export const Card = CardReact;
+
+export const Card = connect(
+    (state) => {
+      return {
+        language: state.language,
+      };
+    },
+)(CardReact);

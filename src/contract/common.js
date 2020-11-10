@@ -119,9 +119,9 @@ const addressList = [
   },
 ];
 
-const chain = (process.env.NODE_ENV === 'production' ? chainList[0] : chainList[1]);
+const chain = (process.env.REACT_APP_ENV === 'production' ? chainList[0] : chainList[1]);
 
-const address = (process.env.NODE_ENV === 'production' ? addressList[0] : addressList[1]);
+const address = (process.env.REACT_APP_ENV === 'production' ? addressList[0] : addressList[1]);
 
 const web3 = window.web3 ?
   new Web3(window.web3.currentProvider) :

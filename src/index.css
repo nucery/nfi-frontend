@@ -1,46 +1,46 @@
 @font-face {
   font-family: 'DINBlackAlternate';
-  src: url(./static/font/DINBlackAlternate.ttf);
+  src: url('/static/font/DINBlackAlternate.ttf');
 }
 
 @font-face {
   font-family: 'DINBold';
-  src: url(./static/font/DINBold.ttf);
+  src: url('/static/font/DINBold.ttf');
 }
 
 @font-face {
   font-family: 'DINLight';
-  src: url(./static/font/DINLight.ttf);
+  src: url('/static/font/DINLight.ttf');
 }
 
 @font-face {
   font-family: 'DINLightAlternate';
-  src: url(./static/font/DINLightAlternate.ttf);
+  src: url('/static/font/DINLightAlternate.ttf');
 }
 
 @font-face {
   font-family: 'DINMedium';
-  src: url(./static/font/DINMedium.ttf);
+  src: url('/static/font/DINMedium.ttf');
 }
 
 @font-face {
   font-family: 'DINMediumAlternate';
-  src: url(./static/font/DINMediumAlternate.ttf);
+  src: url('/static/font/DINMediumAlternate.ttf');
 }
 
 @font-face {
   font-family: 'DINRegular';
-  src: url(./static/font/DINRegular.ttf);
+  src: url('/static/font/DINRegular.ttf');
 }
 
 @font-face {
   font-family: 'DINRegularAlternate';
-  src: url(./static/font/DINRegularAlternate.ttf);
+  src: url('/static/font/DINRegularAlternate.ttf');
 }
 
 @font-face {
   font-family: 'TechnaSans-Regular';
-  src: url(./static/font/TechnaSans-Regular.otf);
+  src: url('/static/font/TechnaSans-Regular.otf');
 }
 
 body {

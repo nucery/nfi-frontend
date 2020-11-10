@@ -7,8 +7,6 @@ import { ConnectionMask } from '../../general-component/connection-mask';
 import { Footer } from '../../general-component/footer';
 import { Header } from '../../general-component/header';
 import { i18n } from '../../general-component/i18n';
-import logo from '../../static/image/logo.png';
-import smallLogo from '../../static/image/small-logo.png';
 import { isWindows } from '../../utils/is';
 import { getCellWallWidth } from '../../utils/get-cell-wall-width';
 import { removeUrlSlashSuffix } from '../../utils/remove-url-slash-suffix';
@@ -64,7 +62,7 @@ const FarmReact = (props) => {
                 </span>
               </div>
             </div>
-            <img alt="" src={logo} style={{ height: 360, marginTop: 40, marginRight: 168 }} />
+            <img alt="" src={`${process.env.PUBLIC_URL}/static/image/logo.png`} style={{ height: 360, marginTop: 40, marginRight: 168 }} />
           </div>
           <div className="flex-column-middle">
             <div className={classes['card-group']}>
@@ -90,7 +88,7 @@ const FarmReact = (props) => {
               />
             </div>
             <div className={classes['container-part-2']}>
-              <img alt="" src={smallLogo} style={{ marginBottom: isWindows ? 36 : 42, marginTop: 54, height: 63, width: 61 }} />
+              <img alt="" src={`${process.env.PUBLIC_URL}/static/image/small-logo.png`} style={{ marginBottom: isWindows ? 36 : 42, marginTop: 54, height: 63, width: 61 }} />
               <div className={classes['container-title-3']}>
                 <span className={classes['text-title-3']}>
                   {text.title3}

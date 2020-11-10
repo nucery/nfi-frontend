@@ -5,8 +5,6 @@ import { Redirect } from 'react-router-dom';
 
 import { Footer } from '../../general-component/footer';
 import { i18n } from '../../general-component/i18n';
-import homeCardGroupLeft from '../../static/image/home-card-group-left@2x.png';
-import homeCardGroupRight from '../../static/image/home-card-group-right@2x.png';
 import { getCellWallWidth } from '../../utils/get-cell-wall-width';
 import { isWindows } from '../../utils/is';
 import { removeUrlSlashSuffix } from '../../utils/remove-url-slash-suffix';
@@ -32,11 +30,11 @@ const HomeReact = (props) => {
         style={{ backgroundImage: 'linear-gradient(#E1E5EE, #FFFFFF)', height: faceHight, position: 'absolute', top: navHight, width: getCellWallWidth() }}
       >
         <img alt=""
-          src={homeCardGroupLeft}
+          src={`${process.env.PUBLIC_URL}/static/image/home-card-group-left@2x.png`}
           style={{ left: 0, position: 'absolute', top: 166, width: 120 }}
         />
         <img alt=""
-          src={homeCardGroupRight}
+          src={`${process.env.PUBLIC_URL}/static/image/home-card-group-right@2x.png`}
           style={{ position: 'absolute', right: 0, top: 112, width: 848 }}
         />
         <div className="cell-membrane">

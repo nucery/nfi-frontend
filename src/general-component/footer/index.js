@@ -3,10 +3,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import facebook from '../../static/image/facebook@2x.png';
-import instagram from '../../static/image/instagram@2x.png';
-import twitter from '../../static/image/twitter@2x.png';
-import linkedin from '../../static/image/linkedin@2x.png';
 import { isWindows } from '../../utils/is';
 import { i18n } from '../i18n';
 import classes from './index.module.css';
@@ -43,7 +39,7 @@ const FooterReact = (props) => {
               window.open(twitterUrl);
             }}
           >
-            <img alt="" src={twitter} style={{ height: 18 }} />
+            <img alt="" src={`${process.env.PUBLIC_URL}/static/image/twitter@2x.png`} style={{ height: 18 }} />
           </div>
         }
         {
@@ -54,7 +50,7 @@ const FooterReact = (props) => {
               window.open(instagramUrl);
             }}
           >
-            <img alt="" src={instagram} style={{ height: 18 }} />
+            <img alt="" src={`${process.env.PUBLIC_URL}/static/image/instagram@2x.png`} style={{ height: 18 }} />
           </div>
         }
         {
@@ -65,7 +61,7 @@ const FooterReact = (props) => {
               window.open(facebookUrl);
             }}
           >
-            <img alt="" src={facebook} style={{ height: 18 }} />
+            <img alt="" src={`${process.env.PUBLIC_URL}/static/image/facebook@2x.png`} style={{ height: 18 }} />
           </div>
         }
         {
@@ -76,7 +72,7 @@ const FooterReact = (props) => {
               window.open(linkedinUrl);
             }}
           >
-            <img alt="" src={linkedin} style={{ height: 18 }} />
+            <img alt="" src={`${process.env.PUBLIC_URL}/static/image/linkedin@2x.png`} style={{ height: 18 }} />
           </div>
         }
       </div>

@@ -38,11 +38,11 @@ const HeaderReact = (props) => {
           <div
             className={classes['container-link']}
             onClick={() => {
-              props.history.push('/valut');
+              props.history.push('/vault');
             }}
           >
             <span className={classes['text-link']}>
-                VALUT
+                VAULT
             </span>
           </div>
           <div

@@ -56,16 +56,16 @@ const HeaderReact = (props) => {
           <div
             className={classes['container-link']}
             onClick={() => {
-              if (props.location.pathname !== '/valut') {
-                props.history.push('/valut');
+              if (props.location.pathname !== '/vault') {
+                props.history.push('/vault');
               }
             }}
           >
             <span
               className={classes['text-link']}
-              style={{ color: props.location.pathname.startsWith('/valut') ? '#0063FF' : '#FFFFFF' }}
+              style={{ color: props.location.pathname.startsWith('/vault') ? '#0063FF' : '#FFFFFF' }}
             >
-              {text.valut}
+              {text.vault}
             </span>
           </div>
           <div

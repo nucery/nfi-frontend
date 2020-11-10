@@ -8,7 +8,7 @@ import { FarmTokenName } from './page/farm-token-name';
 import { Faq } from './page/faq';
 import { Home } from './page/home';
 import { Lend } from './page/lend';
-import { Valut } from './page/valut';
+import { Vault } from './page/vault';
 import { store } from './redux/store';
 
 import { chain } from './contract/common';
@@ -43,9 +43,9 @@ export const App = () => {
               component={(routeProps) => <FarmTokenName {...routeProps} />}
             />
             <Route
-              path="/valut"
+              path="/vault"
               exact
-              component={(routeProps) => <Valut {...routeProps} />}
+              component={(routeProps) => <Vault {...routeProps} />}
             />
             <Route
               path="/lend"

@@ -146,9 +146,9 @@ const HomeReact = (props) => {
                   buttonUrl={'/farm'}
                 />
                 <Card2
-                  title={'Valut'}
+                  title={'Vault'}
                   body={'OCB Vault is an income aggregator that automatically selects the highest return of each DeFi product in market in order to to maximize the income for the holding assets in a non-destructive way.'}
-                  imageUrl={process.env.PUBLIC_URL + '/static/image/home-valut.png'}
+                  imageUrl={process.env.PUBLIC_URL + '/static/image/home-vault.png'}
                   buttonUrl={'' /* Add path or URL here to enable button. */}
                 />
                 <Card2
@@ -168,9 +168,9 @@ const HomeReact = (props) => {
                     buttonUrl={'/farm'}
                   />
                   <Card2
-                    title={'Valut'}
+                    title={'Vault'}
                     body={'OCB Vault is an income aggregator that automatically selects the highest return of each DeFi product in market in order to to maximize the income for the holding assets in a non-destructive way.'}
-                    imageUrl={process.env.PUBLIC_URL + '/static/image/home-valut.png'}
+                    imageUrl={process.env.PUBLIC_URL + '/static/image/home-vault.png'}
                     buttonUrl={'' /* Add path or URL here to enable button. */}
                   />
                   <Card2

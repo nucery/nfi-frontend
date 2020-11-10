@@ -23,6 +23,10 @@ const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         deposit: action.value,
       });
+    case actionJs.type.language:
+      return Object.assign({}, state, {
+        language: action.value,
+      });
     default:
       return {
         ...state,

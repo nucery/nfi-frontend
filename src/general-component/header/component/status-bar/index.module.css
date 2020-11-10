@@ -44,3 +44,14 @@
   font-family: 'DINBold';
   font-size: 12px;
 }
+
+.container-language-selector {
+  border-radius: 12px;
+  background-color: #0063FF;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: 12px;
+  height: 36px;
+  width: 72px;
+}

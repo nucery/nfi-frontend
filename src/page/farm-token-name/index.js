@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 import { Redirect, useParams } from 'react-router-dom';
 import { useWallet } from 'use-wallet';
 
@@ -9,6 +10,7 @@ import * as pool from '../../contract/helper/pool';
 import { ConnectionMask, pop } from '../../general-component/connection-mask';
 import { Footer } from '../../general-component/footer';
 import { Header } from '../../general-component/header';
+import { i18n } from '../../general-component/i18n';
 import * as actionJs from '../../redux/action';
 import { store } from '../../redux/store';
 import { isWindows } from '../../utils/is';
@@ -79,6 +81,7 @@ const FarmTokenNameReact = (props) => {
     return (<Redirect to={pathname} />);
   }
   const tokenNameUpperCase = tokenName.toUpperCase();
+  const text = i18n(props.language).page.farmTokenName.index;
   return (
     <div
       className="background"
@@ -117,7 +120,7 @@ const FarmTokenNameReact = (props) => {
                   </div>
                   <div className={classes['container-annotation']}>
                     <span className={classes['text-annotation']}>
-                      NFI earned
+                      {text.nfiEarned}
                     </span>
                   </div>
                 </div>
@@ -140,7 +143,7 @@ const FarmTokenNameReact = (props) => {
                       >
                         <div className={classes['container-button-inner']}>
                           <span className={classes['text-button']}>
-                            Harvest
+                            {text.harvest}
                           </span>
                         </div>
                       </div>
@@ -205,7 +208,7 @@ const FarmTokenNameReact = (props) => {
                           >
                             <div className={classes['container-button-inner']}>
                               <span className={classes['text-button']}>
-                                Deposit
+                                {text.deposit}
                               </span>
                             </div>
                           </div>
@@ -213,7 +216,7 @@ const FarmTokenNameReact = (props) => {
                             <div className={classes['container-button-left-disabled']}>
                               <div className={classes['container-button-inner']}>
                                 <span className={classes['text-button']}>
-                                  Deposit
+                                  {text.deposit}
                                 </span>
                               </div>
                             </div>
@@ -238,7 +241,7 @@ const FarmTokenNameReact = (props) => {
                           >
                             <div className={classes['container-button-inner']}>
                               <span className={classes['text-button']}>
-                                Withdraw
+                                {text.withdraw}
                               </span>
                             </div>
                           </div>
@@ -246,7 +249,7 @@ const FarmTokenNameReact = (props) => {
                             <div className={classes['container-button-right-disabled']}>
                               <div className={classes['container-button-inner']}>
                                 <span className={classes['text-button']}>
-                                  Withdraw
+                                  {text.withdraw}
                                 </span>
                               </div>
                             </div>
@@ -272,7 +275,7 @@ const FarmTokenNameReact = (props) => {
                             >
                               <div className={classes['container-button-inner']}>
                                 <span className={classes['text-button']}>
-                                  Wallet Authorization
+                                  {text.walletAuthorization}
                                 </span>
                               </div>
                             </div>
@@ -280,7 +283,7 @@ const FarmTokenNameReact = (props) => {
                               <div className={classes['container-button-disabled']}>
                                 <div className={classes['container-button-inner']}>
                                   <span className={classes['text-button']}>
-                                    Processing ...
+                                    {text.processing}
                                   </span>
                                 </div>
                               </div>
@@ -302,10 +305,18 @@ const FarmTokenNameReact = (props) => {
 };
 
 FarmTokenNameReact.propTypes = {
+  // React Redux
+  language: PropTypes.string.isRequired,
   // React Router
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
 };
 
-export const FarmTokenName = FarmTokenNameReact;
+export const FarmTokenName = connect(
+    (state) => {
+      return {
+        language: state.language,
+      };
+    },
+)(FarmTokenNameReact);

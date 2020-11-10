@@ -3,6 +3,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 import classes from './index.module.css';
+import { StatusBar } from './component/status-bar';
 
 const HeaderReact = (props) => {
   return (
@@ -37,11 +38,11 @@ const HeaderReact = (props) => {
           <div
             className={classes['container-link']}
             onClick={() => {
-              props.history.push('/valut');
+              props.history.push('/vault');
             }}
           >
             <span className={classes['text-link']}>
-                VALUT
+                VAULT
             </span>
           </div>
           <div
@@ -66,6 +67,7 @@ const HeaderReact = (props) => {
           </div>
         </div>
       </div>
+      <StatusBar />
     </div>
   );
 };

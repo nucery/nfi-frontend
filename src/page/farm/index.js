@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 import { ConnectionMask } from '../../general-component/connection-mask';
 import { Footer } from '../../general-component/footer';
 import { Header } from '../../general-component/header';
+import { i18n } from '../../general-component/i18n';
 import logo from '../../static/image/logo.png';
 import smallLogo from '../../static/image/small-logo.png';
 import { isWindows } from '../../utils/is';
@@ -21,6 +23,7 @@ const FarmReact = (props) => {
   if (pathname) {
     return (<Redirect to={pathname} />);
   }
+  const text = i18n(props.language).page.farm.index;
   return (
     <div
       className="background"
@@ -44,7 +47,7 @@ const FarmReact = (props) => {
                 style={{ marginBottom: isWindows ? -8 : 38 }}
               >
                 <span className={classes['text-title-1']}>
-                  One-Stop DEFI
+                  {text.title1}
                 </span>
               </div>
               <div
@@ -52,12 +55,12 @@ const FarmReact = (props) => {
                 style={{ marginBottom: isWindows ? 8 : 26 }}
               >
                 <span className={classes['text-title-2']}>
-                  FARM
+                  {text.title2}
                 </span>
               </div>
               <div className={classes['container-body-1']}>
                 <span className={classes['text-body-1']}>
-                  Earn NFI tokens by staking NFI & NUC V2 SLP Tokens. Note: Current APY includes 2/3rd NFI emission that is locked and will be retroactively disbursed at a later date.
+                  {text.body1}
                 </span>
               </div>
             </div>
@@ -90,12 +93,12 @@ const FarmReact = (props) => {
               <img alt="" src={smallLogo} style={{ marginBottom: isWindows ? 36 : 42, marginTop: 54, height: 63, width: 61 }} />
               <div className={classes['container-title-3']}>
                 <span className={classes['text-title-3']}>
-                  LEARN MORE ABOUT NFI TOKEN
+                  {text.title3}
                 </span>
               </div>
               <div className={classes['container-body-2']}>
                 <span className={classes['text-body-2']}>
-                  Watch the Terra video series before taking the quiz
+                  {text.body2}
                 </span>
               </div>
               <div
@@ -106,7 +109,7 @@ const FarmReact = (props) => {
               >
                 <div className={classes['container-button-inner']}>
                   <span className={classes['text-button']}>
-                    Download Whitepaper
+                    {text.download}
                   </span>
                 </div>
               </div>
@@ -121,10 +124,18 @@ const FarmReact = (props) => {
 };
 
 FarmReact.propTypes = {
+  // React Redux
+  language: PropTypes.string.isRequired,
   // React Router
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
 };
 
-export const Farm = FarmReact;
+export const Farm = connect(
+    (state) => {
+      return {
+        language: state.language,
+      };
+    },
+)(FarmReact);

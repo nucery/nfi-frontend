@@ -1,11 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+import { i18n } from '../../../../general-component/i18n';
 import { isWindows } from '../../../../utils/is';
 import classes from './index.module.css';
 
 const Card2React = (props) => {
+  const text = i18n(props.language).page.home.component.card2.index;
   return (
     <div className={classes.container}>
       <div className={classes['container-left']}>
@@ -42,14 +45,14 @@ const Card2React = (props) => {
             >
               <div className={classes['container-button-inner']}>
                 <span className={classes['text-button']}>
-                  START NOW
+                  {text.startNow}
                 </span>
               </div>
             </div> :
             <div className={classes['container-button-disabled']}>
               <div className={classes['container-button-inner']}>
                 <span className={classes['text-button']}>
-                  Comming Soon
+                  {text.commingSoon}
                 </span>
               </div>
             </div>
@@ -63,6 +66,8 @@ const Card2React = (props) => {
 };
 
 Card2React.propTypes = {
+  // React Redux
+  language: PropTypes.string.isRequired,
   // React Router
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
@@ -74,4 +79,10 @@ Card2React.propTypes = {
   buttonUrl: PropTypes.string.isRequired,
 };
 
-export const Card2 = withRouter(Card2React);
+export const Card2 = connect(
+    (state) => {
+      return {
+        language: state.language,
+      };
+    },
+)(withRouter(Card2React));

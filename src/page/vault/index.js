@@ -12,7 +12,7 @@ import { removeUrlSlashSuffix } from '../../utils/remove-url-slash-suffix';
 
 const navHight = 72;
 
-const ValutReact =(props) => {
+const VaultReact =(props) => {
   const pathname = removeUrlSlashSuffix(props.location.pathname);
   if (pathname) {
     return (<Redirect to={pathname} />);
@@ -41,11 +41,11 @@ const ValutReact =(props) => {
   );
 };
 
-ValutReact.propTypes = {
+VaultReact.propTypes = {
   // React Router
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
 };
 
-export const Valut = ValutReact;
+export const Vault = VaultReact;

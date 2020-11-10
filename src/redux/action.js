@@ -4,6 +4,7 @@ export const type = {
   connectionToUrl: 'connectionToUrl',
   depositWithdrawMask: 'depositWithdrawMask',
   deposit: 'deposit',
+  language: 'language',
 };
 
 export const creator = (type, value) => {

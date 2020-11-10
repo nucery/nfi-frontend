@@ -9,6 +9,7 @@ import * as erc20 from '../../../../contract/helper/erc20';
 import * as pool from '../../../../contract/helper/pool';
 import { pop } from '../../../../general-component/connection-mask';
 import { i18n } from '../../../../general-component/i18n';
+import { url } from '../../../../general-component/url';
 import { isWindows } from '../../../../utils/is';
 import { trimAmount } from '../../../../utils/trim-amount';
 import classes from './index.module.css';
@@ -55,6 +56,10 @@ const CardReact = (props) => {
             <div
               className={classes['container-button']}
               onClick={() => {
+                if (props.tokenName === 'nuc') {
+                  window.open(url().nuc, '_self');
+                  return;
+                }
                 if (wallet.account) {
                   props.history.push(`/farm/${props.tokenName}`);
                 } else {

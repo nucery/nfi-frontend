@@ -10,7 +10,7 @@ const urlList = [
 ];
 
 const url = () => {
-  return (process.env.NODE_ENV === 'production' ? urlList[0] : urlList[1]);
+  return (process.env.REACT_APP_ENV === 'production' ? urlList[0] : urlList[1]);
 };
 
 export { url };

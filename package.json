@@ -8,6 +8,8 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build-production": "REACT_APP_ENV=production react-scripts build",
+    "build-production-windows": "set REACT_APP_ENV=production&& react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "eslint": "node ./node_modules/eslint/bin/eslint.js --fix src/"

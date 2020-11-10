@@ -63,13 +63,13 @@ const ConnectionMaskReact = (props) => {
             connect('injected');
           }}
         />
-        <Card
+        {/* <Card
           name={'WalletConnect'}
           imageUrl={process.env.PUBLIC_URL + '/static/image/wallet-connect.svg'}
           onConnect={() => {
             connect('walletconnect');
           }}
-        />
+        /> */}
         <div
           className={classes['container-button']}
           onClick={() => {

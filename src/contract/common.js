@@ -55,31 +55,58 @@ const addressList = [
     },
   },
   {
+    // // yarn start => Ethereum Testnet Kovan
+    // nuc: {
+    //   erc20: '0xaf7Cd0D0D1D55f17C1B65368dcdCC8A07708C820', // TODO
+    //   pool: '0x9e05e22Bdde4f81A668448656e045898ABd9373a', // TODO
+    // },
+    // nux: {
+    //   erc20: '0x55bC1a7cbca22CFD83B4395FDEcF97a40EDfAc0c', // !! Deployed by 0x7F5c96fBE5b3Fc5f667CF25c2AED8905689A1910
+    //   pool: '0x9781a0c6246a7C0Ace9E5Ee1219123fF1363e2Ae', // !! Deployed by 0x2f2Ae9BB2E05BC4D25b21a55cd1A3Ccef9D57816
+    // },
+    // eth: {
+    //   erc20: '0xd0A1E359811322d97991E03f863a0C30C2cF029C', // !!~~ KOVAN WETH, different from Mainnet
+    //   pool: '0x2E0C79399d3188B0860eF75925Bc910802c33c72', // !! Deployed by 0x2f2Ae9BB2E05BC4D25b21a55cd1A3Ccef9D57816
+    // },
+    // uni: {
+    //   erc20: '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984', // !! KOVAN UNI
+    //   pool: '0xFeC839caD60f3933544780F90C83f4B081f1F211', // !! Deployed by 0x2f2Ae9BB2E05BC4D25b21a55cd1A3Ccef9D57816
+    // },
+    // usdt: {
+    //   erc20: '0xD1a4E819393D4b5dE5dFFFB9Dd064CE0AffC2876', // !! KOVAN USDT, different from Mainnet
+    //   pool: '0xd0dBe49173fc85e211048FeB714Ff6066058F08a', // !! Deployed by 0x2f2Ae9BB2E05BC4D25b21a55cd1A3Ccef9D57816
+    // },
+    //
+    // // reward token, supply 1500000 * 1e18
+    // nfi: {
+    //   erc20: '0x2CE41ACEcBb817D7307D6D6b38C643b269F5580E', // !! deployed by 0x2f2Ae9BB2E05BC4D25b21a55cd1A3Ccef9D57816
+    // },
+
     // yarn start => Ethereum Testnet Kovan
     nuc: {
       erc20: '0xaf7Cd0D0D1D55f17C1B65368dcdCC8A07708C820', // TODO
       pool: '0x9e05e22Bdde4f81A668448656e045898ABd9373a', // TODO
     },
     nux: {
-      erc20: '0x55bC1a7cbca22CFD83B4395FDEcF97a40EDfAc0c', // !! Deployed by 0x7F5c96fBE5b3Fc5f667CF25c2AED8905689A1910
-      pool: '0x9781a0c6246a7C0Ace9E5Ee1219123fF1363e2Ae', // !! Deployed by 0x2f2Ae9BB2E05BC4D25b21a55cd1A3Ccef9D57816
+      erc20: '0x76941Ef602eE78Ca37F29EcA83BB491e3ec959d0', // !! Deployed by 0x7F5c96fBE5b3Fc5f667CF25c2AED8905689A1910
+      pool: '0x8A5Bc632C1Dc8e6B03E874FA144eff35e114CCcc', // !! Deployed by 0x2f2Ae9BB2E05BC4D25b21a55cd1A3Ccef9D57816
     },
     eth: {
       erc20: '0xd0A1E359811322d97991E03f863a0C30C2cF029C', // !!~~ KOVAN WETH, different from Mainnet
-      pool: '0x2E0C79399d3188B0860eF75925Bc910802c33c72', // !! Deployed by 0x2f2Ae9BB2E05BC4D25b21a55cd1A3Ccef9D57816
+      pool: '0x13e64b2b4941073F0065782A640Ce73503A13E4d', // !! Deployed by 0x2f2Ae9BB2E05BC4D25b21a55cd1A3Ccef9D57816
     },
     uni: {
       erc20: '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984', // !! KOVAN UNI
-      pool: '0xFeC839caD60f3933544780F90C83f4B081f1F211', // !! Deployed by 0x2f2Ae9BB2E05BC4D25b21a55cd1A3Ccef9D57816
+      pool: '0x8d3476e113f847Ac1b76D5F71e5a7F54d834a459', // !! Deployed by 0x2f2Ae9BB2E05BC4D25b21a55cd1A3Ccef9D57816
     },
     usdt: {
       erc20: '0xD1a4E819393D4b5dE5dFFFB9Dd064CE0AffC2876', // !! KOVAN USDT, different from Mainnet
-      pool: '0xd0dBe49173fc85e211048FeB714Ff6066058F08a', // !! Deployed by 0x2f2Ae9BB2E05BC4D25b21a55cd1A3Ccef9D57816
+      pool: '0xe2C807C320644Aa9F22CF97BF4ea40Bc56Ff46C1', // !! Deployed by 0x2f2Ae9BB2E05BC4D25b21a55cd1A3Ccef9D57816
     },
 
     // reward token, supply 1500000 * 1e18
     nfi: {
-      erc20: '0x2CE41ACEcBb817D7307D6D6b38C643b269F5580E', // !! deployed by 0x2f2Ae9BB2E05BC4D25b21a55cd1A3Ccef9D57816
+      erc20: '0x3c58bc21C8659622fe9ABBE5Fc622b17f0A16d98', // !! deployed by 0x2f2Ae9BB2E05BC4D25b21a55cd1A3Ccef9D57816
     },
   },
 ];

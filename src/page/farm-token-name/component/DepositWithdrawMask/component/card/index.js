@@ -10,7 +10,7 @@ import { store } from '../../../../../../redux/store';
 import { trimAmount } from '../../../../../../utils/trim-amount';
 import { i18n } from '../../../../../../general-component/i18n';
 import classes from './index.module.css';
-import {web3} from "../../../../../../contract/common";
+import { web3 } from '../../../../../../contract/common';
 
 const CardReact = (props) => {
   const wallet = useWallet();

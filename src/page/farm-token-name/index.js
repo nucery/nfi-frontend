@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { Redirect, useParams } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { useWallet } from 'use-wallet';
 
-import { address, contract } from '../../contract/common';
+import { address } from '../../contract/common';
 import * as erc20 from '../../contract/helper/erc20';
 import * as pool from '../../contract/helper/pool';
 import { ConnectionMask, pop } from '../../general-component/connection-mask';
@@ -23,7 +23,7 @@ import { DepositWithdrawMask } from './component/DepositWithdrawMask';
 const navHight = 72;
 
 const FarmTokenNameReact = (props) => {
-  const { tokenName } = useParams();
+  const tokenName = 'nuc';
   //
   const [allowed, setAllowed] = useState(false);
   const [balance, setBalance] = useState('0');
@@ -73,9 +73,6 @@ const FarmTokenNameReact = (props) => {
   };
   useEffect(f4);
   //
-  if (!contract[tokenName]) {
-    return (<Redirect to={'/farm'} />);
-  }
   const pathname = removeUrlSlashSuffix(props.location.pathname);
   if (pathname) {
     return (<Redirect to={pathname} />);

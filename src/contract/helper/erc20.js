@@ -24,7 +24,6 @@ export const getAllowance = (tokenName, userWalletAddress, poolAddress) => {
 };
 
 export const getUserBalance = (tokenName, userWalletAddress) => {
-  console.log('getBalance nuc for ${userWalletAddress} 1');
   if (!contract[tokenName]) {
     return Promise.resolve('0');
   }

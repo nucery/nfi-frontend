@@ -31,7 +31,7 @@ const FooterReact = (props) => {
         style={{ marginTop: isWindows ? 20 : 24 }}
       >
         <span className={classes['text-band']}>
-          {text.left}
+          {`${process.env.REACT_APP_ENV === 'production' ? '' : '[TEST]'} ${text.left}`}
         </span>
       </div>
       <div className={classes['container-share']}>

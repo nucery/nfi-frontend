@@ -39,7 +39,7 @@ const FooterReact = (props) => {
               window.open(twitterUrl);
             }}
           >
-            <img alt="" src={`${process.env.PUBLIC_URL}/static/image/twitter@2x.png`} style={{ height: 18 }} />
+            <img alt="" src={`${process.env.PUBLIC_URL}/static/image/twitter-2x.png`} style={{ height: 18 }} />
           </div>
         }
         {
@@ -50,7 +50,7 @@ const FooterReact = (props) => {
               window.open(instagramUrl);
             }}
           >
-            <img alt="" src={`${process.env.PUBLIC_URL}/static/image/instagram@2x.png`} style={{ height: 18 }} />
+            <img alt="" src={`${process.env.PUBLIC_URL}/static/image/instagram-2x.png`} style={{ height: 18 }} />
           </div>
         }
         {
@@ -61,7 +61,7 @@ const FooterReact = (props) => {
               window.open(facebookUrl);
             }}
           >
-            <img alt="" src={`${process.env.PUBLIC_URL}/static/image/facebook@2x.png`} style={{ height: 18 }} />
+            <img alt="" src={`${process.env.PUBLIC_URL}/static/image/facebook-2x.png`} style={{ height: 18 }} />
           </div>
         }
         {
@@ -72,7 +72,7 @@ const FooterReact = (props) => {
               window.open(linkedinUrl);
             }}
           >
-            <img alt="" src={`${process.env.PUBLIC_URL}/static/image/linkedin@2x.png`} style={{ height: 18 }} />
+            <img alt="" src={`${process.env.PUBLIC_URL}/static/image/linkedin-2x.png`} style={{ height: 18 }} />
           </div>
         }
       </div>

@@ -30,11 +30,11 @@ const HomeReact = (props) => {
         style={{ backgroundImage: 'linear-gradient(#E1E5EE, #FFFFFF)', height: faceHight, position: 'absolute', top: navHight, width: getCellWallWidth() }}
       >
         <img alt=""
-          src={`${process.env.PUBLIC_URL}/static/image/home-card-group-left@2x.png`}
+          src={`${process.env.PUBLIC_URL}/static/image/home-card-group-left-2x.png`}
           style={{ left: 0, position: 'absolute', top: 166, width: 120 }}
         />
         <img alt=""
-          src={`${process.env.PUBLIC_URL}/static/image/home-card-group-right@2x.png`}
+          src={`${process.env.PUBLIC_URL}/static/image/home-card-group-right-2x.png`}
           style={{ position: 'absolute', right: 0, top: 112, width: 848 }}
         />
         <div className="cell-membrane">
@@ -113,19 +113,19 @@ const HomeReact = (props) => {
               <Card1
                 title={'Watch Videos'}
                 body={'Learn about top & emerging crypto projects'}
-                imageUrl={process.env.PUBLIC_URL + '/static/image/watch-video@2x.png'}
+                imageUrl={process.env.PUBLIC_URL + '/static/image/watch-video-2x.png'}
                 toUrl={''}
               />
               <Card1
                 title={'Complete Quiz'}
                 body={'Put your newfound knowledge to the test'}
-                imageUrl={process.env.PUBLIC_URL + '/static/image/complete-quiz@2x.png'}
+                imageUrl={process.env.PUBLIC_URL + '/static/image/complete-quiz-2x.png'}
                 toUrl={''}
               />
               <Card1
                 title={'Earn Crypto'}
                 body={'Put your newfound knowledge to the test'}
-                imageUrl={process.env.PUBLIC_URL + '/static/image/earn-crypto@2x.png'}
+                imageUrl={process.env.PUBLIC_URL + '/static/image/earn-crypto-2x.png'}
                 toUrl={''}
               />
             </div> */}

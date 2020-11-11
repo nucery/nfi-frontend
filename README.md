@@ -181,7 +181,7 @@ config file `nginx-deploy/conf.d/nuc.ocb.finance.conf` for site https://nuc.ocb.
 ``` nginx
 server {
     listen         80 http2;
-    server_name    "~^nuc.ocb.finance$";
+    server_name    ~^nuc.ocb.finance$;
     include        /etc/nginx/conf.d/https/https.conf;
     if ($request_method !~ ^(GET)$ ) {
         return 405;

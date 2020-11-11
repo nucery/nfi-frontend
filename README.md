@@ -125,7 +125,10 @@ server {
 Build and upload results to server.
 
 ``` sh
+# macOS / Linux
 git checkout master && git pull && yarn install && yarn build
+# Windows
+git checkout master; git pull; yarn install; yarn build
 
 # content in directory `build/` except directory `build/static`
 # => directory `nginx-deploy/ocb.finance/test/`
@@ -135,7 +138,10 @@ git checkout master && git pull && yarn install && yarn build
 ```
 
 ``` sh
+# macOS / Linux
 git checkout nuc-branch && git pull && yarn install && yarn build
+# Windows
+git checkout nuc-branch; git pull; yarn install; yarn build
 
 # content in directory `build/` except directory `build/static`
 # => upload to directory `nginx-deploy/ocb.finance/test-nuc/`
@@ -212,7 +218,7 @@ Build locally and upload results to server.
 # macOS / Linux
 git checkout master && git pull && yarn install && yarn build-production
 # Windows
-git checkout master && git pull && yarn install && yarn build-production-windows
+git checkout master; git pull; yarn install; yarn build-production-windows
 
 # content in directory `build/` except directory `build/static`
 # => upload to directory `nginx-deploy/ocb.finance/@/`
@@ -225,7 +231,7 @@ git checkout master && git pull && yarn install && yarn build-production-windows
 # macOS / Linux
 git checkout nuc-branch && git pull && yarn install && yarn build-production
 # Windows
-git checkout nuc-branch && git pull && yarn install && yarn build-production-windows
+git checkout nuc-branch; git pull; yarn install; yarn build-production-windows
 
 # content in directory `build/` except directory `build/static`
 # => upload to directory `nginx-deploy/ocb.finance/nuc/`

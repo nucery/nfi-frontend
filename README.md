@@ -131,7 +131,7 @@ git checkout master && git pull && yarn install && yarn build
 # => directory `nginx-deploy/ocb.finance/test/`
 
 # directory `build/static/`
-# => <bucket-of-test-ocb-finance>
+# => Aliyun OSS bucket `test-ocb-finance`
 ```
 
 ``` sh
@@ -141,7 +141,7 @@ git checkout nuc-branch && git pull && yarn install && yarn build
 # => upload to directory `nginx-deploy/ocb.finance/test-nuc/`
 
 # directory `build/static/`
-# => upload to <bucket-of-test-nuc-ocb-finance>
+# => Aliyun OSS bucket `test-nuc-ocb-finance`
 ```
 
 #### Production Environment
@@ -218,7 +218,7 @@ git checkout master && git pull && yarn install && yarn build-production-windows
 # => upload to directory `nginx-deploy/ocb.finance/@/`
 
 # directory `build/static/`
-# => upload to <bucket-of-ocb-finance>
+# => Aliyun OSS bucket `ocb-finance`
 ```
 
 ``` sh
@@ -231,7 +231,7 @@ git checkout nuc-branch && git pull && yarn install && yarn build-production-win
 # => upload to directory `nginx-deploy/ocb.finance/nuc/`
 
 # directory `build/static/`
-# => upload to <bucket-of-nuc-ocb-finance>
+# => Aliyun OSS bucket `nuc-ocb-finance`
 ```
 
 ### Develop

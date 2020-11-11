@@ -87,7 +87,7 @@ server {
         index    index.html;
     }
     location /static/ {
-        return    302 <bucket-of-test-ocb-finance>$request_uri;
+        return    302 https://test-ocb-finance.oss-accelerate.aliyuncs.com$request_uri;
     }
 }
 ```
@@ -115,7 +115,7 @@ server {
         index    index.html;
     }
     location /static/ {
-        return    302 <bucket-of-test-nuc-ocb-finance>$request_uri;
+        return    302 https://test-nuc-ocb-finance.oss-accelerate.aliyuncs.com$request_uri;
     }
 }
 ```
@@ -171,7 +171,7 @@ server {
         index    index.html;
     }
     location /static/ {
-        return    302 <bucket-of-ocb-finance>$request_uri;
+        return    302 https://ocb-finance.oss-accelerate.aliyuncs.com$request_uri;
     }
 }
 ```
@@ -199,7 +199,7 @@ server {
         index    index.html;
     }
     location /static/ {
-        return    302 <bucket-of-nuc-ocb-finance>$request_uri;
+        return    302 https://nuc-ocb-finance.oss-accelerate.aliyuncs.com$request_uri;
     }
 }
 ```

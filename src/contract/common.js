@@ -29,8 +29,8 @@ const addressList = [
   {
     // yarn build => Ethereum Mainnet
     nuc: {
-      erc20: '0xaf7Cd0D0D1D55f17C1B65368dcdCC8A07708C820', // TODO
-      pool: '0x9e05e22Bdde4f81A668448656e045898ABd9373a', // TODO
+      erc20: '0xaf7Cd0D0D1D55f17C1B65368dcdCC8A07708C820', // !!!!!!! no need
+      pool: '0x9e05e22Bdde4f81A668448656e045898ABd9373a', // !!!!!!! no need
     },
     nux: {
       erc20: '0x55bC1a7cbca22CFD83B4395FDEcF97a40EDfAc0c', // !! Deployed by 0x7F5c96fBE5b3Fc5f667CF25c2AED8905689A1910
@@ -57,8 +57,8 @@ const addressList = [
   {
     // yarn start => Ethereum Testnet Kovan
     nuc: {
-      erc20: '0xaf7Cd0D0D1D55f17C1B65368dcdCC8A07708C820', // TODO
-      pool: '0x9e05e22Bdde4f81A668448656e045898ABd9373a', // TODO
+      erc20: '0xaf7Cd0D0D1D55f17C1B65368dcdCC8A07708C820', // !!!!!!! no need
+      pool: '0x9e05e22Bdde4f81A668448656e045898ABd9373a', // !!!!!!! no need
     },
     nux: {
       erc20: '0x76941Ef602eE78Ca37F29EcA83BB491e3ec959d0', // !! Deployed by 0x7F5c96fBE5b3Fc5f667CF25c2AED8905689A1910

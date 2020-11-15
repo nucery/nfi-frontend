@@ -195,7 +195,7 @@ const contentList = {
         index: {
           title1: 'One-Stop DEFI',
           title2: 'FARM',
-          body1: '(TODO) Earn NFI tokens by staking NFI & NUC V2 SLP Tokens. Note: Current APY includes 2/3rd NFI emission that is locked and will be retroactively disbursed at a later date.',
+          body1: 'Earn NFI tokens by staking NFI & NUC V2 SLP Tokens. Note: Current APY includes 2/3rd NFI emission that is locked and will be retroactively disbursed at a later date.',
           title3: 'LEARN MORE ABOUT NFI TOKEN',
           body2: '',
           download: '下载白皮书',
@@ -243,12 +243,12 @@ const contentList = {
         index: {
           title1: 'OCB',
           title2: 'One-Stop Crypto Bank',
-          body: '(TODO) OCB aims to create a one-stop encrypted bank, committed to creating a lightweight, open and free financial world where everyone can participate. At this time, we are standing at the starting point of the DeFi explosion, facing the vast future of the DeFi world.',
+          body: 'OCB aims to create a one-stop encrypted bank, committed to creating a lightweight, open and free financial world where everyone can participate. At this time, we are standing at the starting point of the DeFi explosion, facing the vast future of the DeFi world.',
           startNow: '开始',
           titleProduction: 'OCB 产品',
           titlePartner: '合作伙伴',
           titleIntroduction: 'NFI Token 介绍',
-          tail: '(TODO) CoinMarketCap Earn enables users to receive tokens while learning about a cryptocurrency project. Each user who watches a series of educational videos about a crypto project and successfully completes the quiz will receive a predetermined amount of tokens as a reward, in that respective project’s cryptoasset. CoinMarketCap Earn educational programs are subject to and governed by the CoinMarketCap User Agreement and CoinMarketCap Earn User Agreement. In the event of a conflict between the CoinMarketCap User Agreement and the CoinMarketCap Earn User Agreement, the CoinMarketCap Earn User Agreement prevails.',
+          tail: 'CoinMarketCap Earn enables users to receive tokens while learning about a cryptocurrency project. Each user who watches a series of educational videos about a crypto project and successfully completes the quiz will receive a predetermined amount of tokens as a reward, in that respective project’s cryptoasset. CoinMarketCap Earn educational programs are subject to and governed by the CoinMarketCap User Agreement and CoinMarketCap Earn User Agreement. In the event of a conflict between the CoinMarketCap User Agreement and the CoinMarketCap Earn User Agreement, the CoinMarketCap Earn User Agreement prevails.',
         },
       },
     },

@@ -38,6 +38,11 @@ export const App = () => {
               component={(routeProps) => <Farm {...routeProps} />}
             />
             <Route
+              path="/farm/nuc"
+              exact
+              component={() => <Redirect to="/farm" />}
+            />
+            <Route
               path="/farm/:tokenName"
               exact
               component={(routeProps) => <FarmTokenName {...routeProps} />}

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { useWallet } from 'use-wallet';
 
-import { address } from '../../contract/common';
+// import { address } from '../../contract/common';
 import * as erc20 from '../../contract/helper/erc20';
 import * as pool from '../../contract/helper/pool';
 import { ConnectionMask, pop } from '../../general-component/connection-mask';
@@ -25,7 +25,7 @@ const navHight = 72;
 const FarmTokenNameReact = (props) => {
   const tokenName = 'nuc';
   //
-  const [allowed, setAllowed] = useState(false);
+  const [allowed] = useState(true);
   const [balance, setBalance] = useState('0');
   const [earned, setEarned] = useState('0');
   //
@@ -35,12 +35,12 @@ const FarmTokenNameReact = (props) => {
   const [withdrawStatus, setWithdrawStatus] = useState(1); // -1 === disabled; 0 === processing; 1 === enabled
   const wallet = useWallet();
   //
-  const f1 = () => {
-    erc20.isAllowed(tokenName, wallet.account, address[tokenName].pool).then((result) => {
-      setAllowed(result);
-    });
-  };
-  useEffect(f1);
+  // const f1 = () => {
+  //   erc20.isAllowed(tokenName, wallet.account, address[tokenName].pool).then((result) => {
+  //     setAllowed(result);
+  //   });
+  // };
+  // useEffect(f1);
   //
   const f2 = () => {
     pool.getUserBalanceInPool(tokenName, wallet.account).then((result) => {

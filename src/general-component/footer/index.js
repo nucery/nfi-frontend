@@ -8,7 +8,6 @@ import { isWindows } from '../../utils/is';
 import { i18n } from '../i18n';
 import classes from './index.module.css';
 
-// TODO add url
 const twitterUrl = '';
 const instagramUrl = '';
 const facebookUrl = '';

@@ -18,7 +18,7 @@ import { getCellWallWidth } from '../../utils/get-cell-wall-width';
 import { removeUrlSlashSuffix } from '../../utils/remove-url-slash-suffix';
 import { trimAmount } from '../../utils/trim-amount';
 import classes from './index.module.css';
-import { DepositWithdrawMask } from './component/DepositWithdrawMask';
+import { DepositWithdrawMask } from './component/deposit-withdraw-mask';
 
 const navHight = 72;
 

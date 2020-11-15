@@ -24,12 +24,10 @@ const CardReact = (props) => {
   const [myBalance, setMyBalance] = useState('0');
   const [myBalanceAsNumber, setMyBalanceAsNumber] = useState(0);
   //
-  const f1 = () => {
-    // TODO
-    //
-    // setFarmApy(value)
-  };
-  useEffect(f1);
+  // const f1 = () => {
+  //   setFarmApy(0);
+  // };
+  // useEffect(f1);
   //
   const f2 = () => {
     erc20.getTotalBalanceOfPool(props.tokenName).then((result) => {

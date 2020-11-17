@@ -40,6 +40,9 @@ export const getUserBalanceInPool = (tokenName, userWalletAddress) => {
     return Promise.resolve('0');
   }
   return contract[tokenName].pool.methods.balanceOf(userWalletAddress).call().then((result) => {
+    if (tokenName === 'usdt') {
+      return Promise.resolve(web3.fromWei(result, 'mwei'));
+    }
     return Promise.resolve(web3.fromWei(result, 'ether'));
   });
 };
@@ -63,8 +66,14 @@ export const postStake = (tokenName, userWalletAddress, amountAsString) => {
   if (!userWalletAddress) {
     return Promise.resolve(null);
   }
+
+  // usdt decimal === 6
+  let amount = web3.toWei(amountAsString, 'ether');
+  if (tokenName === 'usdt') {
+    amount = web3.toWei(amountAsString, 'mwei');
+  }
   return contract[tokenName].pool.methods
-      .stake(web3.toWei(amountAsString, 'ether'))
+      .stake(amount)
       .send({ from: userWalletAddress });
 };
 
@@ -75,8 +84,13 @@ export const postWithdraw = (tokenName, userWalletAddress, amountAsString) => {
   if (!userWalletAddress) {
     return Promise.resolve(null);
   }
+  // usdt decimal === 6
+  let amount = web3.toWei(amountAsString, 'ether');
+  if (tokenName === 'usdt') {
+    amount = web3.toWei(amountAsString, 'mwei');
+  }
   return contract[tokenName].pool.methods
-      .withdraw(web3.toWei(amountAsString, 'ether'))
+      .withdraw(amount)
       .send({ from: userWalletAddress });
 };
 

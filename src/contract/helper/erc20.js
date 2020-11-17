@@ -19,6 +19,9 @@ export const getAllowance = (tokenName, userWalletAddress, poolAddress) => {
     return Promise.resolve('0');
   }
   return contract[tokenName].erc20.methods.allowance(userWalletAddress, poolAddress).call().then((result) => {
+    if (tokenName === 'usdt') {
+      return Promise.resolve(web3.fromWei(result, 'mwei'));
+    }
     return Promise.resolve(web3.fromWei(result, 'ether'));
   });
 };
@@ -31,6 +34,9 @@ export const getUserBalance = (tokenName, userWalletAddress) => {
     return Promise.resolve('0');
   }
   return contract[tokenName].erc20.methods.balanceOf(userWalletAddress).call().then((result) => {
+    if (tokenName === 'usdt') {
+      return Promise.resolve(web3.fromWei(result, 'mwei'));
+    }
     return Promise.resolve(web3.fromWei(result, 'ether'));
   });
 };
@@ -40,6 +46,9 @@ export const getTotalBalanceOfPool = (tokenName) => {
     return Promise.resolve('0');
   }
   return contract[tokenName].erc20.methods.balanceOf(address[tokenName].pool).call().then((result) => {
+    if (tokenName === 'usdt') {
+      return Promise.resolve(web3.fromWei(result, 'mwei'));
+    }
     return Promise.resolve(web3.fromWei(result, 'ether'));
   });
 };

@@ -68,6 +68,14 @@ const addressList = [
       erc20: '0xaf7Cd0D0D1D55f17C1B65368dcdCC8A07708C820', // !!!!!!! no need
       pool: '0x9e05e22Bdde4f81A668448656e045898ABd9373a', // !!!!!!! no need
     },
+    'lp-eth-nfi': {
+      erc20: '0xf78f3FE99b6A391081AB5ae960866AeC2EF8DCDa',
+      pool: '0xFD075482866b7834d08463E53C4dAD0F37244d09',
+    },
+    'lp-usdt-nfi': {
+      erc20: '0x3c974e0332e7FB61F9e9dEC1338ba6DFe25dB8D6',
+      pool: '0x8eAdB1B4416d22ECbC79FaB81eF62d112c268b6e',
+    },
     nux: {
       erc20: '0x76941Ef602eE78Ca37F29EcA83BB491e3ec959d0', // !! Deployed by 0x7F5c96fBE5b3Fc5f667CF25c2AED8905689A1910
       pool: '0x8A5Bc632C1Dc8e6B03E874FA144eff35e114CCcc', // !! Deployed by 0x2f2Ae9BB2E05BC4D25b21a55cd1A3Ccef9D57816

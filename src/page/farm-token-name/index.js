@@ -54,6 +54,12 @@ const FarmTokenNameReact = (props) => {
     if (harvestStatus === 0) {
       return;
     }
+
+    pool.getEarned(tokenName, wallet.account).then((result) => {
+      setEarned(trimAmount(result));
+      setHarvestStatus(result === '0' ? -1 : 1);
+    });
+
     const intervalId = setInterval( () => {
       pool.getEarned(tokenName, wallet.account).then((result) => {
         setEarned(trimAmount(result));

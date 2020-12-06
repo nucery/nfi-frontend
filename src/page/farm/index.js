@@ -71,6 +71,14 @@ const FarmReact = (props) => {
                 tokenName={'nuc'}
               />
               <Card
+                title={'LP: ETH-NFI'}
+                tokenName={'lp-eth-nfi'}
+              />
+              <Card
+                title={'LP: USDT-NFI'}
+                tokenName={'lp-usdt-nfi'}
+              />
+              <Card
                 title={'NUX'}
                 tokenName={'nux'}
               />

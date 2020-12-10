@@ -1,8 +1,8 @@
 {
-  "name": "nfi-frontend",
+  "name": "peanut-ui",
   "version": "1.0.0",
   "license": "UNLICENSED",
-  "homepage": "https://nucery.github.io",
+  "homepage": "",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",

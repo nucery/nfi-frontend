@@ -105,7 +105,7 @@ const FarmTokenNameReact = (props) => {
               <div className={classes.container}>
                 <div className={classes['container-card-title']}>
                   <span className={classes['text-card-title']}>
-                    NFI
+                    PNT
                   </span>
                 </div>
                 <div

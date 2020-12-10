@@ -17,11 +17,11 @@ export const App = () => {
         <HashRouter>
           <Switch>
             <Route
-              path="/farm/nuc"
+              path="/farm/ht"
               exact
               component={(routeProps) => <FarmTokenName {...routeProps} />}
             />
-            <Redirect to="/farm/nuc" />
+            <Redirect to="/farm/ht" />
           </Switch>
         </HashRouter>
       </Provider>

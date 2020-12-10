@@ -63,7 +63,7 @@ const contentList = {
           },
         },
         index: {
-          nfiEarned: 'NFI earned',
+          nfiEarned: 'PNT earned',
           harvest: 'Harvest',
           deposit: 'Deposit',
           withdraw: 'Withdraw',

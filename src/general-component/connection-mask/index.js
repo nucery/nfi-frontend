@@ -56,7 +56,7 @@ const ConnectionMaskReact = (props) => {
           </span>
         </div>
         <Card
-          name={'NUC Wallet'}
+          name={'HECO Wallet'}
           // imageUrl={process.env.PUBLIC_URL + '/static/image/meta-mask.svg'}
           imageUrl={process.env.PUBLIC_URL + '/static/image/nuc-wallet-logo.svg'}
           onConnect={() => {

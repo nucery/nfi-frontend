@@ -46,7 +46,7 @@ const CardReact = (props) => {
   useEffect(f3);
   //
   const f4 = () => {
-    if (props.tokenName.toLowerCase() === 'nuc') {
+    if (props.tokenName.toLowerCase() === 'ht') {
       const amount = web3.fromWei(wallet.balance.toString(), 'ether');
       setMyBalance(trimAmount(amount));
       setMyBalanceAsNumber(Number(amount));

@@ -23,7 +23,7 @@ import { DepositWithdrawMask } from './component/deposit-withdraw-mask';
 const navHight = 72;
 
 const FarmTokenNameReact = (props) => {
-  const tokenName = 'nuc';
+  const tokenName = 'ht';
   //
   const [allowed] = useState(true);
   const [balance, setBalance] = useState('0');
@@ -54,6 +54,14 @@ const FarmTokenNameReact = (props) => {
     if (harvestStatus === 0) {
       return;
     }
+
+    // first render
+    pool.getEarned(tokenName, wallet.account).then((result) => {
+      setEarned(trimAmount(result));
+      setHarvestStatus(result === '0' ? -1 : 1);
+    });
+
+    // interval render
     const intervalId = setInterval( () => {
       pool.getEarned(tokenName, wallet.account).then((result) => {
         setEarned(trimAmount(result));

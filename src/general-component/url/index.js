@@ -1,11 +1,11 @@
 const urlList = [
   {
     base: 'https://ocb.finance',
-    nuc: 'https://nuc.ocb.finance/#/farm/nuc',
+    ht: 'https://nuc.ocb.finance/#/farm/ht',
   },
   {
     base: 'https://test.ocb.finance',
-    nuc: 'https://test-nuc.ocb.finance/#/farm/nuc',
+    ht: 'https://test-nuc.ocb.finance/#/farm/ht',
   },
 ];
 
